@@ -6,7 +6,7 @@ namespace Models
     {
         string StoreName;
         string StoreAddress;
-        public List<Product> Products {get; set;}
+        public List<Products> Products {get; set;}
         public List<Orders> Orders {get; set;}
     }
 }

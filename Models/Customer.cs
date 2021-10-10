@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using static Models.StoreFront;
 
 namespace Customer
 {
@@ -12,7 +14,7 @@ namespace Customer
 
         int phoneNumber;
 
-        
+         public List<Models.Orders> Orders {get; set;}
 
     }
 }

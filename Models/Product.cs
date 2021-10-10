@@ -1,6 +1,6 @@
 namespace Models
 {
-    public class Product
+    public class Products
     {
         string ProductName;
         decimal ProductPrice;
