@@ -1,10 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+
+
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj" />
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj" />
   </ItemGroup>
+
+
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>

@@ -1,9 +1,7 @@
+
+   
 namespace userInterface
-{
-    public interface IStore
-    {
-    }
-}namespace userInterface
+
 {
     //This enum will hold the different types of Menu the user can go through
     //This helps to remove potential spelling mistakes in our program by making

@@ -16,6 +16,6 @@ namespace DataAccessLogic
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<StoreFront> AllStores { get; }
+        List<StoreFront> GetAllStores ();
     }
 }

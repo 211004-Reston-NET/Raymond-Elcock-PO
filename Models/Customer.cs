@@ -26,7 +26,7 @@ namespace Models
         }
 
         public string State { get; set; }
-        public string Name { get; set; }
+      
 
         public override string ToString()
         {
@@ -35,18 +35,5 @@ namespace Models
 
     }
 }
-{
-    public class Customer
-    {
-        string name;
 
-        string address;
-
-        string email;
-
-        int phoneNumber;
-
-         public List<Models.Orders> Orders {get; set;}
-
-    }
-}
+ 

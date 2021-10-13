@@ -12,7 +12,8 @@ namespace BusinessLogic
     /// </summary>
     public class StoreBL: IStoreBL
     {
-        private IStoreBL _repo;
+        
+        private Repository _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -20,30 +21,20 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public StoreBL(IStoreBL p_repo)
+        public StoreBL(Repository p_repo)
         {
             _repo = p_repo;
         }
 
-        public StoreBL AddStore(StoreBL s_front)
+        public StoreFront AddStore(StoreFront s_front)
         {
-            return _repo.AddStore(s_front);
+            return _repo.AddStores(s_front);
         }
 
-        public StoreBL AddStores(StoreBL s_front)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<StoreBL> GetAllStore()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<StoreBL> GetAllStores()
+              public List<StoreFront> GetAllStores()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
-            List<StoreBL> listOfStores = _repo.GetAllStores();
+            List<StoreFront> listOfStores = _repo.GetAllStores();
             for (int i = 0; i < listOfStores.Count; i++)
             {
                 listOfStores[i].StoreName = listOfStores[i].StoreName.ToLower(); 
@@ -52,5 +43,6 @@ namespace BusinessLogic
             return listOfStores;
         }
 
+        
     }
 }

@@ -1,10 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
-    <ProjectReference Include="..\DataAccessLogic\DataAccessLogic.csproj" />
-    <ProjectReference Include="..\userInterface\userInterface.csproj" />
-  </ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
