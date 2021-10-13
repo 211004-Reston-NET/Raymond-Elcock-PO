@@ -1,4 +1,6 @@
 ﻿using System;
+using BusinessLogic;
+using DataAccessLogic;
 
 namespace userInterface
 {
@@ -6,7 +8,60 @@ namespace userInterface
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World My Name Is Raymond");
+            //This is a boolean that has either a false or true value
+            //I will use this to stop the while loop
+            bool repeat = true;
+
+
+            //This is example of polymorphism, abstraction, and inheritance all at the same time
+            IStore page = new MainStore();
+            
+
+            //This is a while loop that will keep repeating until I changed the
+            //repeat variable to false
+            while (repeat)
+            {
+                //Clean the screen on the terminal
+                Console.Clear();
+
+                //IMenu interface can hold a bunch of objects as long as they inherited from
+                //IMenu, this lets us dynamically change the page by having the page variable
+                //Point to a different object each time
+                page.Store();
+                StoreType currentPage = page.YourChoice();
+
+                //switch case will change the page variable to point to another object to change
+                //its MainMenu 
+                switch (currentPage)
+                {
+                    case StoreType.MainStore:
+                        //If user choosed to go back to the MainMenu
+                        //page will start pointing to a MainMenu object instead
+                        page = new MainStore();
+                        break;
+                    case StoreType.StoreMenu:
+                        //This will point the page reference variable to a new Restaurant Object
+                        //Since Restaurant Object has different implementation/function of the Menu Method
+                        //It will have different implementations/functions when the while loop goes back and
+                        //repeat itself
+                        page = new StoreMenu();
+                        break; 
+                    case StoreType.ShowStore:
+                        page = new ShowStore(new StoreBL(new Repository()));
+                        break;
+                    case StoreType.Exit:
+                        Console.WriteLine("You are exiting the application!");
+                        Console.WriteLine("Press Enter to continue");
+                        Console.ReadLine();
+                        repeat = false;
+                        break;
+                    default:
+                        Console.WriteLine("You forgot to add a menu in your enum/code");
+                        repeat = false;
+                        break;
+                }
+            }
+
         }
     }
 }
