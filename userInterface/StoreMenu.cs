@@ -6,7 +6,7 @@ namespace userInterface
     {
         public void Menu()
         {
-            Console.WriteLine("Welcome to the Restaurant Menu!");
+            Console.WriteLine("Welcome to the Store Menu!");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("[3] - List of Restaurant");
             Console.WriteLine("[2] - Checkout");

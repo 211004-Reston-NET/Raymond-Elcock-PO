@@ -12,9 +12,9 @@ namespace userInterface
         */
         public void Store()
         {
-            Console.WriteLine("Welcome to the Main Menu!");
+            Console.WriteLine("Welcome to the Store Menu!");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[1] - Go to Restaraunt");
+            Console.WriteLine("[1] - Go to Store");
             Console.WriteLine("[0] - Exit");
         }
 
