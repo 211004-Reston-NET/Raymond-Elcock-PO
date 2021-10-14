@@ -5,21 +5,21 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowStore : IStore
+    public class ShowStore : ICustomersBL
     {
-        private IStoreBL _restBL;
-        public ShowStore(IStoreBL s_frontBL)
+        private ICustomersBL _restBL;
+        public ShowStore(ICustomersBL s_frontBL)
         {
             _restBL = s_frontBL;
         }
 
 
-        public void Store()
+        public void Customers()
         {
-            Console.WriteLine("List of Stores");
-            List<StoreFront> listOfStores = _restBL.GetAllStores();
+            Console.WriteLine("List of Customers");
+            List<Customers> listOfCustomers = _restBL.GetAllCustomers();
 
-            foreach (StoreFront rest in listOfStores)
+            foreach (Customers rest in listOfCustomers)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(rest);

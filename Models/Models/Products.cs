@@ -9,16 +9,16 @@ namespace Models
     public class Products
     {
         private string _productName;
-        public string ProductName {get; set;}
+        public string Name {get; set;}
         
         private decimal _productPrice;
-        public decimal ProductPrice {get; set;}
+        public decimal Price {get; set;}
 
         private string _productDescription;
-        public string ProductDescription {get; set;}
+        public string Description {get; set;}
 
         private string _productCategory;
-        public string ProductCategory {get; set;}
+        public string Category {get; set;}
        
         
         
@@ -44,7 +44,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"Name: {ProductName}\nDescription: {ProductDescription}\nCategory: {ProductCategory}";
+            return $"Name: {Name}\nDescription: {Description}\nCategory: {Category}";
         }
 
         

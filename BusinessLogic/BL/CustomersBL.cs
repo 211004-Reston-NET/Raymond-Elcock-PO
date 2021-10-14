@@ -10,10 +10,10 @@ namespace BusinessLogic
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
-    public class StoreBL: IStoreBL
+    public class CustomersBL: ICustomersBL
     {
         
-        private Repository _repo;
+        private CustomersRepo _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,26 +21,26 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public StoreBL(Repository p_repo)
+        public CustomersBL(CustomersRepo p_repo)
         {
             _repo = p_repo;
         }
 
-        public StoreFront AddStore(StoreFront s_front)
+        public Customers AddCustomers(Customers s_front)
         {
-            return _repo.AddStores(s_front);
+            return _repo.AddCustomers(s_front);
         }
 
-              public List<StoreFront> GetAllStores()
+              public List<Customers> GetAllCustomers()
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
-            List<StoreFront> listOfStores = _repo.GetAllStores();
-            for (int i = 0; i < listOfStores.Count; i++)
+            List<Customers> listOfCustomers = _repo.GetAllCustomers();
+            for (int i = 0; i < listOfCustomers.Count; i++)
             {
-                listOfStores[i].StoreName = listOfStores[i].StoreName.ToLower(); 
+                listOfCustomers[i].Name = listOfCustomers[i].Name.ToLower(); 
             }
 
-            return listOfStores;
+            return listOfCustomers;
         }
 
         

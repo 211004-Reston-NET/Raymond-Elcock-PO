@@ -4,12 +4,12 @@ using Models;
 
 namespace userInterface
 {
-    public class AddStores : IStore
+    public class AddOrders : IOrders
     {
-        private static StoreFront _rest = new StoreFront();
-        private IStoreBL _restBL;
+        private static Orders _rest = new Orders();
+        private IOrdersBL _restBL;
          
-        public AddStores(IStoreBL p_restBL)
+        public AddOrders(IOrdersBL p_restBL)
         {
             _restBL = p_restBL;
         }
@@ -18,16 +18,11 @@ namespace userInterface
 
         public void Store()
         {
-            Console.WriteLine("Add a new Store");
-            Console.WriteLine("Name - " + _rest.StoreName);
-            Console.WriteLine("Address - "+ _rest.StoreAddress);
-            Console.WriteLine("Phone Number - "+ _rest.PhoneNumber);
-            Console.WriteLine("Email - "+ _rest.Email);
-            Console.WriteLine("[5] - Add Store");
-            Console.WriteLine("[4] - Input value for Store Name");
-            Console.WriteLine("[3] - Input value for  Store Address");
-            Console.WriteLine("[2] - Input value for Phone Number");
-            Console.WriteLine("[1] - Input value for Email");
+            Console.WriteLine("Add a new Order");
+            Console.WriteLine("Address - "+ _rest.StoresAddress);
+            Console.WriteLine("");
+            Console.WriteLine("[5] - Add Order");
+           
             Console.WriteLine("[0] - Go Back");
         }
 

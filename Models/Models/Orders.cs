@@ -8,10 +8,10 @@ namespace Models
     public class Orders
     {
     private string _storeAddress;
-    public string Address {get; set;}
+    public string StoresAddress {get; set;}
 
     private decimal _totalPrice;
-    public decimal OrderPrice {get; set;}
+    public decimal OrdersPrice {get; set;}
        
      public string StoreAddress
         {

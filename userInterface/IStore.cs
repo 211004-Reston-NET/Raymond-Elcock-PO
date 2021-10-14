@@ -17,13 +17,42 @@ namespace userInterface
 
     //The purpose of the interface is to ensure that every menu that we will create will have
     //the following methods in this case we can also use polymorphism
-    public interface IStore
+    public interface ICustomers
     {
         /// <summary>
         /// Will display the overall menu of the current menu class 
         /// and the choice you/the user can make
         /// </summary>
-        void Store();
+        void Customers();
+
+        /// <summary>
+        /// Will record the user's choice and change your menu based
+        /// on the end-user's choice
+        /// </summary>
+        /// <returns>This method should return a menu that the user will go to next</returns>
+        StoreType YourChoice();
+        public interface IOrders
+    {
+        /// <summary>
+        /// Will display the overall menu of the current menu class 
+        /// and the choice you/the user can make
+        /// </summary>
+        void Orders();
+
+        /// <summary>
+        /// Will record the user's choice and change your menu based
+        /// on the end-user's choice
+        /// </summary>
+        /// <returns>This method should return a menu that the user will go to next</returns>
+        StoreType YourChoice();
+    }    
+        public interface IProducts
+    {
+        /// <summary>
+        /// Will display the overall menu of the current menu class 
+        /// and the choice you/the user can make
+        /// </summary>
+        void Products();
 
         /// <summary>
         /// Will record the user's choice and change your menu based
@@ -32,4 +61,8 @@ namespace userInterface
         /// <returns>This method should return a menu that the user will go to next</returns>
         StoreType YourChoice();
     }
-}
+ 
+
+
+    
+      

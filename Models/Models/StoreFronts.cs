@@ -4,21 +4,17 @@ using System.Text.RegularExpressions;
 
 namespace Models
 {
-    public class StoreFront
+    public class StoreFronts
     {
     
 
         private string _storeName;
-        public string StoreName {get; set;}
+        public string Name {get; set;}
         
         private string _storeAddress;
-        public string StoreAddress {get; set;}
+        public string Address {get; set;}
 
-        private int _PhoneNumber;
-        public string PhoneNumber {get; set;}
-
-        private string _Email;
-        public string Email {get; set;}
+       
 
           //This is a property that uses the field called _name
         public string storeName
@@ -38,7 +34,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"Name: {StoreName}\nAddress: {StoreAddress}";
+            return $"Name: {Name}\nAddress: {Address}";
         }
 
         

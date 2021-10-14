@@ -2,13 +2,13 @@ using System;
 
 namespace userInterface
 {
-    public class StoreMenu : IStore
+    public class IMenu : ICustomers
     {
         public void Menu()
         {
             Console.WriteLine("Welcome to the Store Menu!");
             Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[3] - List of Restaurant");
+            Console.WriteLine("[3] - List of Stores");
             Console.WriteLine("[2] - Checkout");
             Console.WriteLine("[1] - Buy a Product");
             Console.WriteLine("[0] - Go to MainMenu");

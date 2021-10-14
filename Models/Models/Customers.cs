@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Models
 {
-    public class Customer
+    public class Customers
     {
         //This is a field
         private string _customerName;
