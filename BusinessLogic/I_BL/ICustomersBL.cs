@@ -18,9 +18,9 @@ namespace BusinessLogic
         /// <summary>
         /// Adds a restaurant to the database
         /// </summary>
-        /// <param name="s_front">This is the restaurant we are adding</param>
+        /// <param name="s_customers">This is the restaurant we are adding</param>
         /// <returns>It returns the added restaurant</returns>
-        Customers AddCustomers(Customers s_front);
+        Customers AddCustomers(Customers s_customers);
         
        
      

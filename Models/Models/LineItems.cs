@@ -5,17 +5,17 @@ using System.Text.RegularExpressions;
 
 namespace Models
 {
-    public class ListItems
+    public class LineItems
     { 
-    private string _storeProduct;
-    public string StoresProduct {get; set;}
+    private string _storeItems;
+    public string StoreItems {get; set;}
 
-    private decimal _storeQuantity;
-    public decimal _StoreQuantity {get; set;}
+    private string _storeQuantity;
+    public string _StoreItemQuantity {get; set;}
        
      public string StoreAddress
         {
-            get { return _storeProduct; }
+            get { return _storeItems; }
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
@@ -24,7 +24,7 @@ namespace Models
                     //Will give the user an exception whenever you try to set the city field with a number
                     throw new Exception("City can only hold letters!");
                 }
-                _storeProduct = value;
+                _storeItems = value;
             }
         }
 

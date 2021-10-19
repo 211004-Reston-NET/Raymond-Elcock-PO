@@ -14,7 +14,7 @@ namespace userInterface
 
 
             //This is example of polymorphism, abstraction, and inheritance all at the same time
-            IStore page = new MainStore();
+            IMenu page = new MainMenu();
             
 
             //This is a while loop that will keep repeating until I changed the
@@ -27,36 +27,75 @@ namespace userInterface
                 //IMenu interface can hold a bunch of objects as long as they inherited from
                 //IMenu, this lets us dynamically change the page by having the page variable
                 //Point to a different object each time
-                page.Store();
-                StoreType currentPage = page.YourChoice();
+                page.Menu();
+                MenuType currentPage = page.YourChoice();
 
                 //switch case will change the page variable to point to another object to change
                 //its MainMenu 
                 switch (currentPage)
                 {
-                    case StoreType.MainStore:
+                    case MenuType.MainMenu:
                         //If user choosed to go back to the MainMenu
                         //page will start pointing to a MainMenu object instead
-                        page = new MainStore();
+                        page = new MainMenu();
                         break;
-                    case StoreType.StoreMenu:
-                        //This will point the page reference variable to a new Restaurant Object
-                        //Since Restaurant Object has different implementation/function of the Menu Method
-                        //It will have different implementations/functions when the while loop goes back and
-                        //repeat itself
-                        page = new StoreMenu();
-                        break; 
-                    case StoreType.ShowStore:
-                        page = new ShowStore(new StoreBL(new Repository()));
+                    
+                    
+                    case MenuType.CustomersMenu:
+                        page = new CustomersMenu();
                         break;
-                    case StoreType.Exit:
+                    case MenuType.ShowCustomers:
+                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.AddCustomers:
+                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                     case MenuType.LineItemsMenu:
+                        page = new CustomersMenu();
+                        break;
+                    case MenuType.ShowLineItems:
+                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.AddLineItems:
+                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.OrdersMenu:
+                        page = new CustomersMenu();
+                        break;
+                    case MenuType.ShowOrders:
+                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.AddOrders:
+                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.ProductsMenu:
+                        page = new CustomersMenu();
+                        break;
+                    case MenuType.ShowProducts:
+                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.AddProducts:
+                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                     case MenuType.StoreFrontsMenu:
+                        page = new CustomersMenu();
+                        break;
+                    case MenuType.ShowStoreFronts:
+                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        break;
+                    case MenuType.AddStoreFronts:
+                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        break;               
+
+                    //This is a Exit to leave store
+                    case MenuType.ExitMenu:
                         Console.WriteLine("You are exiting the application!");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
                         repeat = false;
                         break;
                     default:
-                        Console.WriteLine("You forgot to add a menu in your enum/code");
+                        Console.WriteLine("You forgot to add a menu or Page!! ");
                         repeat = false;
                         break;
                 }

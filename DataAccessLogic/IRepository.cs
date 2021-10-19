@@ -1,23 +1,25 @@
 ﻿using System.Collections.Generic;
 using Models;
 
+
 namespace DataAccessLogic
 {
-    public interface IRepository
+    public interface IOrders
     {
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
-        /// <param name="p_rest">This is the restaurant we will be adding to the database</param>
+        /// <param name="s_orders">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Orders AddOrders(Orders p_rest);
+        Orders AddOrders(Orders s_orders);
 
 
         /// <summary>
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<Orders> GetAllOrders ();
+        List<Orders>GetAllOrders();
+       // List<Reviews> GetAllReviews ();
 
     }
     public interface ICustomers
@@ -25,32 +27,51 @@ namespace DataAccessLogic
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
-        /// <param name="p_rest">This is the restaurant we will be adding to the database</param>
+        /// <param name="s_customers">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Customers AddCustomers(Customers p_rest);
+        Customers AddCustomers(Customers s_customers);
 
 
         /// <summary>
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<Customers> GetAllCustomers ();
+        List<Customers>GetAllCustomers();
+       // List<Reviews> GetAllReviews();
     }
-    public interface IProductsRepo
+    public interface IProducts
     {
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
         /// <param name="p_rest">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Products AddProducts(Products p_rest);
+        Products AddProducts(Products s_products);
 
 
         /// <summary>
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<Products> GetAllProducts ();
+        List<Products>GetAllProducts();
+       // List<Reviews> GetAllReviews();
+    }
+    public interface ILineItemsRepo
+    {
+        /// <summary>
+        /// It will add a restaurant in our database
+        /// </summary>
+        /// <param name="l_items">This is the restaurant we will be adding to the database</param>
+        /// <returns>It will just return the restaurant we are adding</returns>
+        LineItems AddLineItems(LineItems l_items);
+
+
+        /// <summary>
+        /// This will return a list of restaurants stored in the database
+        /// </summary>
+        /// <returns>It will return a list of restaurants</returns>
+         List<LineItems>GetAllLineItems();
+       // List<Reviews> GetAllReviews ();
     }
 
 }

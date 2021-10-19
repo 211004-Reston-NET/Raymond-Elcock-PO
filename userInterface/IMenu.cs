@@ -1,43 +1,64 @@
-using System;
 
+   
 namespace userInterface
+
 {
-    public class IMenu : ICustomers
+    //This enum will hold the different types of Menu the user can go through
+    //This helps to remove potential spelling mistakes in our program by making
+    //Intellisense do the work for us
+    public enum MenuType
     {
-        public void Menu()
-        {
-            Console.WriteLine("Welcome to the Store Menu!");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[3] - List of Stores");
-            Console.WriteLine("[2] - Checkout");
-            Console.WriteLine("[1] - Buy a Product");
-            Console.WriteLine("[0] - Go to MainMenu");
-        }
+         MainMenu,
+        ExitMenu,
+        ErrorMenu,
+        
+        // PRODUCT
+        ProductsMenu,
+        AddProducts,
+        ShowProducts,
+        ProductsSearch,
+        
+        // ORDER
+        OrdersMenu,
+        AddOrders,
+        ShowOrders,
+        
+        //LineItems
+        LineItemsMenu,
+        AddLineItems,
+        ShowLineItems,
 
-        public void Store()
-        {
-            throw new NotImplementedException();
-        }
+        // CUSTOMER
+        CustomersMenu,
+        AddCustomers,
+        ShowCustomers,
 
-        public StoreType YourChoice()
-        {
-            string userChoice = Console.ReadLine();
-            switch (userChoice)
-            {
-                case "3":
-                    return StoreType.ShowStore;
-                case "2":
-                    return StoreType.StoreMenu;
-                case "1":
-                    return StoreType.StoreMenu;
-                case "0":
-                    return StoreType.StoreMenu;
-                default:
-                    Console.WriteLine("Please input a valid response!");
-                    Console.WriteLine("Press Enter to continue");
-                    Console.ReadLine();
-                    return StoreType.StoreMenu;
-            }
-        }
+        // STOREFRONT
+        StoreFrontsMenu,
+        AddStoreFronts,
+        ShowStoreFronts,
     }
-}
+
+    //The purpose of the interface is to ensure that every menu that we will create will have
+    //the following methods in this case we can also use polymorphism
+    public interface IMenu
+    {
+        /// <summary>
+        /// Will display the overall menu of the current menu class 
+        /// and the choice you/the user can make
+        /// </summary>
+        void Menu();
+
+        /// <summary>
+        /// Will record the user's choice and change your menu based
+        /// on the end-user's choice
+        /// </summary>
+        /// <returns>This method should return a menu that the user will go to next</returns>
+        MenuType YourChoice();
+        
+    }
+  }
+
+
+    
+      

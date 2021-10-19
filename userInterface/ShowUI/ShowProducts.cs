@@ -5,41 +5,41 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowStore : ICustomersBL
+    public class ShowProducts : IMenu
     {
-        private ICustomersBL _restBL;
-        public ShowStore(ICustomersBL s_frontBL)
+        private IProductsBL s_productsBL;
+        public ShowProducts(IProductsBL _productsBL)
         {
-            _restBL = s_frontBL;
+            _productsBL = s_productsBL;
         }
 
 
-        public void Customers()
+        public void Menu()
         {
-            Console.WriteLine("List of Customers");
-            List<Customers> listOfCustomers = _restBL.GetAllCustomers();
+            Console.WriteLine("List of Products");
+            List<Products> listOfProducts = s_productsBL.GetAllProducts();
 
-            foreach (Customers rest in listOfCustomers)
+            foreach (Products products in listOfProducts)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(rest);
+                Console.WriteLine(products);
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
         }
 
-        public StoreType YourChoice()
+        public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
                 case "0":
-                    return StoreType.StoreMenu;
+                    return MenuType.ProductsMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return StoreType.ShowStore;
+                    return MenuType.ShowProducts;
             }
         }
     }

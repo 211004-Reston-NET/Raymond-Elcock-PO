@@ -17,13 +17,13 @@ namespace DataAccessLogic
 
        
 
-        public Customers AddCustomers(Customers p_rest)
+        public Customers AddCustomers(Customers s_customers)
         {
           //The reason why we need to grab all the information back is because File.WriteAllText method will overwrite anything inside the JSON file
             List<Customers> listOfCustomers = GetAllCustomers();
 
             //We added the new restaurant from the parameter 
-            listOfCustomers.Add(p_rest);
+            listOfCustomers.Add(s_customers);
 
             _jsonString = JsonSerializer.Serialize(listOfCustomers, new JsonSerializerOptions{WriteIndented=true});
 
@@ -31,7 +31,7 @@ namespace DataAccessLogic
             File.WriteAllText(_filepath,_jsonString);
 
             //Will return a restaurant object from the parameter
-            return p_rest;
+            return s_customers;
         }
 
 
