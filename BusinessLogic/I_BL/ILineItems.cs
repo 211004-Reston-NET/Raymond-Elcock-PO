@@ -11,7 +11,7 @@ namespace BusinessLogic
         /// It will also capitalize every name of the restaurant
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<LineItems> GetAllListItems();
+        List<LineItems> GetAllLineItems();
         
 
         /// <summary>

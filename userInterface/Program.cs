@@ -51,13 +51,13 @@ namespace userInterface
                         page = new AddCustomers(new CustomersBL(new CustomersRepo()));
                         break;
                      case MenuType.LineItemsMenu:
-                        page = new CustomersMenu();
+                        page = new LineItemsMenu();
                         break;
                     case MenuType.ShowLineItems:
-                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new ShowLineItems(new LineItemsBL(new LineItemsRepo()));
                         break;
                     case MenuType.AddLineItems:
-                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new AddLineItems(new LineItemsBL(new LineItemsRepo()));
                         break;
                     case MenuType.OrdersMenu:
                         page = new CustomersMenu();

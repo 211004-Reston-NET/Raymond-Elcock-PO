@@ -9,7 +9,7 @@ using Models;
 
 namespace DataAccessLogic
 {
-    public class LineItemsRepo : ILineItemsRepo
+    public class LineItemsRepo : ILineItems
     {
          //Filepath need to reference from the startup project (RRUI) and hence why we need to go back a folder and cd into RRDL
         private const string _filepath = "./../DataAccessLogic/Database/";

@@ -19,7 +19,7 @@ namespace DataAccessLogic
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
         List<Orders>GetAllOrders();
-       // List<Reviews> GetAllReviews ();
+       
 
     }
     public interface ICustomers
@@ -36,8 +36,8 @@ namespace DataAccessLogic
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<Customers>GetAllCustomers();
-       // List<Reviews> GetAllReviews();
+         List<Customers>GetAllCustomers();
+       
     }
     public interface IProducts
     {
@@ -53,10 +53,10 @@ namespace DataAccessLogic
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        List<Products>GetAllProducts();
-       // List<Reviews> GetAllReviews();
+        
+       
     }
-    public interface ILineItemsRepo
+    public interface ILineItems
     {
         /// <summary>
         /// It will add a restaurant in our database
@@ -71,7 +71,7 @@ namespace DataAccessLogic
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
          List<LineItems>GetAllLineItems();
-       // List<Reviews> GetAllReviews ();
+       
     }
+  }
 
-}

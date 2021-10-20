@@ -5,24 +5,24 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowCustomers : IMenu
+    public class ShowLineItems : IMenu
     {
-        private ICustomersBL s_customersBL;
-        public ShowCustomers(ICustomersBL _customersBL)
+        private ILineItemsBL p_lineItemsBL;
+        public ShowLineItems(ILineItemsBL _lineItemsBL)
         {
-            _customersBL = s_customersBL;
+            _lineItemsBL = p_lineItemsBL;
         }
 
 
         public void Menu()
         {
-            Console.WriteLine("List of Customers");
-            List<Customers> listOfCustomers = s_customersBL.GetAllCustomers();
+            Console.WriteLine("List of Line Items");
+            List<LineItems> listOfLineItems = p_lineItemsBL.GetAllLineItems();
 
-            foreach (Customers customers in listOfCustomers)
+            foreach (LineItems lineItems in listOfLineItems)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine("Customer's List");
+                Console.WriteLine("Line Items List");
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[0] - Go Back");
@@ -39,7 +39,7 @@ namespace userInterface
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowCustomers;
+                    return MenuType.ShowLineItems;
             }
         }
     }

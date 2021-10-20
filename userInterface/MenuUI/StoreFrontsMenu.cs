@@ -12,10 +12,14 @@ namespace userInterface
         */
         public void Menu()
         {
-            Console.WriteLine("Welcome to the Store Menu!");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("[1] - Go to Store");
-            Console.WriteLine("[0] - Exit");
+            Console.WriteLine("------ StoreFronts Menu------");
+            Console.WriteLine("What would you like to do next? ");
+            Console.WriteLine("[1] Add A New StoreFront: ");
+            Console.WriteLine("[2] Show All StoreFronts In Company: ");
+            //If an extra console is needed
+            //Console.WriteLine("[3] Search For A Product At Store: ");
+            //Console.WriteLine("[3] Add A Items To Store Order: ");
+            Console.WriteLine("[x] Go back to The Main Menu");
         }
 
         public MenuType YourChoice()
@@ -24,9 +28,16 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.StoreFrontsMenu;
-                case "0":
-                    return MenuType.ExitMenu;
+                    return MenuType.AddStoreFronts;
+                case "2":
+                    return MenuType.ShowStoreFronts;
+                //If i want to add more cases later
+                //case "3":
+                  //  return MenuType.AddOrders;
+                //case "4":
+                  //  return MenuType.ProductsMenu;      
+                case "x":
+                    return MenuType.MainMenu; 
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

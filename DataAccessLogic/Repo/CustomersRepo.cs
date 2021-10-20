@@ -44,7 +44,10 @@ namespace DataAccessLogic
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
             //The parameter of the Deserialize method needs a string variable that holds the json file
             return JsonSerializer.Deserialize<List<Customers>>(_jsonString);
-        }
+            }
+           
+
+
     }
 }
         
