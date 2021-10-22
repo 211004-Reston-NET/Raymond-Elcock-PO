@@ -9,16 +9,18 @@ namespace DataAccessLogic
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
-        /// <param name="s_orders">This is the restaurant we will be adding to the database</param>
+        /// <param name="p_orders">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Orders AddOrders(Orders s_orders);
+        Orders AddOrders(Orders p_orders);
 
 
         /// <summary>
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
+        
         List<Orders>GetAllOrders();
+        List<Review> GetAllReview();
        
 
     }
@@ -27,9 +29,9 @@ namespace DataAccessLogic
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
-        /// <param name="s_customers">This is the restaurant we will be adding to the database</param>
+        /// <param name="p_customers">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Customers AddCustomers(Customers s_customers);
+        Customers AddCustomers(Customers p_customers);
 
 
         /// <summary>
@@ -37,7 +39,8 @@ namespace DataAccessLogic
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
          List<Customers>GetAllCustomers();
-       
+         List<Review> GetAllReview();
+         
     }
     public interface IProducts
     {
@@ -46,14 +49,15 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="p_rest">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        Products AddProducts(Products s_products);
+        Products AddProducts(Products p_products);
 
 
         /// <summary>
         /// This will return a list of restaurants stored in the database
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
-        
+         List<Products>GetAllProducts();
+         List<Review> GetAllReview();
        
     }
     public interface ILineItems
@@ -61,9 +65,9 @@ namespace DataAccessLogic
         /// <summary>
         /// It will add a restaurant in our database
         /// </summary>
-        /// <param name="l_items">This is the restaurant we will be adding to the database</param>
+        /// <param name="p_lineItems">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        LineItems AddLineItems(LineItems l_items);
+        LineItems AddLineItems(LineItems p_lineItems);
 
 
         /// <summary>
@@ -71,7 +75,25 @@ namespace DataAccessLogic
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
          List<LineItems>GetAllLineItems();
+         List<Review> GetAllReview();
        
     }
+    public interface IStoreFronts
+    {
+        /// <summary>
+        /// It will add a restaurant in our database
+        /// </summary>
+        /// <param name="p_lineItems">This is the restaurant we will be adding to the database</param>
+        /// <returns>It will just return the restaurant we are adding</returns>
+        StoreFronts AddStoreFronts(StoreFronts p_storeFronts);
+
+
+        /// <summary>
+        /// This will return a list of restaurants stored in the database
+        /// </summary>
+        /// <returns>It will return a list of restaurants</returns>
+         List<StoreFronts>GetAllStoreFronts();
+         List<Review> GetAllReview();
   }
 
+}

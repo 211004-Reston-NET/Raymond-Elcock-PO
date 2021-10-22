@@ -19,7 +19,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="s_front">This is the restaurant we are adding</param>
         /// <returns>It returns the added restaurant</returns>
-        StoreFronts AddStoreFronts(StoreFronts s_front);
+        StoreFronts AddStoreFronts(StoreFronts p_front);
         
        
      

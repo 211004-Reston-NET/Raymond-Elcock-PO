@@ -13,62 +13,58 @@ namespace userInterface
         {
             _customersBL = customers;
         }
-
-       
-
-        public void Menu()
+         public void Menu()
         {
-            Console.WriteLine("Add a new Customer");
-            Console.WriteLine("Name - " + _customers.Name);
-            Console.WriteLine("Address - "+ _customers.Address);
-            Console.WriteLine("Phone Number - "+ _customers.PhoneNumber);
-            Console.WriteLine("Email - "+ _customers.Email);
-            Console.WriteLine("[1] - Add Store");
-            Console.WriteLine("[2] - Input  Customers Name");
-            Console.WriteLine("[3] - Input  Customers Address");
-            Console.WriteLine("[4] - Input  Customers Phone Number");
-            Console.WriteLine("[5] - Input  Customers Email");
-            Console.WriteLine("[0] - Go Back");
-        }
+            Console.WriteLine($"Name: {_customers.Name}");
+            Console.WriteLine($"Address: {_customers.Address}");
+            Console.WriteLine($"Phone: {_customers.Phone}");
+            Console.WriteLine($"Email: {_customers.Email}");
+            //Console.WriteLine($"Orders: {_customers.Orders}");
+            // If i need to add another input console
+            //Console.WriteLine("[] Input Customer ID");
+            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("[1] - Please Enter A  Name: ");
+            Console.WriteLine("[2] - Please Enter A Address:");
+            Console.WriteLine("[3] - Please Enter A Phone Number:");
+            Console.WriteLine("[4] = Please Enter A Email:");
+           // Console.WriteLine("[5] - Enter Your Order");
+            Console.WriteLine("[6] - Save Customer");
+            Console.WriteLine("[x] - Return to Customers Menu");
+        } 
 
         public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                
-            case "1":
-                    
-                    try
-                    {
-                         _customersBL.AddCustomers(_customers);
-                    }
-                    catch (System.Exception)
-                    {
-                        Console.WriteLine("You must input value to all fields above");
-                        Console.WriteLine("Press Enter to continue");
-                        Console.ReadLine();
-                        return MenuType.AddCustomers;
-                    }
-                    
-                    return MenuType.CustomersMenu;
-                case "2":
+                case "1":
                     Console.WriteLine("Please Enter Customers Name:");
                     _customers.Name = Console.ReadLine();
                     return MenuType.AddCustomers;
-                case "3":
+                case "2":
                     Console.WriteLine("Please Enter Customers Address:");
                     _customers.Address = Console.ReadLine();
                     return MenuType.AddCustomers;
+                case "3":
+                    Console.WriteLine("Please Enter Customers Phone Number: ");
+                    _customers.Phone = Console.ReadLine();
+                    return MenuType.AddCustomers;
                 case "4":
-                    Console.WriteLine("Please Enter Customers Phone Number:");
+                    Console.WriteLine("Please Enter Customers Email:");
                     _customers.Email = Console.ReadLine();
                     return MenuType.AddCustomers;
-                case "5":
-                    Console.WriteLine("Please Enter Customers Email: ");
-                    _customers.Email = Console.ReadLine();
-                    return MenuType.AddCustomers;
-                case "0":
+                //case "5":
+                   // Console.WriteLine("Please Enter Customers Order:");
+                    //_customers.Orders = Console.ReadLine();
+                    //return MenuType.AddCustomers;
+                case "6":
+                     _customersBL.AddCustomers(_customers);
+                     Console.WriteLine("Customer Has Been Added");
+                     Console.WriteLine("Please Press Enter! ");
+                     Console.ReadLine();
+                    return MenuType.CustomersMenu;
+                   
+                case "x":
                     return MenuType.CustomersMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");

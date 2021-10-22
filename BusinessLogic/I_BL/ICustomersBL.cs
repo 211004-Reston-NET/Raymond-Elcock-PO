@@ -1,7 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using Models;
-using DataAccessLogic;
+
 
 namespace BusinessLogic
 {
@@ -13,14 +13,16 @@ namespace BusinessLogic
         /// </summary>
         /// <returns>It will return a list of restaurants</returns>
         List<Customers> GetAllCustomers();
-        
 
-        /// <summary>
+         /// <summary>
         /// Adds a restaurant to the database
         /// </summary>
         /// <param name="s_customers">This is the restaurant we are adding</param>
         /// <returns>It returns the added restaurant</returns>
-        Customers AddCustomers(Customers s_customers);
+        Customers AddCustomers(Customers p_customers);
+
+
+
         
        
      

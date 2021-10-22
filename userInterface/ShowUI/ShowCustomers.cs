@@ -7,25 +7,26 @@ namespace userInterface
 {
     public class ShowCustomers : IMenu
     {
-        private ICustomersBL s_customersBL;
-        public ShowCustomers(ICustomersBL _customersBL)
+        private ICustomersBL _customersBL;
+        public ShowCustomers(ICustomersBL p_customersBL)
         {
-            _customersBL = s_customersBL;
+            _customersBL = p_customersBL;
         }
 
 
         public void Menu()
         {
-            Console.WriteLine("List of Customers");
-            List<Customers> listOfCustomers = s_customersBL.GetAllCustomers();
+            Console.WriteLine("______List of Customers______");
+            List<Customers> listOfCustomers = _customersBL.GetAllCustomers();
 
             foreach (Customers customers in listOfCustomers)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine("Customer's List");
-                Console.WriteLine("====================");
+                Console.WriteLine("Customer's Information");
+                Console.WriteLine(customers);
+                
             }
-            Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("[x] - Go Back");
         }
 
         public MenuType YourChoice()
@@ -33,7 +34,7 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
+                case "x":
                     return MenuType.CustomersMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");

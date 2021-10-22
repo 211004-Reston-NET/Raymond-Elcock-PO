@@ -8,17 +8,28 @@ namespace userInterface
     //Intellisense do the work for us
     public enum MenuType
     {
-         MainMenu,
+
+        MainMenu,
         ExitMenu,
         ErrorMenu,
+
+        // Customers
+        CustomersMenu,
+        AddCustomers,
+        ShowCustomers,
+
+         // StoreFronts
+        StoreFrontsMenu,
+        AddStoreFronts,
+        ShowStoreFronts,
         
-        // PRODUCT
+        // Products
         ProductsMenu,
         AddProducts,
         ShowProducts,
         ProductsSearch,
         
-        // ORDER
+        // Orders
         OrdersMenu,
         AddOrders,
         ShowOrders,
@@ -28,15 +39,6 @@ namespace userInterface
         AddLineItems,
         ShowLineItems,
 
-        // CUSTOMER
-        CustomersMenu,
-        AddCustomers,
-        ShowCustomers,
-
-        // STOREFRONT
-        StoreFrontsMenu,
-        AddStoreFronts,
-        ShowStoreFronts,
     }
 
     //The purpose of the interface is to ensure that every menu that we will create will have

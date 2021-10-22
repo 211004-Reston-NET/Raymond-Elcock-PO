@@ -63,28 +63,28 @@ namespace userInterface
                         page = new CustomersMenu();
                         break;
                     case MenuType.ShowOrders:
-                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new ShowOrders(new OrdersBL(new OrdersRepo()));
                         break;
                     case MenuType.AddOrders:
-                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new AddOrders(new OrdersBL(new OrdersRepo()));
                         break;
                     case MenuType.ProductsMenu:
                         page = new CustomersMenu();
                         break;
                     case MenuType.ShowProducts:
-                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new ShowProducts(new ProductsBL(new ProductsRepo()));
                         break;
                     case MenuType.AddProducts:
-                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new AddProducts(new ProductsBL(new ProductsRepo()));
                         break;
                      case MenuType.StoreFrontsMenu:
                         page = new CustomersMenu();
                         break;
                     case MenuType.ShowStoreFronts:
-                        page = new ShowCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new ShowStoreFronts(new StoreFrontsBL(new StoreFrontsRepo()));
                         break;
                     case MenuType.AddStoreFronts:
-                        page = new AddCustomers(new CustomersBL(new CustomersRepo()));
+                        page = new AddStoreFronts(new StoreFrontsBL(new StoreFrontsRepo()));
                         break;               
 
                     //This is a Exit to leave store

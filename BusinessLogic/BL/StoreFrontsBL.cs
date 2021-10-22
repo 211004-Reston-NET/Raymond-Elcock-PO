@@ -10,10 +10,10 @@ namespace BusinessLogic
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
-    public class CustomersBL: ICustomersBL
+    public class StoreFrontsBL: IStoreFrontsBL
     {
         
-        private CustomersRepo _customers;
+        private StoreFrontsRepo _storeFronts;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,31 +21,28 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public CustomersBL(CustomersRepo p_customers)
+        public StoreFrontsBL(StoreFrontsRepo p_storeFronts)
         {
-            _customers = p_customers;
+            _storeFronts = p_storeFronts;
         }
 
-      public Customers AddCustomers(Customers p_customers)
+        public StoreFronts AddStoreFronts(StoreFronts p_storeFronts)
         {
-            if (p_customers.Name == null || p_customers.Address == null || p_customers.Email == null)
+            return _storeFronts.AddStoreFronts(p_storeFronts);
+        }
+
+              public List<StoreFronts> GetAllStoreFronts()
+        {
+            //Maybe my business operation needs to capitalize every name of a restaurant
+            List<StoreFronts> listOfStoreFronts = _storeFronts.GetAllStoreFronts();
+            for (int i = 0; i < listOfStoreFronts.Count; i++)
             {
-                throw new Exception("You must have a value in all of the properties of customers class");
+                listOfStoreFronts[i].Name = listOfStoreFronts[i].Name.ToLower(); 
             }
 
-            return _customers.AddCustomers(p_customers);
+            return listOfStoreFronts;
         }
 
-        public List<Customers> GetAllCustomers()
-        {
-            //Maybe my business operation needs to capitalize every name of a customer
-            List<Customers> listOfCustomers = _customers.GetAllCustomers();
-            for (int i = 0; i < listOfCustomers.Count; i++)
-            {
-                listOfCustomers[i].Name = listOfCustomers[i].Name.ToLower(); 
-            }
-
-            return listOfCustomers;
-        }
+        
     }
 }

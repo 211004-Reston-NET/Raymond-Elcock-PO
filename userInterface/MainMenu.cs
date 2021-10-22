@@ -13,12 +13,13 @@ namespace userInterface
         public void Menu()
         {
             Console.WriteLine("Welcome to the Main Menu!");
-            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("--------------------------------");
             Console.WriteLine("[1] - Go to StoreFront Menu: ");
             Console.WriteLine("[2] - Go to Customers Menu: ");
             Console.WriteLine("[3] - Go to Orders Menu: ");
             Console.WriteLine("[4] - Go to Products Menu: ");
             Console.WriteLine("[x] - Exit: ");
+            Console.WriteLine("---------------------------------");
         }
 
         public MenuType YourChoice()
