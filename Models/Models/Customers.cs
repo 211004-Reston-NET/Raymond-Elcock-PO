@@ -6,31 +6,42 @@ namespace Models
 {
     public class Customers
     {
+
+        public Customers()
+        {
+            this.Name = "Name";
+            this.Address = "Address";
+            this.Phone = "Phone";
+            this.Email = "Email";
+            
+        }
         //This is a field
-        private string _customerName;
-        private string _customerAddress;
-        private string _phoneNumber;
-        private string _customerEmail;
+        private string _name;
+        private string _address;
+        private string _phone;
+        private string _email;
         private List<Orders> _orders = new List<Orders>();
         
-       
+
+        //This is a property that uses the field called _city
         public string Name
         {
-            get { return _customerName; }
+            get { return _name; }
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+                if (!Regex.IsMatch(value, @"^[a-zA-Z]+(\s[a-zA-Z]+)?$"))
                 {
                     //Will give the user an exception whenever you try to set the city field with a number
-                    throw new Exception("City can only hold letters!");
+                    throw new Exception("Name can only hold letters!");
                 }
-                _customerName = value;
+                _name = value;
             }
         }
-        public string Address
+
+         public string Address
         {
-            get { return _customerAddress; }
+            get { return _address; }
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
@@ -39,66 +50,62 @@ namespace Models
                     //Will give the user an exception whenever you try to set the city field with a number
                     throw new Exception("Address can only hold letters and Numbers!");
                 }
-                _customerAddress = value;
+                _address = value;
             }
         }
-       
         public string Phone
         {
-            get { return _phoneNumber; }
+            get { return _phone; }
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
-                if (!Regex.IsMatch(value, @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"))
+                if (!Regex.IsMatch(value, @"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"))
                 {
-                    //Phone number exception
-                    throw new Exception("Not a valid phone number!");
+                    //Will give the user an exception whenever you try to set the city field with a number
+                    throw new Exception("Phone Numbers can only hold Numbers!");
                 }
-                _phoneNumber = value;
+                _phone = value;
             }
         }
         public string Email
         {
-            get { return _customerEmail; }
+            get { return _email; }
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
                 if (!Regex.IsMatch(value, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"))
                 {
                     //Will give the user an exception whenever you try to set the city field with a number
-                    throw new Exception("City can only hold letters!");
+                    throw new Exception("Address can only hold letters and Numbers!");
                 }
-                _customerEmail = value;
+                _email = value;
             }
         }
-        public List<Orders> Orders
-        {
-            get { return _orders; }
-            set { _orders = value; }
+
+
+        public List<Review> Reviews { get; set; }
+        public List<Orders> Orders 
+        {  
+        get {return _orders;}    
+        set {_orders = value;}
         }
-
-        
-
-        //This is a property that uses the field called _name
-        
-
         public override string ToString()
-        {
-             string Customers = 
-             $@"Name: {Name}
-             Address: {Address}
-             Phone: {Phone}
-             Email : {Email}
-             ";
-            
-            return Customers;   
+                {
+                    string Customers = 
+                    $@"Store Name: {Name}
+                    Store Address: {Address}
+                    Store Phone: {Phone}
+                    Store Email : {Email}
+                    List of Orders: {Orders}
+                    ";
+                    
+                    return Customers;   
 
 
 
 
-        }
-      }  
-    
+                }
+
+
+    } 
 }
-
- 

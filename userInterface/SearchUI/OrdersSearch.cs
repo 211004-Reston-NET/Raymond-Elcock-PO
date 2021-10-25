@@ -5,45 +5,41 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowOrders : IMenu
+    public class CurrentOrders : IMenu
     {
         private IOrdersBL _ordersBL;
-        public static string _findOrdersName;
-        public ShowOrders(IOrdersBL p_ordersBL)
+        public CurrentOrders(IOrdersBL p_ordersBL)
         {
-            _ordersBL = p_ordersBL;
+            this._ordersBL = p_ordersBL;
         }
+
         public void Menu()
         {
-            Console.WriteLine("List of Orders");
-            List<Orders> listOfOrders = _ordersBL.GetAllOrders();
+            List<Orders> listOfOrders = _ordersBL.GetOrders(ShowOrders._findOrdersName);
 
+            Console.WriteLine("This is the search result");
             foreach (Orders orders in listOfOrders)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(orders);
-                //Console.WriteLine("====================");
+                Console.WriteLine("====================");
             }
-            Console.WriteLine("[1] - Search for a Order");
-            Console.WriteLine("[x] - Go Back");
+            Console.WriteLine("[0] - Go Back");
         }
 
         public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
+
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.OrdersMenu;
-               // case "1":
-                 //   Console.WriteLine("Enter a name for the Restaurant you want to find");
-                   // _findOrdersName = Console.ReadLine();
-                   // return MenuType.CurrentRestaurant;
+                    return MenuType.ShowOrders;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowOrders;
+                    return MenuType.MainMenu;
             }
         }
     }

@@ -34,25 +34,47 @@ namespace DataAccessLogic
             return p_customers;
         }
 
+        
 
         public List<Customers> GetAllCustomers()
         {
-            //File class will just read everything in the Resturant.json and put it in a string
-           
-            _jsonString = File.ReadAllText(_filepath+"Customers.JSON");
+
+            try
+            {
+                 _jsonString = File.ReadAllText(_filepath+"Customers.JSON");
+            }
+            //This will catch a very specific exception and run the block
+            catch (System.IO.FileNotFoundException)
+            {
+                //Added Dummy data
+                Customers newcustomers = new Customers();
+                List<Customers> listOfCustomers = new List<Customers>();
+                listOfCustomers.Add(newcustomers);
+
+                //Added a file to database folder
+                File.WriteAllText(_filepath+"Customers.JSON", JsonSerializer.Serialize<List<Customers>>(listOfCustomers));
+
+                //Read that file I just added
+                _jsonString = File.ReadAllText(_filepath+"Customers.JSON");
+            }
+            //Generic SystemException will always catch any exception
+            catch(SystemException var)
+            {
+                throw var;
+            }
+
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
             //The parameter of the Deserialize method needs a string variable that holds the json file
             return JsonSerializer.Deserialize<List<Customers>>(_jsonString);
-            
-            }
+        }
 
         public List<Review> GetAllReview()
         {
-            throw new NotImplementedException();
+            _jsonString = File.ReadAllText(_filepath+"Review.JSON");
+
+            return JsonSerializer.Deserialize<List<Review>>(_jsonString);
         }
     }
-}   
-
-        
-    
+} 
+          

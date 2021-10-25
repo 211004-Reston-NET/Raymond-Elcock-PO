@@ -8,6 +8,7 @@ namespace userInterface
     public class ShowCustomers : IMenu
     {
         private ICustomersBL _customersBL;
+        public static string _findCustomersName;
         public ShowCustomers(ICustomersBL p_customersBL)
         {
             _customersBL = p_customersBL;
@@ -26,6 +27,7 @@ namespace userInterface
                 Console.WriteLine(customers);
                 
             }
+            Console.WriteLine("[1] - Search for a Customer");
             Console.WriteLine("[x] - Go Back");
         }
 

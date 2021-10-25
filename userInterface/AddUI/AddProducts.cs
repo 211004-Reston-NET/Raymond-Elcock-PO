@@ -18,16 +18,22 @@ namespace userInterface
 
         public void Menu()
         {
-            Console.WriteLine("Add a new Store");
-            Console.WriteLine("Name - " + _products.Name);
-            Console.WriteLine("Address - "+ _products.Name);
-            
-            Console.WriteLine("[5] - Add Store");
-            Console.WriteLine("[4] - Input value for Store Name");
-            Console.WriteLine("[3] - Input value for  Store Address");
-            Console.WriteLine("[2] - Input value for Phone Number");
-            Console.WriteLine("[1] - Input value for Email");
-            Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("Welcome To Add A Product! ");
+            Console.WriteLine("---------------------------\n");
+            Console.WriteLine($"Product Name: {_products.ProductName}");
+            Console.WriteLine($"Address: {_products.ProductPrice}");
+            Console.WriteLine($"Phone: {_products.ProductDescription}");
+            Console.WriteLine($"Email: {_products.ProductCategory}");
+            //Console.WriteLine($"List Of Orders: {_customers.Orders}");
+            // If i need to add another input console
+            //Console.WriteLine("[] Input Customer ID");
+            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("[1] - Please Enter A  Product Name: ");
+            Console.WriteLine("[2] - Please Enter A Product Price:");
+            Console.WriteLine("[3] - Please Enter A Product Description:");
+            Console.WriteLine("[4] = Please Enter A Product Category:");
+            Console.WriteLine("[5] - Save A Product");
+            Console.WriteLine("[x] - Return to Products Menu");
         }
 
         public MenuType YourChoice()
@@ -36,20 +42,30 @@ namespace userInterface
             switch (userChoice)
             {
                 
-                case "5":
-                    //Add implementation to talk to the repository method to add a Store
-                    _productsBL.AddProducts(_products);
-                    return MenuType.ProductsMenu;
-                    case "4":
-                    Console.WriteLine("Type in the value for the StoreFront Name");
-                    _products.Name = Console.ReadLine();
+                case "1":
+                    Console.WriteLine("Please Enter Product Name:");
+                    _products.ProductName = Console.ReadLine();
+                    return MenuType.AddProducts;
+                case "2":
+                    Console.WriteLine("Please Enter Product Price:");
+                    _products.ProductPrice = Int32.Parse( Console.ReadLine());
                     return MenuType.AddProducts;
                 case "3":
-                    Console.WriteLine("Type in the value for the Store Address");
-                    _products.Name = Console.ReadLine();
+                    Console.WriteLine("Please Enter Product Description: ");
+                    _products.ProductDescription = Console.ReadLine();
                     return MenuType.AddProducts;
+                case "4":
+                    Console.WriteLine("Please Enter Product Category:");
+                    _products.ProductCategory = Console.ReadLine();
+                    return MenuType.AddProducts;
+                case "6":
+                     _productsBL.AddProducts(_products);
+                     Console.WriteLine("Product Has Been Added");
+                     Console.WriteLine("Please Press Enter! ");
+                     Console.ReadLine();
+                    return MenuType.ProductsMenu;
                 
-                case "0":
+                case "x":
                     return MenuType.ProductsMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");

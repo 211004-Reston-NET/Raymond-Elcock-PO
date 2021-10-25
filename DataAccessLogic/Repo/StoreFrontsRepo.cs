@@ -34,21 +34,45 @@ namespace DataAccessLogic
             return p_storeFronts;
         }
 
-        public List<Review> GetAllReview()
-        {
-            throw new NotImplementedException();
-        }
-
         public List<StoreFronts> GetAllStoreFronts()
         {
-            //File class will just read everything in the Resturant.json and put it in a string
-            _jsonString = File.ReadAllText(_filepath+"StoreFronts.JSON");
+
+            try
+            {
+                 _jsonString = File.ReadAllText(_filepath+"StoreFronts.JSON");
+            }
+            //This will catch a very specific exception and run the block
+            catch (System.IO.FileNotFoundException)
+            {
+                //Added Dummy data
+                StoreFronts newstoreFronts = new StoreFronts();
+                List<StoreFronts> listOfStoreFronts = new List<StoreFronts>();
+                listOfStoreFronts.Add(newstoreFronts);
+
+                //Added a file to database folder
+                File.WriteAllText(_filepath+"StoreFronts.JSON", JsonSerializer.Serialize<List<StoreFronts>>(listOfStoreFronts));
+
+                //Read that file I just added
+                _jsonString = File.ReadAllText(_filepath+"StoreFronts.JSON");
+            }
+            //Generic SystemException will always catch any exception
+            catch(SystemException var)
+            {
+                throw var;
+            }
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
             //The parameter of the Deserialize method needs a string variable that holds the json file
             return JsonSerializer.Deserialize<List<StoreFronts>>(_jsonString);
         }
+
+        public List<Review> GetAllReview()
+        {
+            _jsonString = File.ReadAllText(_filepath+"Review.JSON");
+
+            return JsonSerializer.Deserialize<List<Review>>(_jsonString);
+        }
     }
-}
-        
+} 
+           

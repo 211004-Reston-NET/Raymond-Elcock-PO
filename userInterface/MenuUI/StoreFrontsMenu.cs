@@ -12,7 +12,8 @@ namespace userInterface
         */
         public void Menu()
         {
-            Console.WriteLine("------ StoreFronts Menu------");
+            Console.WriteLine("------Welcome To StoreFronts Menu------");
+            Console.WriteLine("------------------------------------\n");
             Console.WriteLine("What would you like to do next? ");
             Console.WriteLine("[1] Add A New StoreFront: ");
             Console.WriteLine("[2] Show All StoreFronts In Company: ");

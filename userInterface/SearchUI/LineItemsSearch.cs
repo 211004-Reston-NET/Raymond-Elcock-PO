@@ -5,43 +5,41 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowProducts : IMenu
+    public class CurrentLineItems : IMenu
     {
-        private IProductsBL p_productsBL;
-        public static string _findProductsName;
-        public ShowProducts(IProductsBL _productsBL)
+        private ILineItemsBL _lineItemsBL;
+        public CurrentLineItems(ILineItemsBL p_lineItemsBL)
         {
-            _productsBL = p_productsBL;
+            this._lineItemsBL = p_lineItemsBL;
         }
-
 
         public void Menu()
         {
-            Console.WriteLine("______List of Products______");
-            List<Products> listOfProducts = p_productsBL.GetAllProducts();
+            List<LineItems> listOfLineItems = _lineItemsBL.GetLineItems(ShowLineItems._findLineItemsName);
 
-            foreach (Products products in listOfProducts)
+            Console.WriteLine("This is the search result");
+            foreach (LineItems lineItems in listOfLineItems)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(products);
-                //Console.WriteLine("====================");
+                Console.WriteLine(lineItems);
+                Console.WriteLine("====================");
             }
-            Console.WriteLine("[1] - Search for a Product");
             Console.WriteLine("[0] - Go Back");
         }
 
         public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
+
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.ProductsMenu;
+                    return MenuType.ShowLineItems;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowProducts;
+                    return MenuType.MainMenu;
             }
         }
     }

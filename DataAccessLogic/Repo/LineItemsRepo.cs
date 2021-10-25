@@ -37,8 +37,30 @@ namespace DataAccessLogic
 
         public List<LineItems> GetAllLineItems()
         {
-            //File class will just read everything in the Resturant.json and put it in a string
-            _jsonString = File.ReadAllText(_filepath+"LineItems.JSON");
+
+            try
+            {
+                 _jsonString = File.ReadAllText(_filepath+"LineItems.JSON");
+            }
+            //This will catch a very specific exception and run the block
+            catch (System.IO.FileNotFoundException)
+            {
+                //Added Dummy data
+                LineItems newlineItems = new LineItems();
+                List<LineItems> listOfLineItems = new List<LineItems>();
+                listOfLineItems.Add(newlineItems);
+
+                //Added a file to database folder
+                File.WriteAllText(_filepath+"LineItems.JSON", JsonSerializer.Serialize<List<LineItems>>(listOfLineItems));
+
+                //Read that file I just added
+                _jsonString = File.ReadAllText(_filepath+"LineItems.JSON");
+            }
+            //Generic SystemException will always catch any exception
+            catch(SystemException var)
+            {
+                throw var;
+            }
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
@@ -48,9 +70,10 @@ namespace DataAccessLogic
 
         public List<Review> GetAllReview()
         {
-            throw new NotImplementedException();
+            _jsonString = File.ReadAllText(_filepath+"Review.JSON");
+
+            return JsonSerializer.Deserialize<List<Review>>(_jsonString);
         }
     }
-}
-        
-    
+} 
+          

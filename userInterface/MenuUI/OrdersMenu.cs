@@ -12,10 +12,11 @@ namespace userInterface
         */
         public void Menu()
         {
-            Console.WriteLine("------ Orders Menu------");
+            Console.WriteLine("------ Welcome to Orders Menu------");
+            Console.WriteLine("------------------------------------\n");
             Console.WriteLine("What would you like to do next? ");
-            Console.WriteLine("[1] Add New Order: ");
-            Console.WriteLine("[2] Show All Orders For Store: ");
+            Console.WriteLine("[1] Add A New Order: ");
+            Console.WriteLine("[2] Show The Order You Placed: ");
             //If an extra console is needed
             //Console.WriteLine("[3] Add A Items To Store Order: ");
             //Console.WriteLine("[3] Add A Items To Store Order: ");

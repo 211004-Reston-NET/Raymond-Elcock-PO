@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataAccessLogic;
 using Models;
 
 namespace BusinessLogic
-{
-    /// <summary>
-    /// Handles all the business logic for the our restuarant application
-    /// They are in charge of further processing/sanitizing/furthur validation of data
-    /// Any Logic
-    /// </summary>
-    public class CustomersBL: ICustomersBL
     {
+        /// <summary>
+        /// Handles all the business logic for the our restuarant application
+        /// They are in charge of further processing/sanitizing/furthur validation of data
+        /// Any Logic
+        /// </summary>
+        public class CustomersBL: ICustomersBL
+        {
         
         private CustomersRepo _customers;
         /// <summary>
@@ -26,14 +27,17 @@ namespace BusinessLogic
             _customers = p_customers;
         }
 
-      public Customers AddCustomers(Customers p_customers)
-        {
-            if (p_customers.Name == null || p_customers.Address == null || p_customers.Email == null)
-            {
-                throw new Exception("You must have a value in all of the properties of customers class");
-            }
+       
 
-            return _customers.AddCustomers(p_customers);
+         public List<Customers> GetCustomers(string p_name)
+        {
+            List<Customers> listOfCustomers = _customers.GetAllCustomers();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfCustomers.Where(customers => customers.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
 
         public List<Customers> GetAllCustomers()
@@ -46,6 +50,11 @@ namespace BusinessLogic
             }
 
             return listOfCustomers;
+        }
+
+        public Customers AddCustomers(Customers p_customers)
+        {
+            throw new NotImplementedException();
         }
     }
 }

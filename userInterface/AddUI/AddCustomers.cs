@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BusinessLogic;
 using Models;
 
@@ -15,11 +16,13 @@ namespace userInterface
         }
          public void Menu()
         {
+            Console.WriteLine("Welcome To Add A Customer! ");
+            Console.WriteLine("---------------------------\n");
             Console.WriteLine($"Name: {_customers.Name}");
             Console.WriteLine($"Address: {_customers.Address}");
             Console.WriteLine($"Phone: {_customers.Phone}");
             Console.WriteLine($"Email: {_customers.Email}");
-            //Console.WriteLine($"Orders: {_customers.Orders}");
+            Console.WriteLine($"List Of Orders: {_customers.Orders}");
             // If i need to add another input console
             //Console.WriteLine("[] Input Customer ID");
             Console.WriteLine("------------------------------------\n");
@@ -27,7 +30,7 @@ namespace userInterface
             Console.WriteLine("[2] - Please Enter A Address:");
             Console.WriteLine("[3] - Please Enter A Phone Number:");
             Console.WriteLine("[4] = Please Enter A Email:");
-           // Console.WriteLine("[5] - Enter Your Order");
+            Console.WriteLine("[5] - Show A List of Orders");
             Console.WriteLine("[6] - Save Customer");
             Console.WriteLine("[x] - Return to Customers Menu");
         } 
@@ -53,10 +56,10 @@ namespace userInterface
                     Console.WriteLine("Please Enter Customers Email:");
                     _customers.Email = Console.ReadLine();
                     return MenuType.AddCustomers;
-                //case "5":
-                   // Console.WriteLine("Please Enter Customers Order:");
-                    //_customers.Orders = Console.ReadLine();
-                    //return MenuType.AddCustomers;
+                case "5":
+                    Console.WriteLine("Get A List Of Customers Order:");
+                    _customers.Orders = Console.ReadLine();
+                    return MenuType.ShowOrders;
                 case "6":
                      _customersBL.AddCustomers(_customers);
                      Console.WriteLine("Customer Has Been Added");

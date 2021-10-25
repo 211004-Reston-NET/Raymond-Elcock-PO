@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataAccessLogic;
 using Models;
 
@@ -10,39 +11,50 @@ namespace BusinessLogic
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
-    public class OrdersBL: IOrdersBL
-    {
-        
-        private OrdersRepo _repo;
-        /// <summary>
-        /// We are defining the dependencies this class needs to operate
-        /// We do it this way because we can easily switch out which implementation details we will be using
-        /// But later on the lecture, we can then switch our RRDL project to point to an actual database in the cloud and we don't have to touch anything else to
-        /// have the implementation
-        /// </summary>
-        /// <param name="p_repo">It will pass in a Respository object</param>
-        public OrdersBL(OrdersRepo p_repo)
+    public class OrdersBL :IOrdersBL
         {
-            _repo = p_repo;
-        }
-
-        public Orders AddOrders(Orders s_front)
-        {
-            return _repo.AddOrders(s_front);
-        }
-
-              public List<Orders> GetAllOrders()
-        {
-            //Maybe my business operation needs to capitalize every name of a restaurant
-            List<Orders> listOfOrders = _repo.GetAllOrders();
-            for (int i = 0; i < listOfOrders.Count; i++)
+            private IOrders _orders;
+            /// <summary>
+            /// We are defining the dependencies this class needs to operate
+            /// We do it this way because we can easily switch out which implementation details we will be using
+            /// But later on the lecture, we can then switch our RRDL project to point to an actual database in the cloud and we don't have to touch anything else to
+            /// have the implementation
+            /// </summary>
+            /// <param name="p_repo">It will pass in a Respository object</param>
+            public OrdersBL(IOrders p_orders)
             {
-                listOfOrders[i].StoresAddress = listOfOrders[i].StoresAddress.ToLower(); 
+                _orders = p_orders;
             }
 
-            return listOfOrders;
-        }
+            public Orders AddOrders(Orders p_orders)
+            {
+                throw new NotImplementedException();
+            }
 
-        
+            public List<Orders> GetAllOrders()
+            {
+                //Maybe my business operation needs to capitalize every name of a restaurant
+                List<Orders> listOfOrders = _orders.GetAllOrders();
+                for (int i = 0; i < listOfOrders.Count; i++)
+                {
+                    listOfOrders[i].StoreAddress = listOfOrders[i].StoreAddress.ToLower(); 
+                }
+
+                return listOfOrders;
+            }
+
+            public List<Orders> GetOrders(string p_name)
+            {
+                List<Orders> listOfOrders = _orders.GetAllOrders();
+                
+                //Select method will give a list of boolean if the condition was true/false
+                //Where method will give the actual element itself based on some condition
+                //ToList method will convert into List that our method currently needs to return.
+                //ToLower will lowercase the string to make it not case sensitive
+                return listOfOrders.Where(orders => orders.StoreAddress.ToLower().Contains(p_name.ToLower())).ToList();
+            }
+
+        }
     }
-}
+
+

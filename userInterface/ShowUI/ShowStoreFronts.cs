@@ -8,6 +8,7 @@ namespace userInterface
     public class ShowStoreFronts : IMenu
     {
         private IStoreFrontsBL p_storeFrontsBL;
+        public static string _findStoreFrontsName;
         public ShowStoreFronts(IStoreFrontsBL _storeFrontsBL)
         {
             _storeFrontsBL = p_storeFrontsBL;

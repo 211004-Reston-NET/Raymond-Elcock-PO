@@ -18,14 +18,19 @@ namespace userInterface
 
         public void Menu()
         {
-            Console.WriteLine("Add a new Line Item");
-            Console.WriteLine("Name - " + _lineItems.StoreItems);
-            Console.WriteLine("Address - "+ _lineItems._StoreItemQuantity);
-           
-            Console.WriteLine("[1] - Add New Item");
-            Console.WriteLine("[2] - Input  Store Line Items");
-            Console.WriteLine("[3] - Input  Line Items Quantity");
-            Console.WriteLine("[0] - Go Back");
+             Console.WriteLine("Welcome To Add A Line Items! ");
+              Console.WriteLine("---------------------------\n");
+            Console.WriteLine($"Name: {_lineItems.StoreItems}");
+            Console.WriteLine($"Address: {_lineItems.StoreQuantity}");
+            //Console.WriteLine($"Orders: {_customers.Orders}");
+            // If i need to add another input console
+            //Console.WriteLine("[] Input Customer ID");
+            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("[1] - Please Enter A  Store Item Name: ");
+            Console.WriteLine("[2] - Please Enter A Quantity For Item:");
+           // Console.WriteLine("[5] - Enter Your Order");
+            Console.WriteLine("[3] - Save Line Items");
+            Console.WriteLine("[x] - Return to Line Items Menu");
         }
 
         public MenuType YourChoice()
@@ -34,31 +39,22 @@ namespace userInterface
             switch (userChoice)
             {
                 
-            case "4":
-                    
-                    try
-                    {
-                         _lineItemsBL.AddLineItems(_lineItems);
-                    }
-                    catch (System.Exception)
-                    {
-                        Console.WriteLine("You must input value to all fields above");
-                        Console.WriteLine("Press Enter to continue");
-                        Console.ReadLine();
-                        return MenuType.AddLineItems;
-                    }
-                    
-                    return MenuType.CustomersMenu;
-                case "1":
-                    Console.WriteLine("Type in Line Items");
+            case "1":
+                    Console.WriteLine("Please Enter Items Name:");
                     _lineItems.StoreItems = Console.ReadLine();
-                    return MenuType.AddLineItems;
+                    return MenuType.AddOrders;
                 case "2":
-                    Console.WriteLine("Type in Line Item Quantity");
-                    _lineItems._StoreItemQuantity = Console.ReadLine();
-                    return MenuType.AddLineItems;
+                    Console.WriteLine("Please Enter Items Quantity:");
+                    _lineItems.StoreQuantity = Int32.Parse( Console.ReadLine());
+                    return MenuType.AddOrders;
+                case "3":
+                    _lineItemsBL.AddLineItems(_lineItems);
+                     Console.WriteLine("Line Item Has Been Added");
+                     Console.WriteLine("Please Press Enter! ");
+                     Console.ReadLine();
+                    return MenuType.LineItemsMenu;  
                 
-                case "0":
+                case "x":
                     return MenuType.LineItemsMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");

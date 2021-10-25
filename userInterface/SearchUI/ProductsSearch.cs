@@ -5,43 +5,41 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowProducts : IMenu
+    public class CurrentProducts : IMenu
     {
-        private IProductsBL p_productsBL;
-        public static string _findProductsName;
-        public ShowProducts(IProductsBL _productsBL)
+        private IProductsBL _productsBL;
+        public CurrentProducts(IProductsBL p_productsBL)
         {
-            _productsBL = p_productsBL;
+            this._productsBL = p_productsBL;
         }
-
 
         public void Menu()
         {
-            Console.WriteLine("______List of Products______");
-            List<Products> listOfProducts = p_productsBL.GetAllProducts();
+            List<Products> listOfProducts = _productsBL.GetProducts(ShowProducts._findProductsName);
 
+            Console.WriteLine("This is the search result");
             foreach (Products products in listOfProducts)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(products);
-                //Console.WriteLine("====================");
+                Console.WriteLine("====================");
             }
-            Console.WriteLine("[1] - Search for a Product");
             Console.WriteLine("[0] - Go Back");
         }
 
         public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
+
             switch (userChoice)
             {
                 case "0":
-                    return MenuType.ProductsMenu;
+                    return MenuType.ShowProducts;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowProducts;
+                    return MenuType.MainMenu;
             }
         }
     }
