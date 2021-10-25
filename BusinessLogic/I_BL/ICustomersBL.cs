@@ -26,11 +26,7 @@ namespace BusinessLogic
             /// </summary>
             /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
             /// <returns>It will return restaurants it found</returns>
-            List<Customers> GetCustomers(string p_name);
-
-
-
-            
+            List<Customers> GetCustomers(string p_name);   
         
         
         }

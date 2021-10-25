@@ -12,7 +12,7 @@ namespace DataAccessLogic
     public class ProductsRepo : IProducts
     {
          //Filepath need to reference from the startup project (RRUI) and hence why we need to go back a folder and cd into RRDL
-        private const string _filepath = "./../DataAccessLogic/Database/";
+        private const string _filepath = "./../DataAccessLogic/.JSON/";
         private string _jsonString;
 
        
@@ -56,11 +56,7 @@ namespace DataAccessLogic
                 //Read that file I just added
                 _jsonString = File.ReadAllText(_filepath+"Products.JSON");
             }
-            //Generic SystemException will always catch any exception
-            catch(SystemException var)
-            {
-                throw var;
-            }
+            
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it

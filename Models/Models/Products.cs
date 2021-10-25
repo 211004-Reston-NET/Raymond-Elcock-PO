@@ -63,7 +63,6 @@ namespace Models
             {
                 string Customers = 
                 $@"Product Name: {ProductName}
-                Product Price: {ProductPrice}
                 Product Description: {ProductDescription}
                 Product Category : {ProductCategory}
                 ";

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BusinessLogic;
 using Models;
 
@@ -28,7 +29,7 @@ namespace userInterface
                 Console.WriteLine("[1] - Enter A Store Name");
                 Console.WriteLine("[2] - Enter A Store Address");
                 Console.WriteLine("[3] - View A List Of Orders");
-                Console.WriteLine("[4] - View A LIst Of Products");
+                Console.WriteLine("[4] - View A List Of Products");
                 Console.WriteLine("[5] - Save A StoreFront");
                 Console.WriteLine("[x] - Go Back");
             }
@@ -49,11 +50,11 @@ namespace userInterface
                         return MenuType.AddStoreFronts;
                     case "3":
                         Console.WriteLine("View A List Of Orders: ");
-                        _storeFronts.Orders = Console.ReadLine();
+                        _storeFronts.Orders = new List<Orders>();
                         return MenuType.ShowOrders;
                     case "4":
                         Console.WriteLine("View A List of Products:");
-                        _storeFronts.Products = Console.ReadLine();
+                        _storeFronts.Products = new List<Products>();
                         return MenuType.ShowProducts;
                     case "5":
                         _storeFrontsBL.AddStoreFronts(_storeFronts);

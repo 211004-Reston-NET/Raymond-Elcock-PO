@@ -42,11 +42,11 @@ namespace userInterface
             case "1":
                     Console.WriteLine("Please Enter Items Name:");
                     _lineItems.StoreItems = Console.ReadLine();
-                    return MenuType.AddOrders;
+                    return MenuType.AddLineItems;
                 case "2":
                     Console.WriteLine("Please Enter Items Quantity:");
                     _lineItems.StoreQuantity = Int32.Parse( Console.ReadLine());
-                    return MenuType.AddOrders;
+                    return MenuType.AddLineItems;
                 case "3":
                     _lineItemsBL.AddLineItems(_lineItems);
                      Console.WriteLine("Line Item Has Been Added");

@@ -16,10 +16,10 @@ namespace Models
                             set 
                             {
                                 //Main idea - this Regex will find me any number inside of my string
-                                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
+                                if (!Regex.IsMatch(value, @"^[A-Za-z0-9'\.\-\s\,]"))
                                 {
                                     //Will give the user an exception whenever you try to set the city field with a number
-                                    throw new Exception("City can only hold letters!");
+                                    throw new Exception("City can only hold letters and numbers!");
                                 }
                                 _storeAddress = value;
                             }

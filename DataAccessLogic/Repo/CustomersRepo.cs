@@ -57,11 +57,7 @@ namespace DataAccessLogic
                 //Read that file I just added
                 _jsonString = File.ReadAllText(_filepath+"Customers.JSON");
             }
-            //Generic SystemException will always catch any exception
-            catch(SystemException var)
-            {
-                throw var;
-            }
+            
 
             //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
             //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it

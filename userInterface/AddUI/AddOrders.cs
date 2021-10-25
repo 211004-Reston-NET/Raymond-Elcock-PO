@@ -20,8 +20,8 @@ namespace userInterface
             {
                 Console.WriteLine("Welcome To Add A Order! ");
                 Console.WriteLine("---------------------------\n");
-                Console.WriteLine($"Name: {_orders.StoreAddress}");
-                Console.WriteLine($"Address: {_orders.TotalPrice}");
+                Console.WriteLine($"Store Address: {_orders.StoreAddress}");
+                Console.WriteLine($"Total Price: {_orders.TotalPrice}");
                 Console.WriteLine($"List Of Orders: {_orders.LineItems}");
                 // If i need to add another input console
                 //Console.WriteLine("[] Input Customer ID");
@@ -48,7 +48,7 @@ namespace userInterface
                     
                     case "2":
                         Console.WriteLine("Enter A Total Price: ");
-                        _orders.TotalPrice = Int32.Parse( Console.ReadLine());
+                        _orders.TotalPrice = Decimal.Parse( Console.ReadLine());
                         return MenuType.AddOrders;
                     case "3":
                         Console.WriteLine("Enter A Order To Add: ");

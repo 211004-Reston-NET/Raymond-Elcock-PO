@@ -27,8 +27,6 @@ namespace BusinessLogic
             _customers = p_customers;
         }
 
-       
-
          public List<Customers> GetCustomers(string p_name)
         {
             List<Customers> listOfCustomers = _customers.GetAllCustomers();

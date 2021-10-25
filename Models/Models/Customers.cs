@@ -7,14 +7,7 @@ namespace Models
     public class Customers
     {
 
-        public Customers()
-        {
-            this.Name = "Name";
-            this.Address = "Address";
-            this.Phone = "Phone";
-            this.Email = "Email";
-            
-        }
+       
         //This is a field
         private string _name;
         private string _address;
@@ -23,7 +16,7 @@ namespace Models
         private List<Orders> _orders = new List<Orders>();
         
 
-        //This is a property that uses the field called _city
+        //This is a property that uses the field called _name
         public string Name
         {
             get { return _name; }
@@ -59,10 +52,10 @@ namespace Models
             set 
             {
                 //Main idea - this Regex will find me any number inside of my string
-                if (!Regex.IsMatch(value, @"^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"))
+                if (!Regex.IsMatch(value, @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"))
                 {
                     //Will give the user an exception whenever you try to set the city field with a number
-                    throw new Exception("Phone Numbers can only hold Numbers!");
+                    throw new Exception("Address can only hold letters and Numbers!");
                 }
                 _phone = value;
             }
@@ -89,12 +82,12 @@ namespace Models
         get {return _orders;}    
         set {_orders = value;}
         }
+        
         public override string ToString()
                 {
                     string Customers = 
                     $@"Store Name: {Name}
                     Store Address: {Address}
-                    Store Phone: {Phone}
                     Store Email : {Email}
                     List of Orders: {Orders}
                     ";

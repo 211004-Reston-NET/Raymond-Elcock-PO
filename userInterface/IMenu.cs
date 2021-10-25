@@ -11,8 +11,7 @@ namespace userInterface
 
         MainMenu,
         ExitMenu,
-        ErrorMenu,
-
+       
         // Customers
         CustomersMenu,
         AddCustomers,

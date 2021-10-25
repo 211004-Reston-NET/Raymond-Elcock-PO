@@ -5,10 +5,10 @@ using Models;
 
 namespace userInterface
 {
-    public class CurrentRestaurant : IMenu
+    public class CurrentCustomers : IMenu
     {
         private ICustomersBL _customersBL;
-        public CurrentRestaurant(ICustomersBL p_customersBL)
+        public CurrentCustomers(ICustomersBL p_customersBL)
         {
             this._customersBL = p_customersBL;
         }

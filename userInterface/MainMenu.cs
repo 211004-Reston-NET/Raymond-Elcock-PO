@@ -18,6 +18,7 @@ namespace userInterface
             Console.WriteLine("[2] - Go to Customers Menu: ");
             Console.WriteLine("[3] - Go to Orders Menu: ");
             Console.WriteLine("[4] - Go to Products Menu: ");
+            Console.WriteLine("[5] - Go to Line Items Menu: ");
             Console.WriteLine("[x] - Exit: ");
             Console.WriteLine("---------------------------------");
         }
@@ -28,13 +29,15 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.StoreFrontsMenu;
+                    return MenuType.AddStoreFronts;
                 case "2":
-                    return MenuType.CustomersMenu;
+                    return MenuType.AddCustomers;
                 case "3":
-                    return MenuType.OrdersMenu;
+                    return MenuType.AddOrders;
                 case "4":
-                    return MenuType.ProductsMenu;      
+                    return MenuType.AddProducts;   
+                case "5":
+                    return MenuType.AddLineItems;        
                 case "x":
                     return MenuType.ExitMenu;
                 default:

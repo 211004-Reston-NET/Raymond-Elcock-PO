@@ -29,9 +29,10 @@ namespace userInterface
             Console.WriteLine("[1] - Please Enter A  Name: ");
             Console.WriteLine("[2] - Please Enter A Address:");
             Console.WriteLine("[3] - Please Enter A Phone Number:");
-            Console.WriteLine("[4] = Please Enter A Email:");
+            Console.WriteLine("[4] - Please Enter A Email:");
             Console.WriteLine("[5] - Show A List of Orders");
-            Console.WriteLine("[6] - Save Customer");
+            //Console.WriteLine("[6] - Search For A Customer");
+            Console.WriteLine("[7] - Save Customer");
             Console.WriteLine("[x] - Return to Customers Menu");
         } 
 
@@ -58,9 +59,14 @@ namespace userInterface
                     return MenuType.AddCustomers;
                 case "5":
                     Console.WriteLine("Get A List Of Customers Order:");
-                    _customers.Orders = Console.ReadLine();
+                    _customers.Orders = new List<Orders>();
                     return MenuType.ShowOrders;
-                case "6":
+                //case "6":
+                  //  Console.WriteLine("Search For A Customer:");
+                    //_customers.CustomersSearch = Console.ReadLine();
+                    //return MenuType.CustomersSearch;
+
+                case "7":
                      _customersBL.AddCustomers(_customers);
                      Console.WriteLine("Customer Has Been Added");
                      Console.WriteLine("Please Press Enter! ");

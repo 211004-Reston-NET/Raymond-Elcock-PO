@@ -21,9 +21,9 @@ namespace userInterface
             Console.WriteLine("Welcome To Add A Product! ");
             Console.WriteLine("---------------------------\n");
             Console.WriteLine($"Product Name: {_products.ProductName}");
-            Console.WriteLine($"Address: {_products.ProductPrice}");
-            Console.WriteLine($"Phone: {_products.ProductDescription}");
-            Console.WriteLine($"Email: {_products.ProductCategory}");
+            Console.WriteLine($"Product Price: {_products.ProductPrice}");
+            Console.WriteLine($"Product Description: {_products.ProductDescription}");
+            Console.WriteLine($"Product Category: {_products.ProductCategory}");
             //Console.WriteLine($"List Of Orders: {_customers.Orders}");
             // If i need to add another input console
             //Console.WriteLine("[] Input Customer ID");
@@ -48,7 +48,7 @@ namespace userInterface
                     return MenuType.AddProducts;
                 case "2":
                     Console.WriteLine("Please Enter Product Price:");
-                    _products.ProductPrice = Int32.Parse( Console.ReadLine());
+                    _products.ProductPrice = Decimal.Parse( Console.ReadLine());
                     return MenuType.AddProducts;
                 case "3":
                     Console.WriteLine("Please Enter Product Description: ");
@@ -58,7 +58,7 @@ namespace userInterface
                     Console.WriteLine("Please Enter Product Category:");
                     _products.ProductCategory = Console.ReadLine();
                     return MenuType.AddProducts;
-                case "6":
+                case "5":
                      _productsBL.AddProducts(_products);
                      Console.WriteLine("Product Has Been Added");
                      Console.WriteLine("Please Press Enter! ");

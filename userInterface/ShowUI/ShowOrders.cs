@@ -15,7 +15,8 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("List of Orders");
+            Console.WriteLine("______List of Orders______");
+
             List<Orders> listOfOrders = _ordersBL.GetAllOrders();
 
             foreach (Orders orders in listOfOrders)
@@ -43,7 +44,7 @@ namespace userInterface
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowOrders;
+                    return MenuType.MainMenu;
             }
         }
     }

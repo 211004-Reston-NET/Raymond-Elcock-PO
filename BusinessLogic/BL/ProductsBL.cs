@@ -26,12 +26,12 @@ namespace BusinessLogic
                 _products = p_products;
             }
 
-            public Products AddProducts(Products s_products)
-            {
-                throw new NotImplementedException();
-            }
+        public Products AddProducts(Products s_products)
+        {
+            throw new NotImplementedException();
+        }
 
-            public List<Products> GetAllProducts()
+        public List<Products> GetAllProducts()
             {
                 //Maybe my business operation needs to capitalize every name of a restaurant
                 List<Products> listOfProducts = _products.GetAllProducts();
