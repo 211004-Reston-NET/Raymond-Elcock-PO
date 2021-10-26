@@ -7,26 +7,24 @@ namespace userInterface
 {
     public class ShowProducts : IMenu
     {
-        private IProductsBL p_productsBL;
+        private IProductsBL _productsBL;
         public static string _findProductsName;
-        public ShowProducts(IProductsBL _productsBL)
+        public ShowProducts(IProductsBL p_productsBL)
         {
             _productsBL = p_productsBL;
         }
-
-
         public void Menu()
         {
-            Console.WriteLine("______List of Products______");
-            List<Products> listOfProducts = p_productsBL.GetAllProducts();
+            Console.WriteLine("List of Products");
+            List<Products> listOfProducts = _productsBL.GetAllProducts();
 
             foreach (Products products in listOfProducts)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(products);
-                //Console.WriteLine("====================");
+                Console.WriteLine("====================");
             }
-            Console.WriteLine("[1] - Search for a Product");
+            Console.WriteLine("[x] - Search for a Product");
             Console.WriteLine("[0] - Go Back");
         }
 
@@ -35,8 +33,12 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
+                case "x":
                     return MenuType.ProductsMenu;
+                case "1":
+                    Console.WriteLine("Enter a name for the Product you want to find");
+                    _findProductsName = Console.ReadLine();
+                    return MenuType.CurrentProducts;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

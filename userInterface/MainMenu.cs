@@ -39,7 +39,7 @@ namespace userInterface
                 case "5":
                     return MenuType.AddLineItems;        
                 case "x":
-                    return MenuType.ExitMenu;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

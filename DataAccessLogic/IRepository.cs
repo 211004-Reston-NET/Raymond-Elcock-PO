@@ -4,7 +4,8 @@ using Models;
 
 namespace DataAccessLogic
     {
-            public interface IOrders
+            
+                public interface IOrders
             {
                 /// <summary>
                 /// It will add a restaurant in our database

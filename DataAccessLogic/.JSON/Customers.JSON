@@ -4,6 +4,7 @@
     "Address": "123 ray way ",
     "Phone": "123-456-6789",
     "Email": "relcock@hotmail.com",
+    "Reviews": null,
     "Orders": null
   },
   {
@@ -11,6 +12,15 @@
     "Address": "123 ray way",
     "Phone": "123-123-1234",
     "Email": "rewrwoi@fjkd.com",
+    "Reviews": null,
+    "Orders": []
+  },
+  {
+    "Name": "ray",
+    "Address": "456 wedse way",
+    "Phone": "234-567-4567",
+    "Email": "elcock@ray.com",
+    "Reviews": null,
     "Orders": []
   }
 ]

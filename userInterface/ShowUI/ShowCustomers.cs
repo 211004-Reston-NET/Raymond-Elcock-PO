@@ -13,19 +13,16 @@ namespace userInterface
         {
             _customersBL = p_customersBL;
         }
-
-
         public void Menu()
         {
-            Console.WriteLine("______List of Customers______");
+            Console.WriteLine("List of Customers");
             List<Customers> listOfCustomers = _customersBL.GetAllCustomers();
 
             foreach (Customers customers in listOfCustomers)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine("Customer's Information");
                 Console.WriteLine(customers);
-                
+                Console.WriteLine("====================");
             }
             Console.WriteLine("[1] - Search for a Customer");
             Console.WriteLine("[x] - Go Back");
@@ -38,6 +35,10 @@ namespace userInterface
             {
                 case "x":
                     return MenuType.CustomersMenu;
+                case "1":
+                    Console.WriteLine("Enter a name for the Restaurant you want to find");
+                    _findCustomersName = Console.ReadLine();
+                    return MenuType.CurrentCustomers;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

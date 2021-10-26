@@ -5,28 +5,27 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowStoreFronts : IMenu
+     public class ShowStoreFronts : IMenu
     {
-        private IStoreFrontsBL p_storeFrontsBL;
+        private IStoreFrontsBL _storeFrontsBL;
         public static string _findStoreFrontsName;
-        public ShowStoreFronts(IStoreFrontsBL _storeFrontsBL)
+        public ShowStoreFronts(IStoreFrontsBL p_storeFrontsBL)
         {
             _storeFrontsBL = p_storeFrontsBL;
         }
-
-
         public void Menu()
         {
-            Console.WriteLine("List of Products");
-            List<StoreFronts> listOfStoreFronts = p_storeFrontsBL.GetAllStoreFronts();
+            Console.WriteLine("List of StoreFronts");
+            List<StoreFronts> listOfStoreFronts = _storeFrontsBL.GetAllStoreFronts();
 
             foreach (StoreFronts storeFronts in listOfStoreFronts)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine("StoreFronts");
+                Console.WriteLine(storeFronts);
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("[1] - Search for a StoreFront");
+            Console.WriteLine("[x] - Go Back");
         }
 
         public MenuType YourChoice()
@@ -34,8 +33,12 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
+                case "x":
                     return MenuType.StoreFrontsMenu;
+                case "1":
+                    Console.WriteLine("Enter a name for the StoreFront you want to find");
+                    _findStoreFrontsName = Console.ReadLine();
+                    return MenuType.CurrentStoreFronts;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

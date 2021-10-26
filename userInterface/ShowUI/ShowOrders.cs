@@ -5,7 +5,7 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowOrders : IMenu
+     public class ShowOrders : IMenu
     {
         private IOrdersBL _ordersBL;
         public static string _findOrdersName;
@@ -15,15 +15,14 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("______List of Orders______");
-
+            Console.WriteLine("List of Orders");
             List<Orders> listOfOrders = _ordersBL.GetAllOrders();
 
             foreach (Orders orders in listOfOrders)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(orders);
-                //Console.WriteLine("====================");
+                Console.WriteLine("====================");
             }
             Console.WriteLine("[1] - Search for a Order");
             Console.WriteLine("[x] - Go Back");
@@ -34,17 +33,17 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
+                case "x":
                     return MenuType.OrdersMenu;
-               // case "1":
-                 //   Console.WriteLine("Enter a name for the Restaurant you want to find");
-                   // _findOrdersName = Console.ReadLine();
-                   // return MenuType.CurrentRestaurant;
+                case "1":
+                    Console.WriteLine("Enter a name for the Order you want to find");
+                    _findOrdersName = Console.ReadLine();
+                    return MenuType.CurrentOrders;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.MainMenu;
+                    return MenuType.ShowOrders;
             }
         }
     }

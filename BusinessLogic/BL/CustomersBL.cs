@@ -5,16 +5,15 @@ using DataAccessLogic;
 using Models;
 
 namespace BusinessLogic
+{
+    /// <summary>
+    /// Handles all the business logic for the our restuarant application
+    /// They are in charge of further processing/sanitizing/furthur validation of data
+    /// Any Logic
+    /// </summary>
+    public class CustomersBL :ICustomersBL
     {
-        /// <summary>
-        /// Handles all the business logic for the our restuarant application
-        /// They are in charge of further processing/sanitizing/furthur validation of data
-        /// Any Logic
-        /// </summary>
-        public class CustomersBL: ICustomersBL
-        {
-        
-        private CustomersRepo _customers;
+        private ICustomers _customers;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -22,25 +21,24 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public CustomersBL(CustomersRepo p_customers)
+        public CustomersBL(ICustomers p_customers)
         {
             _customers = p_customers;
         }
 
-         public List<Customers> GetCustomers(string p_name)
+        public Customers AddCustomers(Customers p_customers)
         {
-            List<Customers> listOfCustomers = _customers.GetAllCustomers();
-            
-            //Select method will give a list of boolean if the condition was true/false
-            //Where method will give the actual element itself based on some condition
-            //ToList method will convert into List that our method currently needs to return.
-            //ToLower will lowercase the string to make it not case sensitive
-            return listOfCustomers.Where(customers => customers.Name.ToLower().Contains(p_name.ToLower())).ToList();
+            if (p_customers.Name == null || p_customers.Address == null || p_customers.Email == null)
+            {
+                throw new Exception("You must have a value in all of the properties of the restaurant class");
+            }
+
+            return _customers.AddCustomers(p_customers);
         }
 
         public List<Customers> GetAllCustomers()
         {
-            //Maybe my business operation needs to capitalize every name of a customer
+            //Maybe my business operation needs to capitalize every name of a restaurant
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
             for (int i = 0; i < listOfCustomers.Count; i++)
             {
@@ -50,9 +48,15 @@ namespace BusinessLogic
             return listOfCustomers;
         }
 
-        public Customers AddCustomers(Customers p_customers)
+        public List<Customers> GetCustomers(string p_name)
         {
-            throw new NotImplementedException();
+            List<Customers> listOfCustomers = _customers.GetAllCustomers();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfCustomers.Where(customers => customers.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
     }
 }

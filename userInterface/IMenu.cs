@@ -16,25 +16,30 @@ namespace userInterface
         CustomersMenu,
         AddCustomers,
         ShowCustomers,
+        CurrentCustomers,
         //LineItems
         LineItemsMenu,
         AddLineItems,
         ShowLineItems,
+        CurrentLineItems,
          // Orders
         OrdersMenu,
         AddOrders,
         ShowOrders,
+        CurrentOrders,
          // Products
         ProductsMenu,
         AddProducts,
         ShowProducts,
+        CurrentProducts,
         ProductsSearch,
 
          // StoreFronts
         StoreFrontsMenu,
         AddStoreFronts,
         ShowStoreFronts,
-        
+        CurrentStoreFronts,
+        Exit,
     }
 
     //The purpose of the interface is to ensure that every menu that we will create will have

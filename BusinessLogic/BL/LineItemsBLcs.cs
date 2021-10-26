@@ -27,12 +27,12 @@ namespace BusinessLogic
                 _lineItems = p_lineItems;
             }
 
-            public LineItems AddLineItems(LineItems s_items)
-            {
-                throw new NotImplementedException();
-            }
+        public LineItems AddLineItems(LineItems s_items)
+        {
+            throw new NotImplementedException();
+        }
 
-            public List<LineItems> GetAllLineItems()
+        public List<LineItems> GetAllLineItems()
             {
                 //Maybe my business operation needs to capitalize every name of a restaurant
                 List<LineItems> listOfLineItems = _lineItems.GetAllLineItems();
@@ -43,6 +43,7 @@ namespace BusinessLogic
 
                 return listOfLineItems;
             }
+           
 
             public List<LineItems> GetLineItems(string p_name)
             {

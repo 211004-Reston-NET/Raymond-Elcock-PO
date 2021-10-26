@@ -5,29 +5,27 @@ using Models;
 
 namespace userInterface
 {
-    public class ShowLineItems : IMenu
+     public class ShowLineItems : IMenu
     {
-        private ILineItemsBL p_lineItemsBL;
+        private ILineItemsBL _lineItemsBL;
         public static string _findLineItemsName;
-        public ShowLineItems(ILineItemsBL _lineItemsBL)
+        public ShowLineItems(ILineItemsBL p_lineItemsBL)
         {
             _lineItemsBL = p_lineItemsBL;
         }
-
-
         public void Menu()
         {
-            Console.WriteLine("______List of Line Items______");
-            List<LineItems> listOfLineItems = p_lineItemsBL.GetAllLineItems();
+            Console.WriteLine("List of Line Items");
+            List<LineItems> listOfLineItems = _lineItemsBL.GetAllLineItems();
 
             foreach (LineItems lineItems in listOfLineItems)
             {
                 Console.WriteLine("====================");
                 Console.WriteLine(lineItems);
-                //Console.WriteLine("====================");
+                Console.WriteLine("====================");
             }
             Console.WriteLine("[1] - Search for a Line Item");
-            Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("[x] - Go Back");
         }
 
         public MenuType YourChoice()
@@ -35,8 +33,12 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
-                    return MenuType.CustomersMenu;
+                case "x":
+                    return MenuType.LineItemsMenu;
+                case "1":
+                    Console.WriteLine("Enter a name for the Line Item you want to find");
+                    _findLineItemsName = Console.ReadLine();
+                    return MenuType.CurrentLineItems;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
