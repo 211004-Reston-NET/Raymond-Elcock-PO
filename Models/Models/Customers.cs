@@ -9,6 +9,7 @@ namespace Models
 
        
         //This is a field
+        private int _customerId; 
         private string _name;
         private string _address;
         private string _phone;
@@ -17,6 +18,11 @@ namespace Models
         
 
         //This is a property that uses the field called _name
+        public int CustomerId 
+                {
+                        get { return _customerId; }
+                        set { _customerId = value; }
+                }
         public string Name
         {
             get { return _name; }
@@ -86,8 +92,10 @@ namespace Models
         public override string ToString()
                 {
                     string Customers = 
-                    $@"Store Name: {Name}
+                    $@"CustomerId{CustomerId}
+                    Store Name: {Name}
                     Store Address: {Address}
+                    Store Phone: {Phone}
                     Store Email : {Email}
                     List of Orders: {Orders}
                     ";

@@ -9,7 +9,7 @@ using Models;
 
 namespace DataAccessLogic
 {
-    public class CustomersRepo : ICustomers
+    public class CustomersRepo : IRepository
     {
          //Filepath need to reference from the startup project (RRUI) and hence why we need to go back a folder and cd into RRDL
         private const string _filepath = "./../DataAccessLogic/.JSON/";

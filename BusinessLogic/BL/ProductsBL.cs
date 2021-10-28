@@ -13,7 +13,7 @@ namespace BusinessLogic
         /// </summary>
         public class ProductsBL : IProductsBL
         {
-            private ProductsRepo _products;
+            private IProducts _products;
             /// <summary>
             /// We are defining the dependencies this class needs to operate
             /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,15 +21,21 @@ namespace BusinessLogic
             /// have the implementation
             /// </summary>
             /// <param name="p_repo">It will pass in a Respository object</param>
-            public ProductsBL(ProductsRepo p_products)
+            public ProductsBL(IProducts p_products)
             {
                 _products = p_products;
             }
 
-        public Products AddProducts(Products s_products)
+            public Products AddProducts(Products p_products)
         {
-            throw new NotImplementedException();
+            if (p_products.ProductName == null || p_products.ProductDescription == null || p_products.ProductCategory == null)
+            {
+                throw new Exception("You must have a value in all of the properties of the restaurant class");
+            }
+
+            return _products.AddProducts(p_products);
         }
+        
 
         public List<Products> GetAllProducts()
             {
@@ -43,7 +49,12 @@ namespace BusinessLogic
                 return listOfProducts;
             }
 
-            public List<Products> GetProducts(string p_name)
+        public List<Review> GetAllReview(Products p_products)
+        {
+           return _products.GetAllReview(p_products);
+        }
+
+        public List<Products> GetProducts(string p_name)
             {
                 List<Products> listOfProducts = _products.GetAllProducts();
                 
@@ -53,5 +64,17 @@ namespace BusinessLogic
                 //ToLower will lowercase the string to make it not case sensitive
                 return listOfProducts.Where(rest => rest.ProductName.ToLower().Contains(p_name.ToLower())).ToList();
             }
+
+        public Products GetProductsById(int p_Id)
+        {
+            Products productsFound = _products.GetProductsById(p_Id);
+
+            if (productsFound == null)
+            {
+                throw new Exception("products was not found!");
+            }
+
+            return productsFound;
         }
+    }
     }

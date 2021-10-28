@@ -20,7 +20,7 @@ namespace BusinessLogic
         /// But later on the lecture, we can then switch our RRDL project to point to an actual database in the cloud and we don't have to touch anything else to
         /// have the implementation
         /// </summary>
-        /// <param name="p_repo">It will pass in a Respository object</param>
+        /// <param name="p_customers">It will pass in a Respository object</param>
         public CustomersBL(ICustomers p_customers)
         {
             _customers = p_customers;
@@ -47,6 +47,11 @@ namespace BusinessLogic
 
             return listOfCustomers;
         }
+       
+           public List<Review> GetAllReview(Customers p_customers)
+        {
+            return _customers.GetAllReview(p_customers);
+        }
 
         public List<Customers> GetCustomers(string p_name)
         {
@@ -58,5 +63,20 @@ namespace BusinessLogic
             //ToLower will lowercase the string to make it not case sensitive
             return listOfCustomers.Where(customers => customers.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        public Customers GetCustomersById(int p_Id)
+        {
+            Customers customersFound = _customers.GetCustomersById(p_Id);
+
+            if (customersFound == null)
+            {
+                throw new Exception("Restaurant was not found!");
+            }
+
+            return customersFound;
+        }
+
+        
     }
 }
+       

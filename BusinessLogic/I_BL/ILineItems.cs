@@ -28,6 +28,18 @@ namespace BusinessLogic
             /// <returns>It will return restaurants it found</returns>
             List<LineItems> GetLineItems(string p_name);
             
+            /// <summary>
+        /// Will return a restaurant based on the Id
+        /// </summary>
+        /// <param name="p_Id">This is the Id it will check</param>
+        /// <returns>Returns restaurant it found</returns>
+        LineItems GetLineItemsById(int p_Id);
+
+        /// <summary>
+        /// This will give all the reviews from a restaurant
+        /// </summary>
+        /// <returns>It will return a list of reviews</returns>
+        List<Review> GetAllReview(LineItems p_lineItems);
         
         
         }

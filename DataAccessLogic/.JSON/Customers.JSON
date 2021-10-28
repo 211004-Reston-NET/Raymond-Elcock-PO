@@ -22,5 +22,13 @@
     "Email": "elcock@ray.com",
     "Reviews": null,
     "Orders": []
+  },
+  {
+    "Name": "raymond",
+    "Address": "456 rover way ",
+    "Phone": "345-567-7890",
+    "Email": "lokokfe@pop.com",
+    "Reviews": null,
+    "Orders": []
   }
 ]

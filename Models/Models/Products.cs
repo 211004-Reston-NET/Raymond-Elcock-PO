@@ -5,12 +5,18 @@ namespace Models
 {
     public class Products
         {
+            private int _productId;
             private string _productName;
             private decimal _productPrice;
             private string _productDescription;
             private string _productCategory;
             
             //This is a property that uses the field called _name
+            public int ProductId 
+                {
+                        get { return _productId; }
+                        set { _productId = value; }
+                }
             public string ProductName
             {
                 get { return _productName; }

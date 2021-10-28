@@ -14,7 +14,7 @@ namespace BusinessLogic
         public class LineItemsBL: ILineItemsBL
         {
             
-            private LineItemsRepo _lineItems;
+            private ILineItems _lineItems;
             /// <summary>
             /// We are defining the dependencies this class needs to operate
             /// We do it this way because we can easily switch out which implementation details we will be using
@@ -22,14 +22,19 @@ namespace BusinessLogic
             /// have the implementation
             /// </summary>
             /// <param name="p_repo">It will pass in a Respository object</param>
-            public LineItemsBL(LineItemsRepo p_lineItems)
+            public LineItemsBL(ILineItems p_lineItems)
             {
                 _lineItems = p_lineItems;
             }
 
-        public LineItems AddLineItems(LineItems s_items)
+        public LineItems AddLineItems(LineItems p_lineItems)
         {
-            throw new NotImplementedException();
+            if (p_lineItems.StoreItems == null )
+            {
+                throw new Exception("You must have a value in all of the properties of the restaurant class");
+            }
+
+            return _lineItems.AddLineItems(p_lineItems);
         }
 
         public List<LineItems> GetAllLineItems()
@@ -43,9 +48,13 @@ namespace BusinessLogic
 
                 return listOfLineItems;
             }
-           
 
-            public List<LineItems> GetLineItems(string p_name)
+        public List<Review> GetAllReview(LineItems p_lineItems)
+        {
+            return _lineItems.GetAllReview(p_lineItems);
+        }
+
+        public List<LineItems> GetLineItems(string p_name)
             {
                 List<LineItems> listOfLineItems = _lineItems.GetAllLineItems();
                 
@@ -56,6 +65,16 @@ namespace BusinessLogic
                 return listOfLineItems.Where(lineItems => lineItems.StoreItems.ToLower().Contains(p_name.ToLower())).ToList();
             }
 
-        
+        public LineItems GetLineItemsById(int p_Id)
+        {
+           LineItems lineItemsFound = _lineItems.GetRestaurantById(p_Id);
+
+            if (lineItemsFound == null)
+            {
+                throw new Exception("Restaurant was not found!");
+            }
+
+            return lineItemsFound;
         }
+    }
     }

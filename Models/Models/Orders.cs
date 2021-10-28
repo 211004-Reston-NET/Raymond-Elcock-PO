@@ -7,9 +7,15 @@ namespace Models
     {
         public class Orders
                     {
+                    private int _storeOrderId;
                     private string _storeAddress;
                     private decimal _totalPrice;
                     private string _lineItems;
+                    public int StoreOrderId
+                {
+                        get { return _storeOrderId; }
+                        set { _storeOrderId = value; }
+                }
                     public string StoreAddress
                         {
                             get { return _storeAddress; }

@@ -6,6 +6,7 @@ namespace Models
 {
         public class StoreFronts
                 {
+                private int _storeFrontId;
                 private string _storeName;
                 private string _storeAddress;
                 private List<Orders> _orders = new List<Orders>();
@@ -13,6 +14,11 @@ namespace Models
                 
                     
                 //This is a property that uses the field called _name
+                public int StoreFrontId
+                {
+                        get { return _storeFrontId; }
+                        set { _storeFrontId = value; }
+                }
                 public string StoreName
                 {
                 get { return _storeName; }

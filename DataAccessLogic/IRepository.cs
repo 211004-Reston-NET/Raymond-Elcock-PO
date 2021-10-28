@@ -2,9 +2,15 @@
 using Models;
 
 
+
+
 namespace DataAccessLogic
     {
-            
+              public interface IRepository
+              {
+                  
+              } 
+               
                 public interface IOrders
             {
                 /// <summary>
@@ -21,10 +27,9 @@ namespace DataAccessLogic
                 /// <returns>It will return a list of orderss</returns>
                 
                 List<Orders> GetAllOrders();
-                List<Review> GetAllReview();
-            
-            
-            }
+                List<Review> GetAllReview(Orders p_orders);
+        Orders GetRestaurantById(int p_Id);
+    }
             public interface ICustomers
             {
                 /// <summary>
@@ -40,7 +45,8 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<Customers> GetAllCustomers();
-                List<Review> GetAllReview();
+                List<Review> GetAllReview(Customers p_customers);
+                 Customers GetCustomersById(int p_id);
                 
             }
             public interface IProducts
@@ -58,7 +64,8 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<Products> GetAllProducts();
-                List<Review> GetAllReview();
+                List<Review> GetAllReview(Products p_products);
+                 Products GetProductsById(int p_id);
             
             }
             public interface ILineItems
@@ -76,9 +83,10 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<LineItems> GetAllLineItems();
-                List<Review> GetAllReview();
-            
-            }
+                List<Review> GetAllReview(LineItems p_lineItems);
+                 LineItems GetLineItemsById(int p_id);
+        LineItems GetRestaurantById(int p_Id);
+    }
             public interface IStoreFronts
             {
                 /// <summary>
@@ -94,7 +102,8 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<StoreFronts> GetAllStoreFronts();
-            List<Review> GetAllReview();
+            List<Review> GetAllReview(StoreFronts p_storeFronts);
+             StoreFronts GetStoreFrontsById(int p_id);
         }
 
     }

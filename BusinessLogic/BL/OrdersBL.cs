@@ -27,9 +27,14 @@ namespace BusinessLogic
             }
 
             public Orders AddOrders(Orders p_orders)
+        {
+            if (p_orders.StoreAddress== null )
             {
-                throw new NotImplementedException();
+                throw new Exception("You must have a value in all of the properties of the restaurant class");
             }
+
+            return _orders.AddOrders(p_orders);
+        }
 
             public List<Orders> GetAllOrders()
             {
@@ -43,7 +48,12 @@ namespace BusinessLogic
                 return listOfOrders;
             }
 
-            public List<Orders> GetOrders(string p_name)
+        public List<Review> GetAllReview(Orders p_orders)
+        {
+            return _orders.GetAllReview(p_orders);
+        }
+
+        public List<Orders> GetOrders(string p_name)
             {
                 List<Orders> listOfOrders = _orders.GetAllOrders();
                 
@@ -54,7 +64,18 @@ namespace BusinessLogic
                 return listOfOrders.Where(orders => orders.StoreAddress.ToLower().Contains(p_name.ToLower())).ToList();
             }
 
+        public Orders GetOrdersById(int p_Id)
+        {
+            Orders ordersFound = _orders.GetRestaurantById(p_Id);
+
+            if (ordersFound == null)
+            {
+                throw new Exception("orders was not found!");
+            }
+
+            return ordersFound;
         }
+    }
     }
 
 

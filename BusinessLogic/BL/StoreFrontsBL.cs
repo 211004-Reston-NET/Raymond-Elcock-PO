@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataAccessLogic;
 using Models;
 
@@ -13,7 +14,7 @@ namespace BusinessLogic
         public class StoreFrontsBL: IStoreFrontsBL
         {
             
-            private StoreFrontsRepo _storeFronts;
+            private IStoreFronts _storeFronts;
             /// <summary>
             /// We are defining the dependencies this class needs to operate
             /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,15 +22,32 @@ namespace BusinessLogic
             /// have the implementation
             /// </summary>
             /// <param name="p_repo">It will pass in a Respository object</param>
-            public StoreFrontsBL(StoreFrontsRepo p_storeFronts)
+            public StoreFrontsBL(IStoreFronts p_storeFronts)
             {
                 _storeFronts = p_storeFronts;
             }
 
             public StoreFronts AddStoreFronts(StoreFronts p_storeFronts)
+        {
+            if (p_storeFronts.StoreName == null || p_storeFronts.StoreAddress == null )
             {
-                return _storeFronts.AddStoreFronts(p_storeFronts);
+                throw new Exception("You must have a value in all of the properties of the restaurant class");
             }
+
+            return _storeFronts.AddStoreFronts(p_storeFronts);
+        }
+
+        public List<StoreFronts> GetStoreFronts(string p_name)
+        {
+            List<StoreFronts> listOfStoreFronts = _storeFronts.GetAllStoreFronts();
+            
+            //Select method will give a list of boolean if the condition was true/false
+            //Where method will give the actual element itself based on some condition
+            //ToList method will convert into List that our method currently needs to return.
+            //ToLower will lowercase the string to make it not case sensitive
+            return listOfStoreFronts.Where(storeFronts => storeFronts.StoreName.ToLower().Contains(p_name.ToLower())).ToList();
+        }
+
 
                 public List<StoreFronts> GetAllStoreFronts()
             {
@@ -43,9 +61,21 @@ namespace BusinessLogic
                 return listOfStoreFronts;
             }
 
-            public List<StoreFronts> GetStoreFronts(string p_name)
+        public StoreFronts GetStoreFrontsById(int p_Id)
+        {
+            StoreFronts storeFrontsFound = _storeFronts.GetStoreFrontsById(p_Id);
+
+            if (storeFrontsFound == null)
             {
-                throw new NotImplementedException();
+                throw new Exception("storeFronts was not found!");
             }
+
+            return storeFrontsFound;
         }
+
+        public List<Review> GetAllReview(StoreFronts p_storeFronts)
+        {
+           return _storeFronts.GetAllReview(p_storeFronts);
+        }
+    }
     }
