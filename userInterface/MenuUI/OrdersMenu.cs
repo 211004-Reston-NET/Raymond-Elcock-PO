@@ -13,7 +13,7 @@ namespace userInterface
         public void Menu()
         {
             Console.WriteLine("------ Welcome to Orders Menu------");
-            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("\n------------------------------------");
             Console.WriteLine("What would you like to do next? ");
             Console.WriteLine("[1] Add A New Order: ");
             Console.WriteLine("[2] Show The Order You Placed: ");
@@ -43,7 +43,7 @@ namespace userInterface
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ExitMenu;
+                    return MenuType.OrdersMenu;
             }
         }
     }

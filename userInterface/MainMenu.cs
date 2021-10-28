@@ -29,17 +29,17 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.AddStoreFronts;
+                    return MenuType.StoreFrontsMenu;
                 case "2":
-                    return MenuType.AddCustomers;
+                    return MenuType.CustomersMenu;
                 case "3":
-                    return MenuType.AddOrders;
+                    return MenuType.OrdersMenu;
                 case "4":
-                    return MenuType.AddProducts;   
+                    return MenuType.ProductsMenu;   
                 case "5":
-                    return MenuType.AddLineItems;        
+                    return MenuType.LineItemsMenu;        
                 case "x":
-                    return MenuType.MainMenu;
+                    return MenuType.Exit;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

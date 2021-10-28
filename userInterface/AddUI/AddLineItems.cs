@@ -18,19 +18,18 @@ namespace userInterface
 
         public void Menu()
         {
-             Console.WriteLine("Welcome To Add A Line Items! ");
-              Console.WriteLine("---------------------------\n");
-            Console.WriteLine($"Name: {_lineItems.StoreItems}");
-            Console.WriteLine($"Address: {_lineItems.StoreQuantity}");
-            //Console.WriteLine($"Orders: {_customers.Orders}");
-            // If i need to add another input console
-            //Console.WriteLine("[] Input Customer ID");
+            Console.WriteLine("Welcome To Add A Line Items! ");
             Console.WriteLine("------------------------------------\n");
-            Console.WriteLine("[1] - Please Enter A  Store Item Name: ");
-            Console.WriteLine("[2] - Please Enter A Quantity For Item:");
-           // Console.WriteLine("[5] - Enter Your Order");
-            Console.WriteLine("[3] - Save Line Items");
-            Console.WriteLine("[x] - Return to Line Items Menu");
+            Console.WriteLine($"Name: {_lineItems.StoreItems}");
+            Console.WriteLine($"Address: {_lineItems.StoreAddress}");
+            Console.WriteLine($"Store Quantity: {_lineItems.StoreQuantity}");
+            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("[1] - Please Enter A Store Item Name: ");
+            Console.WriteLine("[2] - Please Enter A Store Address: ");
+            Console.WriteLine("[3] - Please Enter A Quantity For Item:");
+            Console.WriteLine("[4] - Save Line Items: ");
+            Console.WriteLine("[x] - Return to Line Items Menu: ");
+            Console.WriteLine("---------------------------\n");
         }
 
         public MenuType YourChoice()
@@ -39,15 +38,19 @@ namespace userInterface
             switch (userChoice)
             {
                 
-            case "1":
+                case "1":
                     Console.WriteLine("Please Enter Items Name:");
                     _lineItems.StoreItems = Console.ReadLine();
                     return MenuType.AddLineItems;
                 case "2":
+                    Console.WriteLine("Please Enter Store Address:");
+                    _lineItems.StoreAddress = Console.ReadLine();
+                    return MenuType.AddLineItems;    
+                case "3":
                     Console.WriteLine("Please Enter Items Quantity:");
                     _lineItems.StoreQuantity = Int32.Parse( Console.ReadLine());
                     return MenuType.AddLineItems;
-                case "3":
+                case "4":
                     _lineItemsBL.AddLineItems(_lineItems);
                      Console.WriteLine("Line Item Has Been Added");
                      Console.WriteLine("Please Press Enter! ");

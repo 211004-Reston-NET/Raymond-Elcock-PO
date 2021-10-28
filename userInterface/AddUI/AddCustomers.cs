@@ -22,7 +22,7 @@ namespace userInterface
             Console.WriteLine($"Address: {_customers.Address}");
             Console.WriteLine($"Phone: {_customers.Phone}");
             Console.WriteLine($"Email: {_customers.Email}");
-            Console.WriteLine($"List Of Orders: {_customers.Orders}");
+            //Console.WriteLine($"List Of Orders: {_customers.Orders}");
             // If i need to add another input console
             //Console.WriteLine("[] Input Customer ID");
             Console.WriteLine("------------------------------------\n");
@@ -30,9 +30,8 @@ namespace userInterface
             Console.WriteLine("[2] - Please Enter A Address:");
             Console.WriteLine("[3] - Please Enter A Phone Number:");
             Console.WriteLine("[4] - Please Enter A Email:");
-            Console.WriteLine("[5] - Show A List of Orders");
-            //Console.WriteLine("[6] - Search For A Customer");
-            Console.WriteLine("[7] - Save Customer");
+            Console.WriteLine("[5] - Show A List of Order Items");
+            Console.WriteLine("[6] - Save Customer");
             Console.WriteLine("[x] - Return to Customers Menu");
         } 
 
@@ -58,15 +57,15 @@ namespace userInterface
                     _customers.Email = Console.ReadLine();
                     return MenuType.AddCustomers;
                 case "5":
-                    Console.WriteLine("Get A List Of Customers Order:");
+                    Console.WriteLine("Get A List Of Customers Items:");
                     _customers.Orders = new List<Orders>();
                     return MenuType.ShowOrders;
                 //case "6":
-                  //  Console.WriteLine("Search For A Customer:");
-                    //_customers.CustomersSearch = Console.ReadLine();
-                    //return MenuType.CustomersSearch;
+                   // Console.WriteLine("Search For A Customer:");
+                     //_customers.CurrentCustomers = Console.ReadLine();
+                     //return MenuType.CurrentCustomers;
 
-                case "7":
+                case "6":
                      _customersBL.AddCustomers(_customers);
                      Console.WriteLine("Customer Has Been Added");
                      Console.WriteLine("Please Press Enter! ");

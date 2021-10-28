@@ -14,12 +14,12 @@ namespace userInterface
         {   
             Console.WriteLine("Welcome to the Customers Menu! ");
             Console.WriteLine("------------------------------------\n");
-            Console.WriteLine("------ Customers Menu Choices------\n");
+            Console.WriteLine("----- Customers Menu Choices-----\n");
             Console.WriteLine("[1] - Add A New Customer: ");
-            Console.WriteLine("[2] - Show A List of Customers For Store: ");
-            Console.WriteLine("[3] - Buy a Product:");
-            //Console.WriteLine("Welcome to the Restaurant Menu!");
-            Console.WriteLine("[x] Go back to The Main Menu");
+            Console.WriteLine("[2] - View A List of Customers Orders For Store: ");
+            Console.WriteLine("[3] - Search For A Customer: ");
+            Console.WriteLine("[x] - Go back to The Main Menu");
+            Console.WriteLine("------------------------------------\n");
         }
 
         public MenuType YourChoice()
@@ -27,13 +27,15 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                //This case will add a customer to store app
                 case "1":
                     return MenuType.AddCustomers;
+                //This case will show a list of customers    
                 case "2":
                     return MenuType.ShowCustomers;
-                //If i want to add more cases later
+                //This case will search for a customer
                 case "3":
-                    return MenuType.ProductsMenu;
+                    return MenuType.CurrentCustomers;
                 //case "4":
                   //  return MenuType.ProductsMenu;      
                 case "x":
