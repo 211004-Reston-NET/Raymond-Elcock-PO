@@ -7,6 +7,7 @@ namespace Models
         {
             private int _productId;
             private string _productName;
+            private string _storeAddress;
             private decimal _productPrice;
             private string _productDescription;
             private string _productCategory;
@@ -31,6 +32,12 @@ namespace Models
                     _productName = value;
                 }
             }
+            public string StoreAddress
+            
+                {
+                        get { return _storeAddress; }
+                        set { _storeAddress = value; }
+                }
             public string ProductDescription
             {
                 get { return _productDescription; }
@@ -69,6 +76,7 @@ namespace Models
             {
                 string Customers = 
                 $@"Product Name: {ProductName}
+                Store Address: {StoreAddress}
                 Product Description: {ProductDescription}
                 Product Category : {ProductCategory}
                 ";

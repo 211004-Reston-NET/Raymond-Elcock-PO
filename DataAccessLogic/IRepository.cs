@@ -70,12 +70,14 @@ namespace DataAccessLogic
             }
             public interface ILineItems
             {
-                /// <summary>
-                /// It will add a restaurant in our database
-                /// </summary>
-                /// <param name="p_lineItems">This is the restaurant we will be adding to the database</param>
-                /// <returns>It will just return the restaurant we are adding</returns>
-                LineItems AddLineItems(LineItems p_lineItems);
+        Customers AddCustomers(Customers p_customers);
+
+        /// <summary>
+        /// It will add a restaurant in our database
+        /// </summary>
+        /// <param name="p_lineItems">This is the restaurant we will be adding to the database</param>
+        /// <returns>It will just return the restaurant we are adding</returns>
+        LineItems AddLineItems(LineItems p_lineItems);
 
 
                 /// <summary>

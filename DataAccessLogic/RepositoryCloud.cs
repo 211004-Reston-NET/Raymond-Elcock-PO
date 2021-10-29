@@ -46,63 +46,60 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
                 }
               ).ToList(); 
         }
-
-        public List<Models.Review> GetAllReview()
+       
+       
+       
+       
+       
+       
+       public Model.Products AddProducts(Model.Products p_orders)
         {
-            throw new System.NotImplementedException();
+            _context.Products.Add(
+                new Entity.Product()
+                {
+                    ProductName = p_orders.ProductName,
+                    ProductDescription =p_orders.ProductDescription,
+                    ProductCategory =p_orders.ProductCategory,
+                }
+            );
+            _context.SaveChanges();
+
+            return p_orders;
+            
+
         }
-        public Customers GetCustomersById(int p_id)
+        public List<Review> GetAllReview(Customers p_customers)
     {
         throw new System.NotImplementedException();
     }
-        
-        
-        
-        
-        public Models.LineItems AddLineItems(Models.LineItems p_lineItems)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public List<Models.LineItems> GetAllLineItems()
-        {
-            throw new System.NotImplementedException();
-        }
-        
-        
-        public Models.Orders AddOrders(Models.Orders p_orders)
-        {
-            throw new System.NotImplementedException();
-        }
+    public Customers GetCustomersById(int p_id)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        public List<Models.Orders> GetAllOrders()
-        {
-            throw new System.NotImplementedException();
-        }
-        
-        
-        public Models.Products AddProducts(Models.Products p_products)
-        {
-            throw new System.NotImplementedException();
-        }
+        // public List<Models.Orders> GetAllOrders()
+        // {
+        //     return _context.StoreOrders.Select(orders =>
+        //         new Model.Orders()
+        //         {
+        //             StoreOrderId = orders.StoreOrderId,
+        //             StoreAddress = orders.StoreAddress,
+        //             ProductDescription = orders.ProductDescription,
+        //             S
 
-        public List<Models.Products> GetAllProducts()
-        {
-            throw new System.NotImplementedException();
-        }
-        
-        
-        public Models.StoreFronts AddStoreFronts(Models.StoreFronts p_storeFronts)
-        {
-            throw new System.NotImplementedException();
-        }
+        //         }
+        //       ).ToList(); 
+        // }
 
-        public List<Models.StoreFronts> GetAllStoreFronts()
-        {
-            throw new System.NotImplementedException();
-        }
+   
 
-    public List<Review> GetAllReview(Customers p_customers)
+    public LineItems AddLineItems(LineItems p_lineItems)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<LineItems> GetAllLineItems()
     {
         throw new System.NotImplementedException();
     }
@@ -122,12 +119,22 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
         throw new System.NotImplementedException();
     }
 
+    public Orders AddOrders(Orders p_orders)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public List<Review> GetAllReview(Orders p_orders)
     {
         throw new System.NotImplementedException();
     }
 
     Orders IOrders.GetRestaurantById(int p_Id)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<Products> GetAllProducts()
     {
         throw new System.NotImplementedException();
     }
@@ -142,6 +149,16 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
         throw new System.NotImplementedException();
     }
 
+    public StoreFronts AddStoreFronts(StoreFronts p_storeFronts)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<StoreFronts> GetAllStoreFronts()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public List<Review> GetAllReview(StoreFronts p_storeFronts)
     {
         throw new System.NotImplementedException();
@@ -152,5 +169,8 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
         throw new System.NotImplementedException();
     }
 
-    
+    public List<Orders> GetAllOrders()
+    {
+        throw new System.NotImplementedException();
+    }
 }
