@@ -81,8 +81,6 @@ namespace Models
             }
         }
 
-
-        public List<Review> Reviews { get; set; }
         public List<Orders> Orders 
         {  
         get {return _orders;}    
@@ -91,16 +89,7 @@ namespace Models
         
         public override string ToString()
                 {
-                    string Customers = 
-                    $@"CustomerId{CustomerId}
-                    Store Name: {Name}
-                    Store Address: {Address}
-                    Store Phone: {Phone}
-                    Store Email : {Email}
-                    List of Orders: {Orders}
-                    ";
-                    
-                    return Customers;   
+                   return $"Customer Name: {Name} \nCustomer Address: {Address} \nCustomer Email: {Email} \nCustomer Phone: {Phone}";  
 
 
 

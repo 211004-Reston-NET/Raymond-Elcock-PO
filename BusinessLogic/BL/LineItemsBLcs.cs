@@ -29,7 +29,7 @@ namespace BusinessLogic
 
         public LineItems AddLineItems(LineItems p_lineItems)
         {
-            if (p_lineItems.StoreItems == null )
+            if (p_lineItems.ProductName == null || p_lineItems.StoreAddress== null )
             {
                 throw new Exception("You must have a value in all of the properties of the restaurant class");
             }
@@ -43,7 +43,7 @@ namespace BusinessLogic
                 List<LineItems> listOfLineItems = _lineItems.GetAllLineItems();
                 for (int i = 0; i < listOfLineItems.Count; i++)
                 {
-                    listOfLineItems[i].StoreItems = listOfLineItems[i].StoreItems.ToLower(); 
+                    listOfLineItems[i].ProductName = listOfLineItems[i].ProductName.ToLower(); 
                 }
 
                 return listOfLineItems;
@@ -54,7 +54,9 @@ namespace BusinessLogic
             return _lineItems.GetAllReview(p_lineItems);
         }
 
-        public List<LineItems> GetLineItems(string p_name)
+       
+
+        public LineItems GetLineItems(string p_name)
             {
                 List<LineItems> listOfLineItems = _lineItems.GetAllLineItems();
                 
@@ -62,12 +64,17 @@ namespace BusinessLogic
                 //Where method will give the actual element itself based on some condition
                 //ToList method will convert into List that our method currently needs to return.
                 //ToLower will lowercase the string to make it not case sensitive
-                return listOfLineItems.Where(lineItems => lineItems.StoreItems.ToLower().Contains(p_name.ToLower())).ToList();
+                return listOfLineItems.FirstOrDefault(lineItems => lineItems.ProductName.ToLower() == p_name.ToLower());
             }
+
+        public List<LineItems> GetLineItems(object storeFrontId)
+        {
+            throw new NotImplementedException();
+        }
 
         public LineItems GetLineItemsById(int p_Id)
         {
-           LineItems lineItemsFound = _lineItems.GetRestaurantById(p_Id);
+           LineItems lineItemsFound = _lineItems.GetLineItemsById(p_Id);
 
             if (lineItemsFound == null)
             {

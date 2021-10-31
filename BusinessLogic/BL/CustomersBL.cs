@@ -14,6 +14,7 @@ namespace BusinessLogic
     public class CustomersBL :ICustomersBL
     {
         private ICustomers _customers;
+        
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,9 +22,10 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_customers">It will pass in a Respository object</param>
-        public CustomersBL(ICustomers p_customers)
+        public CustomersBL(ICustomers p_customers )
         {
             _customers = p_customers;
+           
         }
 
         public Customers AddCustomers(Customers p_customers)
@@ -37,6 +39,7 @@ namespace BusinessLogic
         }
 
         public List<Customers> GetAllCustomers()
+        
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
@@ -53,7 +56,7 @@ namespace BusinessLogic
             return _customers.GetAllReview(p_customers);
         }
 
-        public List<Customers> GetCustomers(string p_name)
+        public Customers GetCustomers(string p_name)
         {
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
             
@@ -61,7 +64,7 @@ namespace BusinessLogic
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfCustomers.Where(customers => customers.Name.ToLower().Contains(p_name.ToLower())).ToList();
+            return listOfCustomers.FirstOrDefault(customers => customers.Name.ToLower() == p_name.ToLower());
         }
 
         public Customers GetCustomersById(int p_Id)
@@ -70,7 +73,7 @@ namespace BusinessLogic
 
             if (customersFound == null)
             {
-                throw new Exception("Restaurant was not found!");
+                throw new Exception("Customers was not found!");
             }
 
             return customersFound;

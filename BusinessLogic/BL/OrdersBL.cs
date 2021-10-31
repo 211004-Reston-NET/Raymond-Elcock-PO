@@ -66,7 +66,7 @@ namespace BusinessLogic
 
         public Orders GetOrdersById(int p_Id)
         {
-            Orders ordersFound = _orders.GetRestaurantById(p_Id);
+            Orders ordersFound = _orders.GetOrdersById(p_Id);
 
             if (ordersFound == null)
             {

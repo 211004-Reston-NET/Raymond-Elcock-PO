@@ -10,7 +10,8 @@ namespace Models
                     private int _storeOrderId;
                     private string _storeAddress;
                     private decimal _totalPrice;
-                    private string _lineItems;
+                    public int CustomerId {get; set;}
+                    private List<LineItems> _lineItems = new List<LineItems>();
                     public int StoreOrderId
                 {
                         get { return _storeOrderId; }
@@ -30,27 +31,23 @@ namespace Models
                                 _storeAddress = value;
                             }
                         }
-                    public string LineItems
-                        {
-                    get { return _lineItems ; }
-                    set 
-                    {
-                        //Main idea - this Regex will find me any number inside of my string
-                        if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                        {
-                            //Will give the user an exception whenever you try to set the city field with a number
-                            throw new Exception("Orders can only hold letters!");
-                        }
-                        _lineItems = value;
-                    }
-                }
+                    
+                     public List<LineItems> LineItems
+                            { get {return _lineItems;}
+                              set {_lineItems = value;}
+            
+                            }
+                
                  public decimal TotalPrice 
                 {
                         get { return _totalPrice; }
                         set { _totalPrice = value; }
                 }
-                    
-                        public override string ToString()
+
+        public object StoreFrontId { get; set; }
+        public List<Orders> Order { get; set; }
+
+        public override string ToString()
                         {
                             string Customers = 
                             $@"Store Address: {StoreAddress}

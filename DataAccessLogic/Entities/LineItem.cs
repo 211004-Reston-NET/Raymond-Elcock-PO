@@ -14,6 +14,7 @@ namespace DataAccessLogic.Entities
 
         public int LineItemId { get; set; }
         public string ProductName { get; set; }
+        public string OrderStoreFrontAddress { get; set; }
         public decimal QuantityNumber { get; set; }
         public int StoreOrderId { get; set; }
         public int ProductId { get; set; }

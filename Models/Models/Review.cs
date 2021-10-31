@@ -4,8 +4,8 @@ namespace Models
     {
         public int Id { get; set; }
         public int Rating { get; set; }
-        public int customerId { get; set; }
-        public Customers Customers { get; set; }
+        public int CustomerId { get; set; }
+        public Review Reviews { get; set; }
 
         public override string ToString()
         {

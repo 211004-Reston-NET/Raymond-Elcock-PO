@@ -37,7 +37,7 @@ namespace BusinessLogic
             return _storeFronts.AddStoreFronts(p_storeFronts);
         }
 
-        public List<StoreFronts> GetStoreFronts(string p_name)
+        public StoreFronts GetStoreFronts(string p_name)
         {
             List<StoreFronts> listOfStoreFronts = _storeFronts.GetAllStoreFronts();
             
@@ -45,7 +45,7 @@ namespace BusinessLogic
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
-            return listOfStoreFronts.Where(storeFronts => storeFronts.StoreName.ToLower().Contains(p_name.ToLower())).ToList();
+            return listOfStoreFronts.FirstOrDefault(storeFronts => storeFronts.StoreName.ToLower() == p_name.ToLower());
         }
 
 

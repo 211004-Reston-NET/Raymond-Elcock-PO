@@ -28,7 +28,7 @@ namespace DataAccessLogic
                 
                 List<Orders> GetAllOrders();
                 List<Review> GetAllReview(Orders p_orders);
-        Orders GetRestaurantById(int p_Id);
+        Orders GetOrdersById(int p_Id);
     }
             public interface ICustomers
             {
@@ -87,7 +87,7 @@ namespace DataAccessLogic
                 List<LineItems> GetAllLineItems();
                 List<Review> GetAllReview(LineItems p_lineItems);
                  LineItems GetLineItemsById(int p_id);
-        LineItems GetRestaurantById(int p_Id);
+        
     }
             public interface IStoreFronts
             {

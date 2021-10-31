@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 
@@ -7,58 +8,43 @@ namespace Models
     public class LineItems
                 { 
                 private int  _lineItemId;
-                private string _storeItems;
+                private string _productName;
                 private string _storeAddress;
-                private int _storeQuantity;
+                private decimal _storeQuantity;
+                private List<LineItems> _lineItems = new List<LineItems>();
                 public int LineItemId 
                 {
                         get { return _lineItemId; }
                         set { _lineItemId = value; }
                 }
-                public string StoreItems
+                public string ProductName
                     {
-                        get { return _storeItems; }
-                        set 
-                        {
-                            //Main idea - this Regex will find me any number inside of my string
-                            if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                            {
-                                //Will give the user an exception whenever you try to set the city field with a number
-                                throw new Exception("Items can only hold letters!");
-                            }
-                            _storeItems = value;
+                        get { return _productName; }
+                        set {_productName = value;
                         }
                     }
                     public string StoreAddress
                     {
                         get { return _storeAddress; }
-                        set 
-                        {
-                            //Main idea - this Regex will find me any number inside of my string
-                            if (!Regex.IsMatch(value, @"^[A-Za-z0-9'\.\-\s\,]"))
-                            {
-                                //Will give the user an exception whenever you try to set the city field with a number
-                                throw new Exception("Items can only hold letters!");
-                            }
-                            _storeAddress = value;
+                        set { _storeAddress = value;
                         }
                     }
-                    public int StoreQuantity 
+                   
+                    public decimal StoreQuantity 
                 {
                         get { return _storeQuantity; }
                         set { _storeQuantity = value; }
                 }
+                
+                public List<LineItems> LineItem 
+                        {  
+                        get {return _lineItems;}    
+                        set {_lineItems = value;}
+        }
 
                     public override string ToString()
                     {
-                        string Customers = 
-                        $@"StoreItems: {StoreItems}
-                        StoreAddress: {StoreAddress}
-                        Quantity: {StoreQuantity}
-                        
-                        ";
-                        
-                        return Customers;   
+                         return $"Store Order ID: {LineItemId}ProductName: {ProductName} \nProduct Quanitity: {StoreQuantity} \nStore Address: {StoreAddress} \n";  
                     }
 
                 }
