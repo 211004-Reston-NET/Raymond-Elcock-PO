@@ -17,16 +17,19 @@ namespace userInterface
         AddCustomers,
         ShowCustomers,
         CurrentCustomers,
+
         //LineItems
         LineItemsMenu,
         AddLineItems,
         ShowLineItems,
         CurrentLineItems,
+        
          // Orders
         OrdersMenu,
         AddOrders,
         ShowOrders,
         CurrentOrders,
+        
          // Products
         ProductsMenu,
         AddProducts,

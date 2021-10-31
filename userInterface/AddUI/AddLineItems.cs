@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using BusinessLogic;
 using Models;
 
@@ -19,17 +20,18 @@ namespace userInterface
         public void Menu()
         {
             Console.WriteLine("Welcome To Add A Line Items! ");
-            Console.WriteLine("------------------------------------\n");
-            Console.WriteLine($"Name: {_lineItems.StoreItems}");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine($"Name: {_lineItems.ProductName}");
             Console.WriteLine($"Address: {_lineItems.StoreAddress}");
             Console.WriteLine($"Store Quantity: {_lineItems.StoreQuantity}");
-            Console.WriteLine("------------------------------------\n");
-            Console.WriteLine("[1] - Please Enter A Store Item Name: ");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("[1] - Please Enter A  Item Name: ");
             Console.WriteLine("[2] - Please Enter A Store Address: ");
             Console.WriteLine("[3] - Please Enter A Quantity For Item:");
-            Console.WriteLine("[4] - Save Line Items: ");
+            Console.WriteLine("[4] - Save Line Item: ");
+            Console.WriteLine("[5] - Get A List Of Items: ");
             Console.WriteLine("[x] - Return to Line Items Menu: ");
-            Console.WriteLine("---------------------------\n");
+            Console.WriteLine("------------------------------------");
         }
 
         public MenuType YourChoice()
@@ -40,7 +42,7 @@ namespace userInterface
                 
                 case "1":
                     Console.WriteLine("Please Enter Items Name:");
-                    _lineItems.StoreItems = Console.ReadLine();
+                    _lineItems.ProductName = Console.ReadLine();
                     return MenuType.AddLineItems;
                 case "2":
                     Console.WriteLine("Please Enter Store Address:");
@@ -55,7 +57,11 @@ namespace userInterface
                      Console.WriteLine("Line Item Has Been Added");
                      Console.WriteLine("Please Press Enter! ");
                      Console.ReadLine();
-                    return MenuType.LineItemsMenu;  
+                    return MenuType.LineItemsMenu; 
+                case "5":
+                     Console.WriteLine("Get A List Of Items:");
+                     _lineItems.LineItem = new List<LineItems>();
+                     return MenuType.ShowLineItems;
                 
                 case "x":
                     return MenuType.LineItemsMenu;

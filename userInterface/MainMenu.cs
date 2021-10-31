@@ -14,13 +14,14 @@ namespace userInterface
         {
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("--------------------------------");
-            Console.WriteLine("[1] - Go to StoreFront Menu: ");
-            Console.WriteLine("[2] - Go to Customers Menu: ");
+            Console.WriteLine("What Would You Like To Do? ");
+            Console.WriteLine("[1] - Go to Customers Menu: ");
+            Console.WriteLine("[2] - Go to Line Items Menu: ");
             Console.WriteLine("[3] - Go to Orders Menu: ");
             Console.WriteLine("[4] - Go to Products Menu: ");
-            Console.WriteLine("[5] - Go to Line Items Menu: ");
+            Console.WriteLine("[5] - Go to StoreFront Menu: ");
             Console.WriteLine("[x] - Exit: ");
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine("--------------------------------");
         }
 
         public MenuType YourChoice()
@@ -29,15 +30,15 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.StoreFrontsMenu;
-                case "2":
                     return MenuType.CustomersMenu;
+                case "2":
+                     return MenuType.LineItemsMenu; 
                 case "3":
                     return MenuType.OrdersMenu;
                 case "4":
                     return MenuType.ProductsMenu;   
                 case "5":
-                    return MenuType.LineItemsMenu;        
+                    return MenuType.StoreFrontsMenu;       
                 case "x":
                     return MenuType.Exit;
                 default:

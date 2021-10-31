@@ -12,15 +12,14 @@ namespace userInterface
         */
         public void Menu()
         {
-            Console.WriteLine("------Welcome To StoreFronts Menu------");
-            Console.WriteLine("------------------------------------\n");
-            Console.WriteLine("What would you like to do next? ");
-            Console.WriteLine("[1] Add A New StoreFront: ");
-            Console.WriteLine("[2] Show All StoreFronts In Company: ");
-            //If an extra console is needed
-            //Console.WriteLine("[3] Search For A Product At Store: ");
-            //Console.WriteLine("[3] Add A Items To Store Order: ");
-            Console.WriteLine("[x] Go back to The Main Menu");
+            Console.WriteLine("    Welcome to the StoreFronts Menu!  ");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("-------- StoreFronts Menu Choices--------");
+            Console.WriteLine("[1] - Add New StoreFronts: ");
+            Console.WriteLine("[2] - View A List of StoreFronts: ");
+            Console.WriteLine("[3] - Search For A StoreFront: ");
+            Console.WriteLine("[x] - Go back to The Main Menu: ");
+            Console.WriteLine("---------------------------------------");
         }
 
         public MenuType YourChoice()
@@ -32,11 +31,8 @@ namespace userInterface
                     return MenuType.AddStoreFronts;
                 case "2":
                     return MenuType.ShowStoreFronts;
-                //If i want to add more cases later
-                //case "3":
-                  //  return MenuType.AddOrders;
-                //case "4":
-                  //  return MenuType.ProductsMenu;      
+                case "3":
+                    return MenuType.CurrentStoreFronts;   
                 case "x":
                     return MenuType.MainMenu; 
                 default:

@@ -8,6 +8,7 @@ namespace userInterface
     public class CurrentLineItems : IMenu
     {
         private ILineItemsBL _lineItemsBL;
+        private static LineItems _currentLineItems = new LineItems();
         public CurrentLineItems(ILineItemsBL p_lineItemsBL)
         {
             this._lineItemsBL = p_lineItemsBL;
@@ -15,16 +16,14 @@ namespace userInterface
 
         public void Menu()
         {
-            List<LineItems> listOfLineItems = _lineItemsBL.GetLineItems(ShowLineItems._findLineItemsName);
+           
 
             Console.WriteLine("This is the search result");
-            foreach (LineItems lineItems in listOfLineItems)
-            {
-                Console.WriteLine("====================");
-                Console.WriteLine(lineItems);
-                Console.WriteLine("====================");
-            }
+            Console.WriteLine("====================");
+            Console.WriteLine(_currentLineItems);
+            Console.WriteLine("====================");
             Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("[1] - Search Name Of LineItem: ");
         }
 
         public MenuType YourChoice()
@@ -35,6 +34,11 @@ namespace userInterface
             {
                 case "0":
                     return MenuType.ShowLineItems;
+                case "1":
+                    Console.WriteLine("Customer to Search For: ");
+                    _currentLineItems.ProductName = Console.ReadLine();
+                    _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.ProductName); 
+                    return MenuType.CurrentCustomers;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

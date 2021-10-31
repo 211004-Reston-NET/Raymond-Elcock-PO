@@ -13,10 +13,7 @@ namespace userInterface
         {
             _productsBL = p_productsBL;
         }
-
-       
-
-        public void Menu()
+             public void Menu()
         {
             Console.WriteLine("Welcome To Add A Product! ");
             Console.WriteLine("---------------------------\n");
@@ -24,9 +21,6 @@ namespace userInterface
             Console.WriteLine($"Product Price: {_products.ProductPrice}");
             Console.WriteLine($"Product Description: {_products.ProductDescription}");
             Console.WriteLine($"Product Category: {_products.ProductCategory}");
-            //Console.WriteLine($"List Of Orders: {_customers.Orders}");
-            // If i need to add another input console
-            //Console.WriteLine("[] Input Customer ID");
             Console.WriteLine("------------------------------------\n");
             Console.WriteLine("[1] - Please Enter A  Product Name: ");
             Console.WriteLine("[2] - Please Enter A Product Price:");

@@ -36,7 +36,7 @@ namespace userInterface
                 case "x":
                     return MenuType.CustomersMenu;
                 case "1":
-                    Console.WriteLine("Enter a name for the Restaurant you want to find");
+                    Console.WriteLine("Enter a name for the Customer you want to find");
                     _findCustomersName = Console.ReadLine();
                     return MenuType.CurrentCustomers;
                 default:

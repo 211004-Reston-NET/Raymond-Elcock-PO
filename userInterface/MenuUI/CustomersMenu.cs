@@ -12,14 +12,14 @@ namespace userInterface
         */
         public void Menu()
         {   
-            Console.WriteLine("Welcome to the Customers Menu! ");
-            Console.WriteLine("------------------------------------\n");
-            Console.WriteLine("----- Customers Menu Choices-----\n");
-            Console.WriteLine("[1] - Add A New Customer: ");
-            Console.WriteLine("[2] - View A List of Customers Orders For Store: ");
+            Console.WriteLine("    Welcome to the Customers Menu!  ");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("-------- Customers Menu Choices--------");
+            Console.WriteLine("[1] - Add New Customer: ");
+            Console.WriteLine("[2] - View A List of Customers Orders: ");
             Console.WriteLine("[3] - Search For A Customer: ");
-            Console.WriteLine("[x] - Go back to The Main Menu");
-            Console.WriteLine("------------------------------------\n");
+            Console.WriteLine("[x] - Go back to The Main Menu: ");
+            Console.WriteLine("---------------------------------------");
         }
 
         public MenuType YourChoice()

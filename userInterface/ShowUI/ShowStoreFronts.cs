@@ -25,6 +25,7 @@ namespace userInterface
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[1] - Search for a StoreFront");
+            Console.WriteLine("[2] - Choose Which Store you would like to buy from");
             Console.WriteLine("[x] - Go Back");
         }
 
