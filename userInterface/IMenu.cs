@@ -17,6 +17,7 @@ namespace userInterface
         AddCustomers,
         ShowCustomers,
         CurrentCustomers,
+        
 
         //LineItems
         LineItemsMenu,
@@ -43,6 +44,7 @@ namespace userInterface
         ShowStoreFronts,
         CurrentStoreFronts,
         Exit,
+        StoreLocations,
     }
 
     //The purpose of the interface is to ensure that every menu that we will create will have

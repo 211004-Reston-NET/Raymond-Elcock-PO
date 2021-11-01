@@ -15,7 +15,8 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("List of StoreFronts");
+            Console.WriteLine("-----List of StoreFronts-----");
+            Console.WriteLine("--------------------------------");
             List<StoreFronts> listOfStoreFronts = _storeFrontsBL.GetAllStoreFronts();
 
             foreach (StoreFronts storeFronts in listOfStoreFronts)

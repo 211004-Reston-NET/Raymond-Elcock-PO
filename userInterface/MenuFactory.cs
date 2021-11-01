@@ -70,17 +70,8 @@ namespace userInterface
                 case MenuType.CurrentStoreFronts:
                     return new CurrentStoreFronts(new StoreFrontsBL(new RepositoryCloud(new PODatabase1Context(options))));
                
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               default:
-                    return null;
+                default:
+                     return null;
             }    
             
             

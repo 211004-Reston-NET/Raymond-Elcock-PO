@@ -86,7 +86,9 @@ namespace Models
         get {return _orders;}    
         set {_orders = value;}
         }
-        
+
+        public string Password { get; set; }
+
         public override string ToString()
                 {
                    return $"Customer Name: {Name} \nCustomer Address: {Address} \nCustomer Email: {Email} \nCustomer Phone: {Phone}";  

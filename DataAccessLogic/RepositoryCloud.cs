@@ -62,6 +62,9 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
                 
             };
         }
+      
+    
+    
 
         public List<Review> GetAllReview(Customers p_customers)
         {
@@ -272,5 +275,4 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
             throw new System.NotImplementedException();
         }
 
-        
-}
+    }  

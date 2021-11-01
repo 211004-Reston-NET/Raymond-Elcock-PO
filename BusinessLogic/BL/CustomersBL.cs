@@ -50,8 +50,10 @@ namespace BusinessLogic
 
             return listOfCustomers;
         }
-       
-           public List<Review> GetAllReview(Customers p_customers)
+
+        
+
+        public List<Review> GetAllReview(Customers p_customers)
         {
             return _customers.GetAllReview(p_customers);
         }
@@ -78,6 +80,8 @@ namespace BusinessLogic
 
             return customersFound;
         }
+
+        
 
         
     }

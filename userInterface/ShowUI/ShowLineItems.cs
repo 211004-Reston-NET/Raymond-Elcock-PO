@@ -15,8 +15,9 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("List of Line Items");
-            List<LineItems> listOfLineItems = _lineItemsBL.GetAllLineItems();
+            Console.WriteLine($"-----List of Line Items----- from {SingletonCustomer.location}");
+            Console.WriteLine("------------------------------");
+            List<LineItems> listOfLineItems = _lineItemsBL.GetLineItems(SingletonCustomer.orders.StoreFrontId);
 
             foreach (LineItems lineItems in listOfLineItems)
             {

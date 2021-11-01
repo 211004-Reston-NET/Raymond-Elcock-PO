@@ -70,6 +70,7 @@ namespace DataAccessLogic
             _jsonString = File.ReadAllText(_filepath+"Review.JSON");
 
             return JsonSerializer.Deserialize<List<Review>>(_jsonString);
+            
         }
     }
 } 
