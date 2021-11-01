@@ -15,7 +15,7 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("   List of Customers    ");
+            Console.WriteLine("-----List of Customers-----");
             Console.WriteLine("---------------------------------");
             List<Customers> listOfCustomers = _customersBL.GetAllCustomers();
 

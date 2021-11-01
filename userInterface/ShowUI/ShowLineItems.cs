@@ -19,13 +19,13 @@ namespace userInterface
             Console.WriteLine("------------------------------");
             List<LineItems> listOfLineItems = _lineItemsBL.GetLineItems(SingletonCustomer.orders.StoreFrontId);
 
-            foreach (LineItems lineItems in listOfLineItems)
+            foreach (LineItems product in listOfLineItems)
             {
                 Console.WriteLine("====================");
-                Console.WriteLine(lineItems);
+                Console.WriteLine(product);
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("[1] - Search for a Line Item");
+            Console.WriteLine("[1] - Place Your Order Here");
             Console.WriteLine("[x] - Go Back");
         }
 
@@ -35,16 +35,15 @@ namespace userInterface
             switch (userChoice)
             {
                 case "x":
-                    return MenuType.LineItemsMenu;
+                    return MenuType.ShowStoreFronts;
                 case "1":
-                    Console.WriteLine("Enter a name for the Line Item you want to find");
-                    _findLineItemsName = Console.ReadLine();
-                    return MenuType.CurrentLineItems;
+                    
+                    return MenuType.AddOrders;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowLineItems;
+                    return MenuType.MainMenu;
             }
         }
     }
