@@ -19,7 +19,5 @@ namespace DataAccessLogic.Entities
         public string CustomerEmail { get; set; }
 
         public virtual ICollection<StoreOrder> StoreOrders { get; set; }
-        public string CustomerPassword { get; internal set; }
-        public string Password { get; internal set; }
     }
 }
