@@ -9,12 +9,12 @@ namespace userInterface
     {
         private static Customers _customers = new Customers();
         private ICustomersBL _customersBL;
-         
+
         public AddCustomers(ICustomersBL customers)
         {
             _customersBL = customers;
         }
-         public void Menu()
+        public void Menu()
         {
             Console.WriteLine("Welcome To Add A Customer! ");
             Console.WriteLine("------------------------------------");
@@ -31,7 +31,7 @@ namespace userInterface
             Console.WriteLine("[5] - Save Customer: ");
             Console.WriteLine("[6] - Show A List Of Your Orders: ");
             Console.WriteLine("[x] - Return to Customers Menu");
-        } 
+        }
 
         public MenuType YourChoice()
         {
@@ -39,47 +39,47 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                     Console.WriteLine("Please Enter Customers Name:");
-                     _customers.Name = Console.ReadLine();
-                     return MenuType.AddCustomers;
+                    Console.WriteLine("Please Enter Customers Name:");
+                    _customers.Name = Console.ReadLine();
+                    return MenuType.AddCustomers;
                 case "2":
-                     Console.WriteLine("Please Enter Customers Address:");
-                     _customers.Address = Console.ReadLine();
-                     return MenuType.AddCustomers;
+                    Console.WriteLine("Please Enter Customers Address:");
+                    _customers.Address = Console.ReadLine();
+                    return MenuType.AddCustomers;
                 case "3":
-                     Console.WriteLine("Please Enter Customers Phone Number: ");
-                     _customers.Phone = Console.ReadLine();
+                    Console.WriteLine("Please Enter Customers Phone Number: ");
+                    _customers.Phone = Console.ReadLine();
                     return MenuType.AddCustomers;
                 case "4":
-                     Console.WriteLine("Please Enter Customers Email:");
-                     _customers.Email = Console.ReadLine();
+                    Console.WriteLine("Please Enter Customers Email:");
+                    _customers.Email = Console.ReadLine();
                     return MenuType.AddCustomers;
                 case "5":
-                     try
-                     {
-                         _customersBL.AddCustomers(_customers);
-                     }
-                     catch (System.Exception exception)
+                    try
                     {
-                     Console.WriteLine($"{exception.Message}" +
-                                        "Press Enter to continue");
+                        _customersBL.AddCustomers(_customers);
+                    }
+                    catch (System.Exception exception)
+                    {
+                        Console.WriteLine($"{exception.Message}" +
+                                           "Press Enter to continue");
                         Console.ReadLine();
                         return MenuType.CustomersMenu;
                     }
                     return MenuType.MainMenu;
-                     
+
                 case "6":
-                     Console.WriteLine("Get A List Of Customers Items:");
-                     _customers.Orders = new List<Orders>();
-                     return MenuType.ShowOrders;
-                   
+                    Console.WriteLine("Get A List Of Customers Items:");
+                    _customers.Orders = new List<Orders>();
+                    return MenuType.ShowOrders;
+
                 case "x":
-                     return MenuType.CustomersMenu;
+                    return MenuType.CustomersMenu;
                 default:
-                     Console.WriteLine("Please input a valid response!");
-                     Console.WriteLine("Press Enter to continue");
-                     Console.ReadLine();
-                     return MenuType.ShowCustomers;
+                    Console.WriteLine("Please input a valid response!");
+                    Console.WriteLine("Press Enter to continue");
+                    Console.ReadLine();
+                    return MenuType.ShowCustomers;
             }
         }
     }

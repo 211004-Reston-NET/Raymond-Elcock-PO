@@ -16,7 +16,7 @@ namespace userInterface
 
         public void Menu()
         {
-           
+
 
             Console.WriteLine("This is the search result");
             Console.WriteLine("====================");
@@ -37,7 +37,7 @@ namespace userInterface
                 case "1":
                     Console.WriteLine("Customer to Search For: ");
                     _currentLineItems.Product.ProductName = Console.ReadLine();
-                    _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.Product.ProductName); 
+                    _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.Product.ProductName);
                     return MenuType.CurrentCustomers;
                 default:
                     Console.WriteLine("Please input a valid response!");

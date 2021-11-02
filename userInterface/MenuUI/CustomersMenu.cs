@@ -11,7 +11,7 @@ namespace userInterface
             This is an example of Inheritance, one of the Object Oriented Pillars
         */
         public void Menu()
-        {   
+        {
             Console.WriteLine("    Welcome to the Customers Menu!  ");
             Console.WriteLine("---------------------------------------");
             Console.WriteLine("-------- Customers Menu Choices--------");
@@ -37,7 +37,7 @@ namespace userInterface
                 case "3":
                     return MenuType.CurrentCustomers;
                 //case "4":
-                  //  return MenuType.ProductsMenu;      
+                //  return MenuType.ProductsMenu;      
                 case "x":
                     return MenuType.MainMenu;
                 default:

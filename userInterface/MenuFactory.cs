@@ -24,7 +24,7 @@ namespace userInterface
             DbContextOptions<PODatabase1Context> options = new DbContextOptionsBuilder<PODatabase1Context>()
                 .UseSqlServer(configuration.GetConnectionString("Reference2DB"))
                 .Options;
-            
+
             switch (p_menu)
             {
                 case MenuType.MainMenu:
@@ -34,9 +34,9 @@ namespace userInterface
                 case MenuType.ShowCustomers:
                     return new ShowCustomers(new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.AddCustomers:
-                    return new AddCustomers (new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))));
+                    return new AddCustomers(new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.CurrentCustomers:
-                    return new CurrentCustomers (new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))));
+                    return new CurrentCustomers(new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.LineItemsMenu:
                     return new LineItemsMenu();
                 case MenuType.ShowLineItems:
@@ -69,12 +69,12 @@ namespace userInterface
                     return new AddStoreFronts(new StoreFrontsBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.CurrentStoreFronts:
                     return new CurrentStoreFronts(new StoreFrontsBL(new RepositoryCloud(new PODatabase1Context(options))));
-               
+
                 default:
-                     return null;
-            }    
-            
-            
+                    return null;
+            }
+
+
         }
     }
 }

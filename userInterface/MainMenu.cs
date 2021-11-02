@@ -32,13 +32,13 @@ namespace userInterface
                 case "1":
                     return MenuType.CustomersMenu;
                 case "2":
-                     return MenuType.LineItemsMenu; 
+                    return MenuType.LineItemsMenu;
                 case "3":
                     return MenuType.OrdersMenu;
                 case "4":
-                    return MenuType.ProductsMenu;   
+                    return MenuType.ProductsMenu;
                 case "5":
-                    return MenuType.StoreFrontsMenu;       
+                    return MenuType.StoreFrontsMenu;
                 case "x":
                     return MenuType.Exit;
                 default:

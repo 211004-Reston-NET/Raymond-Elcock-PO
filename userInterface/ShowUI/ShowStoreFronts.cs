@@ -5,10 +5,10 @@ using Models;
 
 namespace userInterface
 {
-     public class ShowStoreFronts : IMenu
+    public class ShowStoreFronts : IMenu
     {
         private IStoreFrontsBL _storeFrontsBL;
-        
+
         public ShowStoreFronts(IStoreFrontsBL p_storeFrontsBL)
         {
             _storeFrontsBL = p_storeFrontsBL;
@@ -24,7 +24,7 @@ namespace userInterface
                 Console.WriteLine("====================");
                 Console.WriteLine($"ID: {storeFronts.StoreFrontId}");
                 Console.WriteLine(storeFronts);
-                
+
                 Console.WriteLine("====================");
             }
             Console.WriteLine("[1] - Search for a StoreFront");
@@ -48,7 +48,7 @@ namespace userInterface
 
                     try
                     {
-                         SingletonCustomer.storeFronts.StoreFrontId = Int32.Parse(Console.ReadLine());
+                        SingletonCustomer.storeFronts.StoreFrontId = Int32.Parse(Console.ReadLine());
                     }
                     catch (System.Exception)
                     {

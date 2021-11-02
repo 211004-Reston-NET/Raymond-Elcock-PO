@@ -5,7 +5,7 @@ using Models;
 
 namespace userInterface
 {
-     public class ShowLineItems : IMenu
+    public class ShowLineItems : IMenu
     {
         private ILineItemsBL _lineItemsBL;
         public static string _findLineItemsName;
@@ -39,7 +39,7 @@ namespace userInterface
                     Console.WriteLine("Enter a name for the Customer you want to find");
                     _findLineItemsName = Console.ReadLine();
                     return MenuType.CurrentLineItems;
-                    
+
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

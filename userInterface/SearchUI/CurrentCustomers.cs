@@ -22,7 +22,7 @@ namespace userInterface
             Console.WriteLine("====================");
             Console.WriteLine("[x] - Go Back: ");
             Console.WriteLine("[1] - Search Name Of Customer: ");
-            
+
         }
 
         public MenuType YourChoice()
@@ -36,9 +36,9 @@ namespace userInterface
                 case "1":
                     Console.WriteLine("Customer to Search For: ");
                     _currentCustomer.Name = Console.ReadLine();
-                    _currentCustomer = _customersBL.GetCustomers(_currentCustomer.Name); 
+                    _currentCustomer = _customersBL.GetCustomers(_currentCustomer.Name);
                     return MenuType.CurrentCustomers;
-                
+
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

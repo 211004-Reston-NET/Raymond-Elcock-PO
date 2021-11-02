@@ -11,10 +11,10 @@ namespace BusinessLogic
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
-    public class CustomersBL :ICustomersBL
+    public class CustomersBL : ICustomersBL
     {
         private ICustomers _customers;
-        
+
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -22,10 +22,10 @@ namespace BusinessLogic
         /// have the implementation
         /// </summary>
         /// <param name="p_customers">It will pass in a Respository object</param>
-        public CustomersBL(ICustomers p_customers )
+        public CustomersBL(ICustomers p_customers)
         {
             _customers = p_customers;
-           
+
         }
 
         public Customers AddCustomers(Customers p_customers)
@@ -39,26 +39,26 @@ namespace BusinessLogic
         }
 
         public List<Customers> GetAllCustomers()
-        
+
         {
             //Maybe my business operation needs to capitalize every name of a restaurant
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
             for (int i = 0; i < listOfCustomers.Count; i++)
             {
-                listOfCustomers[i].Name = listOfCustomers[i].Name.ToLower(); 
+                listOfCustomers[i].Name = listOfCustomers[i].Name.ToLower();
             }
 
             return listOfCustomers;
         }
 
-        
 
-    
+
+
 
         public Customers GetCustomers(string p_name)
         {
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
-            
+
             //Select method will give a list of boolean if the condition was true/false
             //Where method will give the actual element itself based on some condition
             //ToList method will convert into List that our method currently needs to return.
@@ -78,9 +78,8 @@ namespace BusinessLogic
             return customersFound;
         }
 
-        
 
-        
+
+
     }
 }
-       

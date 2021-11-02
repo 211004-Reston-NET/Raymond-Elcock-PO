@@ -37,7 +37,7 @@ namespace BusinessLogic
         /// <returns>Returns restaurant it found</returns>
         LineItems GetLineItemsById(int p_Id);
 
-    
+
 
         /// <summary>
         /// This will return a list of line items that will reference a storefront

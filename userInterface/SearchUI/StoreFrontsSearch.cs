@@ -35,7 +35,7 @@ namespace userInterface
                 case "1":
                     Console.WriteLine("StoreFront to Search For: ");
                     _currentStoreFronts.StoreName = Console.ReadLine();
-                    _currentStoreFronts = _storeFrontsBL.GetStoreFronts(_currentStoreFronts.StoreName); 
+                    _currentStoreFronts = _storeFrontsBL.GetStoreFronts(_currentStoreFronts.StoreName);
                     return MenuType.CurrentStoreFronts;
                 default:
                     Console.WriteLine("Please input a valid response!");

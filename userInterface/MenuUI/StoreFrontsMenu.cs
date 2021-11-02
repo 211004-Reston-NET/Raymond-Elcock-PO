@@ -35,14 +35,14 @@ namespace userInterface
                 case "2":
                     return MenuType.ShowStoreFronts;
                 case "3":
-                    return MenuType.CurrentStoreFronts;  
+                    return MenuType.CurrentStoreFronts;
                 case "4":
-                    return MenuType.ShowStoreFronts; 
+                    return MenuType.ShowStoreFronts;
                 case "5":
-                    return MenuType.ShowProducts; 
-                    
+                    return MenuType.ShowProducts;
+
                 case "x":
-                    return MenuType.MainMenu; 
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");

@@ -30,11 +30,11 @@ namespace userInterface
                     return MenuType.AddOrders;
                 case "2":
                     return MenuType.ShowOrders;
-                
+
                 case "3":
                     return MenuType.AddOrders;
                 //case "4":
-                  //  return MenuType.ProductsMenu;      
+                //  return MenuType.ProductsMenu;      
                 case "x":
                     return MenuType.MainMenu;
                 default:

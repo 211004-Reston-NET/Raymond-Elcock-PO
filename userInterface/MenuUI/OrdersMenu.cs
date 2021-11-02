@@ -34,9 +34,9 @@ namespace userInterface
                     return MenuType.ShowOrders;
                 //If i want to add more cases later
                 //case "3":
-                  //  return MenuType.AddOrders;
+                //  return MenuType.AddOrders;
                 //case "4":
-                  //  return MenuType.ProductsMenu;      
+                //  return MenuType.ProductsMenu;      
                 case "x":
                     return MenuType.MainMenu;
                 default:
