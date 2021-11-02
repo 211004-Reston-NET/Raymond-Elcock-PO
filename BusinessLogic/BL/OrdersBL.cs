@@ -48,10 +48,7 @@ namespace BusinessLogic
                 return listOfOrders;
             }
 
-        public List<Review> GetAllReview(Orders p_orders)
-        {
-            return _orders.GetAllReview(p_orders);
-        }
+
 
         public List<Orders> GetOrders(string p_name)
             {

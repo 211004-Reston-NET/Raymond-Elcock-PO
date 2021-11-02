@@ -9,6 +9,7 @@ namespace DataAccessLogic.Entities
     {
         public StoreFront()
         {
+            LineItems = new HashSet<LineItem>();
             StoreOrders = new HashSet<StoreOrder>();
         }
 
@@ -17,6 +18,7 @@ namespace DataAccessLogic.Entities
         public string StoreFrontAddress { get; set; }
         public string StoreFrontPhone { get; set; }
 
+        public virtual ICollection<LineItem> LineItems { get; set; }
         public virtual ICollection<StoreOrder> StoreOrders { get; set; }
     }
 }

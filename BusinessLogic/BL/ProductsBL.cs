@@ -49,10 +49,6 @@ namespace BusinessLogic
                 return listOfProducts;
             }
 
-        public List<Review> GetAllReview(Products p_products)
-        {
-           return _products.GetAllReview(p_products);
-        }
 
         public List<Products> GetProducts(string p_name)
             {

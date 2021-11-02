@@ -5,6 +5,7 @@ namespace userInterface
     //The ":" syntax is used to indicate that you will inherit another class, interface, or abstract class
     public class StoreFrontsMenu : IMenu
     {
+
         /*
             Since MainMenu has inherited IMenu, it will have all the methods we have created
             in IMenu.
@@ -14,10 +15,12 @@ namespace userInterface
         {
             Console.WriteLine("    Welcome to the StoreFronts Menu!  ");
             Console.WriteLine("---------------------------------------");
-            Console.WriteLine("-------- StoreFronts Menu Choices--------");
-            Console.WriteLine("[1] - Add New StoreFronts: ");
+            Console.WriteLine("-------- StoreFront Menu Choices--------");
+            Console.WriteLine("[1] - Add New StoreFront: ");
             Console.WriteLine("[2] - View A List of StoreFronts: ");
             Console.WriteLine("[3] - Search For A StoreFront: ");
+            Console.WriteLine("[4] - What Store Would You Like To Shop At:");
+            Console.WriteLine("[5] - Purchase A Item: ");
             Console.WriteLine("[x] - Go back to The Main Menu: ");
             Console.WriteLine("---------------------------------------");
         }
@@ -32,7 +35,12 @@ namespace userInterface
                 case "2":
                     return MenuType.ShowStoreFronts;
                 case "3":
-                    return MenuType.CurrentStoreFronts;   
+                    return MenuType.CurrentStoreFronts;  
+                case "4":
+                    return MenuType.ShowStoreFronts; 
+                case "5":
+                    return MenuType.ShowProducts; 
+                    
                 case "x":
                     return MenuType.MainMenu; 
                 default:

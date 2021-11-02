@@ -21,8 +21,7 @@ namespace userInterface
         {
             Console.WriteLine("Welcome To Add A Line Items! ");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine($"Name: {_lineItems.ProductName}");
-            Console.WriteLine($"Address: {_lineItems.StoreAddress}");
+            Console.WriteLine($"Name: {_lineItems.Product.ProductName}");
             Console.WriteLine($"Store Quantity: {_lineItems.StoreQuantity}");
             Console.WriteLine("------------------------------------");
             Console.WriteLine("[1] - Please Enter A  Item Name: ");
@@ -42,18 +41,18 @@ namespace userInterface
                 
                 case "1":
                     Console.WriteLine("Please Enter Items Name:");
-                    _lineItems.ProductName = Console.ReadLine();
+                    _lineItems.Product.ProductName= Console.ReadLine();
                     return MenuType.AddLineItems;
                 case "2":
                     Console.WriteLine("Please Enter Store Address:");
-                    _lineItems.StoreAddress = Console.ReadLine();
+                    // _lineItems.StoreAddress = Console.ReadLine();
                     return MenuType.AddLineItems;    
                 case "3":
                     Console.WriteLine("Please Enter Items Quantity:");
                     _lineItems.StoreQuantity = Int32.Parse( Console.ReadLine());
                     return MenuType.AddLineItems;
                 case "4":
-                    _lineItemsBL.AddLineItems(_lineItems);
+                    // _lineItemsBL.AddLineItems(_lineItems);
                      Console.WriteLine("Line Item Has Been Added");
                      Console.WriteLine("Please Press Enter! ");
                      Console.ReadLine();

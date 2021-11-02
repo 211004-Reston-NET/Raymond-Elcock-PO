@@ -13,14 +13,12 @@ namespace DataAccessLogic.Entities
         }
 
         public int LineItemId { get; set; }
-        public string ProductName { get; set; }
-        public string OrderStoreFrontAddress { get; set; }
         public decimal QuantityNumber { get; set; }
-        public int StoreOrderId { get; set; }
         public int ProductId { get; set; }
+        public int StorefrontId { get; set; }
 
         public virtual Product Product { get; set; }
-        public virtual StoreOrder StoreOrder { get; set; }
+        public virtual StoreFront Storefront { get; set; }
         public virtual ICollection<LineItemOrder> LineItemOrders { get; set; }
     }
 }

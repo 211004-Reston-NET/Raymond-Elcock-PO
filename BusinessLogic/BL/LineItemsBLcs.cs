@@ -27,15 +27,15 @@ namespace BusinessLogic
                 _lineItems = p_lineItems;
             }
 
-        public LineItems AddLineItems(LineItems p_lineItems)
-        {
-            if (p_lineItems.ProductName == null || p_lineItems.StoreAddress== null )
-            {
-                throw new Exception("You must have a value in all of the properties of the restaurant class");
-            }
+        // public LineItems AddLineItems(LineItems p_lineItems)
+        // {
+        //     if (p_lineItems.ProductName == null || p_lineItems.StoreAddress== null )
+        //     {
+        //         throw new Exception("You must have a value in all of the properties of the restaurant class");
+        //     }
 
-            return _lineItems.AddLineItems(p_lineItems);
-        }
+        //     return _lineItems.AddLineItems(p_lineItems);
+        // }
 
         public List<LineItems> GetAllLineItems()
             {
@@ -43,16 +43,13 @@ namespace BusinessLogic
                 List<LineItems> listOfLineItems = _lineItems.GetAllLineItems();
                 for (int i = 0; i < listOfLineItems.Count; i++)
                 {
-                    listOfLineItems[i].ProductName = listOfLineItems[i].ProductName.ToLower(); 
+                    listOfLineItems[i].Product.ProductName = listOfLineItems[i].Product.ProductName.ToLower(); 
                 }
 
                 return listOfLineItems;
             }
 
-        public List<Review> GetAllReview(LineItems p_lineItems)
-        {
-            return _lineItems.GetAllReview(p_lineItems);
-        }
+    
 
        
 
@@ -64,13 +61,10 @@ namespace BusinessLogic
                 //Where method will give the actual element itself based on some condition
                 //ToList method will convert into List that our method currently needs to return.
                 //ToLower will lowercase the string to make it not case sensitive
-                return listOfLineItems.FirstOrDefault(lineItems => lineItems.ProductName.ToLower() == p_name.ToLower());
+                return listOfLineItems.FirstOrDefault(lineItems => lineItems.Product.ProductName.ToLower() == p_name.ToLower());
             }
 
-        public List<LineItems> GetLineItems(object storeFrontId)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public LineItems GetLineItemsById(int p_Id)
         {
@@ -82,6 +76,11 @@ namespace BusinessLogic
             }
 
             return lineItemsFound;
+        }
+
+        public List<LineItems> GetLineItemsByStoreID(int p_storeFrontID)
+        {
+            return _lineItems.GetLineItemsByStoreID(p_storeFrontID);
         }
     }
     }

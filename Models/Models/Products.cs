@@ -22,12 +22,6 @@ namespace Models
                 get { return _productName; }
                 set 
                 {
-                    //Main idea - this Regex will find me any number inside of my string
-                    if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                    {
-                        //Will give the user an exception whenever you try to set the city field with a number
-                        throw new Exception("Customer Name can only hold letters!");
-                    }
                     _productName = value;
                 }
             }
@@ -37,12 +31,6 @@ namespace Models
                 get { return _productDescription; }
                 set 
                 {
-                    //Main idea - this Regex will find me any number inside of my string
-                    if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                    {
-                        //Will give the user an exception whenever you try to set the city field with a number
-                        throw new Exception("Customer Name can only hold letters!");
-                    }
                     _productDescription = value;
                 }
             }
@@ -51,12 +39,6 @@ namespace Models
                 get { return _productCategory; }
                 set 
                 {
-                    //Main idea - this Regex will find me any number inside of my string
-                    if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                    {
-                        //Will give the user an exception whenever you try to set the city field with a number
-                        throw new Exception("Customer Name can only hold letters!");
-                    }
                     _productCategory = value;
                 }
             }

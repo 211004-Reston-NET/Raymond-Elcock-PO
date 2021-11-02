@@ -35,11 +35,7 @@ namespace BusinessLogic
         /// <returns>Returns restaurant it found</returns>
           Customers GetCustomersById(int p_Id);
 
-        /// <summary>
-        /// This will give all the reviews from a restaurant
-        /// </summary>
-        /// <returns>It will return a list of reviews</returns>
-        List<Review> GetAllReview(Customers p_customers);
+      
         
         }
     }

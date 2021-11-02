@@ -10,7 +10,6 @@ namespace DataAccessLogic.Entities
         public StoreOrder()
         {
             LineItemOrders = new HashSet<LineItemOrder>();
-            LineItems = new HashSet<LineItem>();
         }
 
         public int StoreOrderId { get; set; }
@@ -22,6 +21,5 @@ namespace DataAccessLogic.Entities
         public virtual Customer Customers { get; set; }
         public virtual StoreFront StoreFront { get; set; }
         public virtual ICollection<LineItemOrder> LineItemOrders { get; set; }
-        public virtual ICollection<LineItem> LineItems { get; set; }
     }
 }

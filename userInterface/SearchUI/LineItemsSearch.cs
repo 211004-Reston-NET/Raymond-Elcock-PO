@@ -36,8 +36,8 @@ namespace userInterface
                     return MenuType.ShowLineItems;
                 case "1":
                     Console.WriteLine("Customer to Search For: ");
-                    _currentLineItems.ProductName = Console.ReadLine();
-                    _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.ProductName); 
+                    _currentLineItems.Product.ProductName = Console.ReadLine();
+                    _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.Product.ProductName); 
                     return MenuType.CurrentCustomers;
                 default:
                     Console.WriteLine("Please input a valid response!");

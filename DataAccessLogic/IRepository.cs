@@ -27,7 +27,6 @@ namespace DataAccessLogic
                 /// <returns>It will return a list of orderss</returns>
                 
                 List<Orders> GetAllOrders();
-                List<Review> GetAllReview(Orders p_orders);
                  Orders GetOrdersById(int p_Id);
     }
             public interface ICustomers
@@ -45,7 +44,6 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<Customers> GetAllCustomers();
-                List<Review> GetAllReview(Customers p_customers);
                 Customers GetCustomersById(int p_id);
        
     }
@@ -64,7 +62,7 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<Products> GetAllProducts();
-                List<Review> GetAllReview(Products p_products);
+    
                  Products GetProductsById(int p_id);
             
             }
@@ -77,7 +75,7 @@ namespace DataAccessLogic
         /// </summary>
         /// <param name="p_lineItems">This is the restaurant we will be adding to the database</param>
         /// <returns>It will just return the restaurant we are adding</returns>
-        LineItems AddLineItems(LineItems p_lineItems);
+        // LineItems AddLineItems(LineItems p_lineItems);
 
 
                 /// <summary>
@@ -85,8 +83,15 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<LineItems> GetAllLineItems();
-                List<Review> GetAllReview(LineItems p_lineItems);
+
                  LineItems GetLineItemsById(int p_id);
+
+                 /// <summary>
+                 /// This will return a list of line items that will reference a storefront
+                 ///  </summary>
+                 /// <param name="p_storeFrontID">this will be the storefonts id that will get searched for </param>
+                 /// <returns>will return list of line items</returns>
+                 List<LineItems> GetLineItemsByStoreID(int p_storeFrontID);
         
     }
             public interface IStoreFronts
@@ -104,7 +109,6 @@ namespace DataAccessLogic
                 /// </summary>
                 /// <returns>It will return a list of restaurants</returns>
                 List<StoreFronts> GetAllStoreFronts();
-            List<Review> GetAllReview(StoreFronts p_storeFronts);
              StoreFronts GetStoreFrontsById(int p_id);
         }
 

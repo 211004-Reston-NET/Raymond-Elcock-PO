@@ -73,9 +73,5 @@ namespace BusinessLogic
             return storeFrontsFound;
         }
 
-        public List<Review> GetAllReview(StoreFronts p_storeFronts)
-        {
-           return _storeFronts.GetAllReview(p_storeFronts);
-        }
     }
     }

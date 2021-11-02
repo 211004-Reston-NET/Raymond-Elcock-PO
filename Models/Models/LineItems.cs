@@ -8,8 +8,7 @@ namespace Models
     public class LineItems
                 { 
                 private int  _lineItemId;
-                private string _productName;
-                private string _storeAddress;
+      
                 private decimal _storeQuantity;
                 private List<LineItems> _lineItems = new List<LineItems>();
                 public int LineItemId 
@@ -17,18 +16,14 @@ namespace Models
                         get { return _lineItemId; }
                         set { _lineItemId = value; }
                 }
-                public string ProductName
-                    {
-                        get { return _productName; }
-                        set {_productName = value;
-                        }
-                    }
-                    public string StoreAddress
-                    {
-                        get { return _storeAddress; }
-                        set { _storeAddress = value;
-                        }
-                    }
+                private Products _product;
+                public Products Product
+                {
+                    get { return _product; }
+                    set { _product = value; }
+                }
+                public int ProductId { get; set; }
+                public int StoreFrontId { get; set; }
                    
                     public decimal StoreQuantity 
                 {
@@ -44,7 +39,7 @@ namespace Models
 
                     public override string ToString()
                     {
-                         return $"Store Order ID: {LineItemId}ProductName: {ProductName} \nProduct Quanitity: {StoreQuantity} \nStore Address: {StoreAddress} \n";  
+                         return $"ProductName: {Product.ProductName} \nQuanitity: {StoreQuantity} \nDescription: {Product.ProductDescription} \nCategory: {Product.ProductCategory} \nPrice: ${Product.ProductPrice}";  
                     }
 
                 }

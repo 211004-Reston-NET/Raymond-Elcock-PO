@@ -13,7 +13,7 @@ namespace userInterface
         public void Menu()
         {
             Console.WriteLine("------ Welcome to Orders Menu------");
-            Console.WriteLine("\n------------------------------------");
+            Console.WriteLine("------------------------------------");
             Console.WriteLine("What would you like to do next? ");
             Console.WriteLine("[1] Add A New Order: ");
             Console.WriteLine("[2] Show The Order You Placed: ");

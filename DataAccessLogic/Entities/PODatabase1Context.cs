@@ -65,25 +65,13 @@ namespace DataAccessLogic.Entities
 
                 entity.Property(e => e.LineItemId).HasColumnName("lineItem_id");
 
-                entity.Property(e => e.OrderStoreFrontAddress)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("order_storeFront_address");
-
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
-
-                entity.Property(e => e.ProductName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("product_name");
 
                 entity.Property(e => e.QuantityNumber)
                     .HasColumnType("decimal(38, 0)")
                     .HasColumnName("quantity_number");
 
-                entity.Property(e => e.StoreOrderId).HasColumnName("store_order_id");
+                entity.Property(e => e.StorefrontId).HasColumnName("storefront_id");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.LineItems)
@@ -91,11 +79,11 @@ namespace DataAccessLogic.Entities
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__LineItem__produc__4A8310C6");
 
-                entity.HasOne(d => d.StoreOrder)
+                entity.HasOne(d => d.Storefront)
                     .WithMany(p => p.LineItems)
-                    .HasForeignKey(d => d.StoreOrderId)
+                    .HasForeignKey(d => d.StorefrontId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__LineItem__store___498EEC8D");
+                    .HasConstraintName("LI_STOREFRONT_ID");
             });
 
             modelBuilder.Entity<LineItemOrder>(entity =>

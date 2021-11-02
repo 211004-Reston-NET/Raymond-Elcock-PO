@@ -22,13 +22,14 @@ namespace userInterface
             Console.WriteLine($"Address: {_customers.Address}");
             Console.WriteLine($"Phone: {_customers.Phone}");
             Console.WriteLine($"Email: {_customers.Email}");
+            Console.WriteLine($":Previous Orders {_customers.Orders.Count}");
             Console.WriteLine("------------------------------------");
             Console.WriteLine("[1] - Please Enter Name: ");
             Console.WriteLine("[2] - Please Enter Address:");
             Console.WriteLine("[3] - Please Enter Phone Number:");
             Console.WriteLine("[4] - Please Enter Email:");
-            Console.WriteLine("[5] - Save Customer");
-            Console.WriteLine("[6] - Show A List of Order Items");
+            Console.WriteLine("[5] - Save Customer: ");
+            Console.WriteLine("[6] - Show A List Of Your Orders: ");
             Console.WriteLine("[x] - Return to Customers Menu");
         } 
 
@@ -54,11 +55,19 @@ namespace userInterface
                      _customers.Email = Console.ReadLine();
                     return MenuType.AddCustomers;
                 case "5":
-                     _customersBL.AddCustomers(_customers);
-                     Console.WriteLine("Customer Has Been Added");
-                     Console.WriteLine("Please Press Enter! ");
-                     Console.ReadLine();
-                     return MenuType.CustomersMenu;
+                     try
+                     {
+                         _customersBL.AddCustomers(_customers);
+                     }
+                     catch (System.Exception exception)
+                    {
+                     Console.WriteLine($"{exception.Message}" +
+                                        "Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.CustomersMenu;
+                    }
+                    return MenuType.MainMenu;
+                     
                 case "6":
                      Console.WriteLine("Get A List Of Customers Items:");
                      _customers.Orders = new List<Orders>();

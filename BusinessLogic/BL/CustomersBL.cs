@@ -53,10 +53,7 @@ namespace BusinessLogic
 
         
 
-        public List<Review> GetAllReview(Customers p_customers)
-        {
-            return _customers.GetAllReview(p_customers);
-        }
+    
 
         public Customers GetCustomers(string p_name)
         {
