@@ -18,9 +18,7 @@ namespace userInterface
             Console.WriteLine("-------- StoreFront Menu Choices--------");
             Console.WriteLine("[1] - Add New StoreFront: ");
             Console.WriteLine("[2] - View A List of StoreFronts: ");
-            Console.WriteLine("[3] - Search For A StoreFront: ");
-            Console.WriteLine("[4] - What Store Would You Like To Shop At:");
-            Console.WriteLine("[5] - Purchase A Item: ");
+            Console.WriteLine("[3] - Place Your Order:");
             Console.WriteLine("[x] - Go back to The Main Menu: ");
             Console.WriteLine("---------------------------------------");
         }
@@ -35,12 +33,7 @@ namespace userInterface
                 case "2":
                     return MenuType.ShowStoreFronts;
                 case "3":
-                    return MenuType.CurrentStoreFronts;
-                case "4":
-                    return MenuType.ShowStoreFronts;
-                case "5":
-                    return MenuType.ShowProducts;
-
+                    return MenuType.PlaceOrder;
                 case "x":
                     return MenuType.MainMenu;
                 default:

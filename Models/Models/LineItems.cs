@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+
 
 
 namespace Models
@@ -8,7 +8,6 @@ namespace Models
     public class LineItems
     {
         private int _lineItemId;
-
         private decimal _storeQuantity;
         private List<LineItems> _lineItems = new List<LineItems>();
         public int LineItemId
@@ -39,7 +38,7 @@ namespace Models
 
         public override string ToString()
         {
-            return $"ProductName: {Product.ProductName} \nQuanitity: {StoreQuantity} \nDescription: {Product.ProductDescription} \nCategory: {Product.ProductCategory} \nPrice: ${Product.ProductPrice}";
+            return $"ProductName: {Product.ProductName} \n Store Quantity: {StoreQuantity} \nDescription: {Product.ProductDescription} \nCategory: {Product.ProductCategory} \nPrice: ${Product.ProductPrice}";
         }
 
     }

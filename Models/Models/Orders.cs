@@ -45,7 +45,7 @@ namespace Models
             set { _totalPrice = value; }
         }
 
-        public object StoreFrontId { get; set; }
+        public int StoreFrontId { get; set; }
         public List<Orders> Order { get; set; }
 
         public override string ToString()

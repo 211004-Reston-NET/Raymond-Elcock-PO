@@ -29,7 +29,7 @@ namespace userInterface
             Console.WriteLine("[3] - Please Enter Phone Number:");
             Console.WriteLine("[4] - Please Enter Email:");
             Console.WriteLine("[5] - Save Customer: ");
-            Console.WriteLine("[6] - Show A List Of Your Orders: ");
+          //  Console.WriteLine("[6] - Show A List Of Your Orders: ");
             Console.WriteLine("[x] - Return to Customers Menu");
         }
 
@@ -64,14 +64,16 @@ namespace userInterface
                         Console.WriteLine($"{exception.Message}" +
                                            "Press Enter to continue");
                         Console.ReadLine();
-                        return MenuType.CustomersMenu;
+                        return MenuType.AddCustomers;
                     }
-                    return MenuType.MainMenu;
+                    Console.WriteLine($"{SingletonCustomer.customers.Name} You Have Been Added To Our List Of Customers. \n   Please Press Enter To Continue.");
+                    Console.ReadLine();
+                    return MenuType.CustomersMenu;
 
-                case "6":
-                    Console.WriteLine("Get A List Of Customers Items:");
-                    _customers.Orders = new List<Orders>();
-                    return MenuType.ShowOrders;
+                // case "6":
+                //     Console.WriteLine("Get A List Of Customers Items:");
+                //     _customers.Orders = new List<Orders>();
+                //     return MenuType.ShowOrders;
 
                 case "x":
                     return MenuType.CustomersMenu;

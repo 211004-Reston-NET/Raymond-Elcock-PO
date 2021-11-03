@@ -65,11 +65,11 @@ namespace DataAccessLogic
             return JsonSerializer.Deserialize<List<Customers>>(_jsonString);
         }
 
-        public List<Review> GetAllReview()
+        public List<Replenish> GetAllReplenish()
         {
             _jsonString = File.ReadAllText(_filepath + "Review.JSON");
 
-            return JsonSerializer.Deserialize<List<Review>>(_jsonString);
+            return JsonSerializer.Deserialize<List<Replenish>>(_jsonString);
 
         }
     }

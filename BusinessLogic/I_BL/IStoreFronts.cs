@@ -7,32 +7,32 @@ namespace BusinessLogic
     public interface IStoreFrontsBL
     {
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of storefronts stored in the database
+        /// It will also capitalize every name of the storefronts
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns>It will return a list of storefronts</returns>
         List<StoreFronts> GetAllStoreFronts();
 
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a storefronts to the database
         /// </summary>
-        /// <param name="s_front">This is the restaurant we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <param name="s_front">This is the storefronts we are adding</param>
+        /// <returns>It returns the added storefronts</returns>
         StoreFronts AddStoreFronts(StoreFronts p_storeFronts);
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// Will find multiple storefronts given a name
         /// </summary>
-        /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
-        /// <returns>It will return restaurants it found</returns>
+        /// <param name="p_name">This is the string it will check to find storefronts if their name has those letters</param>
+        /// <returns>It will return storefronts it found</returns>
         StoreFronts GetStoreFronts(string p_name);
 
         /// <summary>
-        /// Will return a restaurant based on the Id
+        /// Will return a storefronts based on the Id
         /// </summary>
         /// <param name="p_Id">This is the Id it will check</param>
-        /// <returns>Returns restaurant it found</returns>
+        /// <returns>Returns storefronts it found</returns>
         StoreFronts GetStoreFrontsById(int p_Id);
 
 

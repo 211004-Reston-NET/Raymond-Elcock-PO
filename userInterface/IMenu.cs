@@ -24,12 +24,14 @@ namespace userInterface
         AddLineItems,
         ShowLineItems,
         CurrentLineItems,
+        
 
         // Orders
         OrdersMenu,
         AddOrders,
         ShowOrders,
         CurrentOrders,
+        PlaceOrder,
 
         // Products
         ProductsMenu,
@@ -43,6 +45,9 @@ namespace userInterface
         AddStoreFronts,
         ShowStoreFronts,
         CurrentStoreFronts,
+
+        //Replenish
+        ReplenishMenu,
         Exit,
         StoreLocations,
     }

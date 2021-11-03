@@ -7,32 +7,32 @@ namespace BusinessLogic
     public interface IProductsBL
     {
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of products stored in the database
+        /// It will also capitalize every name of the products
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns>It will return a list of products</returns>
         List<Products> GetAllProducts();
 
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a products to the database
         /// </summary>
-        /// <param name="s_products">This is the restaurant we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <param name="s_products">This is the products we are adding</param>
+        /// <returns>It returns the added products</returns>
         Products AddProducts(Products s_products);
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// Will find multiple products given a name
         /// </summary>
-        /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
-        /// <returns>It will return restaurants it found</returns>
+        /// <param name="p_name">This is the string it will check to find products if their name has those letters</param>
+        /// <returns>It will return products it found</returns>
         List<Products> GetProducts(string p_name);
 
         /// <summary>
-        /// Will return a restaurant based on the Id
+        /// Will return a products based on the Id
         /// </summary>
         /// <param name="p_Id">This is the Id it will check</param>
-        /// <returns>Returns restaurant it found</returns>
+        /// <returns>Returns products it found</returns>
         Products GetProductsById(int p_Id);
 
 

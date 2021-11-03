@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using BusinessLogic;
 using Models;
 
@@ -21,14 +20,12 @@ namespace userInterface
         {
             Console.WriteLine("Welcome To Add A Line Items! ");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine($"Name: {_lineItems.Product.ProductName}");
-            Console.WriteLine($"Store Quantity: {_lineItems.StoreQuantity}");
+            Console.WriteLine($"Product Name: {_lineItems.Product.ProductName}");
+            Console.WriteLine($"Product Quantity: {_lineItems.StoreQuantity}");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("[1] - Please Enter A  Item Name: ");
-            Console.WriteLine("[2] - Please Enter A Store Address: ");
-            Console.WriteLine("[3] - Please Enter A Quantity For Item:");
-            Console.WriteLine("[4] - Save Line Item: ");
-            Console.WriteLine("[5] - Get A List Of Items: ");
+            Console.WriteLine("[1] - Please Enter A  Product Name: ");
+            Console.WriteLine("[2] - Please Enter A Product Quantity: ");
+            Console.WriteLine("[3] - Save Line Item: ");
             Console.WriteLine("[x] - Return to Line Items Menu: ");
             Console.WriteLine("------------------------------------");
         }
@@ -40,27 +37,20 @@ namespace userInterface
             {
 
                 case "1":
-                    Console.WriteLine("Please Enter Items Name:");
+                    Console.WriteLine("Please Enter Product Name:");
                     _lineItems.Product.ProductName = Console.ReadLine();
                     return MenuType.AddLineItems;
                 case "2":
-                    Console.WriteLine("Please Enter Store Address:");
-                    // _lineItems.StoreAddress = Console.ReadLine();
-                    return MenuType.AddLineItems;
-                case "3":
-                    Console.WriteLine("Please Enter Items Quantity:");
+                    Console.WriteLine("Please Enter Product Quantity:");
                     _lineItems.StoreQuantity = Int32.Parse(Console.ReadLine());
                     return MenuType.AddLineItems;
-                case "4":
-                    // _lineItemsBL.AddLineItems(_lineItems);
-                    Console.WriteLine("Line Item Has Been Added");
-                    Console.WriteLine("Please Press Enter! ");
-                    Console.ReadLine();
-                    return MenuType.LineItemsMenu;
-                case "5":
-                    Console.WriteLine("Get A List Of Items:");
-                    _lineItems.LineItem = new List<LineItems>();
-                    return MenuType.ShowLineItems;
+                
+               // case "6":
+                 //    _lineItemsBL.AddLineItems(_lineItems);
+                   // Console.WriteLine("Line Item Has Been Added");
+                    //Console.WriteLine("Please Press Enter! ");
+                   // Console.ReadLine();
+                    //return MenuType.LineItemsMenu;
 
                 case "x":
                     return MenuType.LineItemsMenu;

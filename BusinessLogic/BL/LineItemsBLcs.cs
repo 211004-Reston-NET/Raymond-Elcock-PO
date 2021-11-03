@@ -7,7 +7,7 @@ using Models;
 namespace BusinessLogic
 {
     /// <summary>
-    /// Handles all the business logic for the our restuarant application
+    /// Handles all the business logic for the our line items application
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
@@ -27,15 +27,15 @@ namespace BusinessLogic
             _lineItems = p_lineItems;
         }
 
-        // public LineItems AddLineItems(LineItems p_lineItems)
-        // {
-        //     if (p_lineItems.ProductName == null || p_lineItems.StoreAddress== null )
-        //     {
-        //         throw new Exception("You must have a value in all of the properties of the restaurant class");
-        //     }
+         public LineItems AddLineItems(LineItems p_lineItems)
+         {
+             if (p_lineItems.Product.ProductName == null || p_lineItems.Product.ProductDescription == null || p_lineItems.Product.ProductCategory == null )
+             {
+                 throw new Exception("You must have a value in all of the properties of the restaurant class");
+             }
 
-        //     return _lineItems.AddLineItems(p_lineItems);
-        // }
+             return _lineItems.AddLineItems(p_lineItems);
+         }
 
         public List<LineItems> GetAllLineItems()
         {
@@ -64,7 +64,10 @@ namespace BusinessLogic
             return listOfLineItems.FirstOrDefault(lineItems => lineItems.Product.ProductName.ToLower() == p_name.ToLower());
         }
 
-
+        public List<LineItems> GetLineItems(int storeFrontId)
+        {
+             return _lineItems.GetLineItemsByStoreID(storeFrontId);
+        }
 
         public LineItems GetLineItemsById(int p_Id)
         {
@@ -72,7 +75,7 @@ namespace BusinessLogic
 
             if (lineItemsFound == null)
             {
-                throw new Exception("Restaurant was not found!");
+                throw new Exception("Line Item was not found!");
             }
 
             return lineItemsFound;

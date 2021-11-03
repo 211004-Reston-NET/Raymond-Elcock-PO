@@ -50,7 +50,7 @@ namespace userInterface
                 case MenuType.ShowOrders:
                     return new ShowOrders(new OrdersBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.AddOrders:
-                    return new AddOrders(new OrdersBL(new RepositoryCloud(new PODatabase1Context(options))));
+                    return new PlaceOrder(new CustomersBL(new RepositoryCloud(new PODatabase1Context(options))),new LineItemsBL(new RepositoryCloud(new PODatabase1Context(options))));  
                 case MenuType.CurrentOrders:
                     return new CurrentOrders(new OrdersBL(new RepositoryCloud(new PODatabase1Context(options))));
                 case MenuType.ProductsMenu:

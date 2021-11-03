@@ -27,12 +27,14 @@ namespace userInterface
             switch (userChoice)
             {
                 case "1":
-                    return MenuType.AddOrders;
+                    return MenuType.AddProducts
+
+                    ;
                 case "2":
-                    return MenuType.ShowOrders;
+                    return MenuType.ShowProducts;
 
                 case "3":
-                    return MenuType.AddOrders;
+                    return MenuType.CurrentLineItems;
                 //case "4":
                 //  return MenuType.ProductsMenu;      
                 case "x":

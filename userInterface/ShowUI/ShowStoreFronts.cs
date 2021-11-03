@@ -37,7 +37,7 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "0":
+                case "x":
                     return MenuType.StoreFrontsMenu;
                 case "1":
                     Console.WriteLine("Enter a name for the StoreFront you want to find");
@@ -63,7 +63,7 @@ namespace userInterface
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowStoreFronts;
+                    return MenuType.MainMenu;
             }
         }
     }

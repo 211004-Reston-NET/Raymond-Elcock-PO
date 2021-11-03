@@ -67,7 +67,7 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
 
 
 
-    public List<Review> GetAllReview(Customers p_customers)
+    public List<Replenish> GetAllReview(Customers p_customers)
     {
         throw new System.NotImplementedException();
     }
@@ -137,24 +137,14 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
 
     }
 
-    public List<Review> GetAllReview(Products p_storeFronts)
+  
+
+
+    public List<Replenish> GetAllReview(Products p_storeFronts)
     {
         throw new System.NotImplementedException();
     }
-    // public Model.LineItems AddLineItems(Model.LineItems p_lineItems)
-    // {
-    //     _context.LineItems.Add(
-    //             new Entity.LineItem()
-    //             {
-    //                 ProductName = p_lineItems.ProductName,
-    //                 OrderStoreFrontAddress = p_lineItems.StoreAddress,
-    //                 QuantityNumber =p_lineItems.StoreQuantity,
-    //             }
-    //            );
-    //         _context.SaveChanges();
-
-    //         return p_lineItems;
-    // }
+     
 
     public List<LineItems> GetAllLineItems()
     {
@@ -177,7 +167,7 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
             ).ToList();
     }
 
-    public List<Review> GetAllReview(LineItems p_lineItems)
+    public List<Replenish> GetAllReview(LineItems p_lineItems)
     {
         throw new System.NotImplementedException();
     }
@@ -277,7 +267,7 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
             ).ToList();
     }
 
-    public List<Review> GetAllReview(StoreFronts p_storeFronts)
+    public List<Replenish> GetAllReview(StoreFronts p_storeFronts)
     {
         throw new System.NotImplementedException();
     }
@@ -315,5 +305,42 @@ public class RepositoryCloud : ICustomers, ILineItems, IOrders, IProducts, IStor
                         }
                     }
                 ).ToList();
+    }
+
+    public LineItems AddLineItems(LineItems p_lineItems)
+    {
+         _context.LineItems.Add(
+                new Entity.LineItem()
+                {
+                    
+                    QuantityNumber = p_lineItems.StoreQuantity,
+                   
+
+                }
+            );
+        _context.SaveChanges();
+
+        return p_lineItems;
+    }
+
+    public Orders PlaceOrder(Customers p_customers, Orders p_orders)
+    {
+        var foundCustomer = _context.Customers
+                                 .First<Entity.Customer>(cust => cust.CustomerId == p_customers.CustomerId);
+        foundCustomer.StoreOrders.Add(new Entity.StoreOrder()
+        {
+                
+                StoreFrontAddress = p_orders.StoreAddress,
+                TotalPrice = p_orders.TotalPrice,
+                StoreFrontId = p_orders.StoreFrontId,
+                CustomersId = p_orders.CustomerId,
+        });
+        _context.SaveChanges();
+        return p_orders;
+    }
+
+    public void UpdateCustomer(Customers p_customers)
+    {
+        throw new System.NotImplementedException();
     }
 }

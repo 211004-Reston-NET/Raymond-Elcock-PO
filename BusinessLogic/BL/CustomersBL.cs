@@ -7,7 +7,7 @@ using Models;
 namespace BusinessLogic
 {
     /// <summary>
-    /// Handles all the business logic for the our restuarant application
+    /// Handles all the business logic for the our customers application
     /// They are in charge of further processing/sanitizing/furthur validation of data
     /// Any Logic
     /// </summary>
@@ -32,7 +32,7 @@ namespace BusinessLogic
         {
             if (p_customers.Name == null || p_customers.Address == null || p_customers.Email == null)
             {
-                throw new Exception("You must have a value in all of the properties of the restaurant class");
+                throw new Exception("You must have a value in all of the properties of the customers class");
             }
 
             return _customers.AddCustomers(p_customers);
@@ -41,7 +41,7 @@ namespace BusinessLogic
         public List<Customers> GetAllCustomers()
 
         {
-            //Maybe my business operation needs to capitalize every name of a restaurant
+            //Maybe my business operation needs to capitalize every name of a customers
             List<Customers> listOfCustomers = _customers.GetAllCustomers();
             for (int i = 0; i < listOfCustomers.Count; i++)
             {
@@ -77,9 +77,19 @@ namespace BusinessLogic
 
             return customersFound;
         }
+             public Orders PlaceOrder(Customers p_customers, Orders p_orders)
+        {   
+            return _customers.PlaceOrder(p_customers, p_orders);
+        }
+
+        public void UpdateCustomer(Customers p_customers)
+        {
+            _customers.UpdateCustomer(p_customers);
+        }
+        }
 
 
 
 
     }
-}
+

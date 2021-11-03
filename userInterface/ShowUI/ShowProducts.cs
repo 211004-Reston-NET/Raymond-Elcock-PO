@@ -15,7 +15,8 @@ namespace userInterface
         }
         public void Menu()
         {
-            Console.WriteLine("List of Products");
+            Console.WriteLine("-----List of Products-----");
+            Console.WriteLine("---------------------------------");
             List<Products> listOfProducts = _productsBL.GetAllProducts();
 
             foreach (Products products in listOfProducts)
@@ -24,8 +25,8 @@ namespace userInterface
                 Console.WriteLine(products);
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("[x] - Search for a Product");
-            Console.WriteLine("[0] - Go Back");
+            Console.WriteLine("[1] - Search for a Product");
+            Console.WriteLine("[x] - Go Back");
         }
 
         public MenuType YourChoice()
@@ -33,17 +34,18 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "x":
+                    case "x":
                     return MenuType.ProductsMenu;
-                case "1":
+                    case "1":
                     Console.WriteLine("Enter a name for the Product you want to find");
                     _findProductsName = Console.ReadLine();
                     return MenuType.CurrentProducts;
+                     
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowProducts;
+                    return MenuType.ProductsMenu;
             }
         }
     }

@@ -7,34 +7,35 @@ namespace BusinessLogic
     public interface ILineItemsBL
     {
         /// <summary>
-        /// This will return a list of restaurants stored in the database
-        /// It will also capitalize every name of the restaurant
+        /// This will return a list of line items stored in the database
+        /// It will also capitalize every name of the line items
         /// </summary>
-        /// <returns>It will return a list of restaurants</returns>
+        /// <returns>It will return a list of line items</returns>
         List<LineItems> GetAllLineItems();
+        List<LineItems> GetLineItems(int storeFrontId);
 
 
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a line items to the database
         /// </summary>
-        /// <param name="s_items">This is the restaurant we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <param name="s_items">This is the line items we are adding</param>
+        /// <returns>It returns the added line items</returns>
         // LineItems AddLineItems(LineItems s_items);
 
         /// <summary>
-        /// Will find multiple restaurant given a name
+        /// Will find multiple line items given a name
         /// </summary>
-        /// <param name="p_name">This is the string it will check to find restaurants if their name has those letters</param>
-        /// <returns>It will return restaurants it found</returns>
+        /// <param name="p_name">This is the string it will check to find line items if their name has those letters</param>
+        /// <returns>It will return line items it found</returns>
         LineItems GetLineItems(string p_name);
 
 
         /// <summary>
-        /// Will return a restaurant based on the Id
+        /// Will return a line items based on the Id
         /// </summary>
         /// <param name="p_Id">This is the Id it will check</param>
-        /// <returns>Returns restaurant it found</returns>
+        /// <returns>Returns line items it found</returns>
         LineItems GetLineItemsById(int p_Id);
 
 

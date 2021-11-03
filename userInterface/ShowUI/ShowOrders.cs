@@ -15,11 +15,14 @@ namespace userInterface
         }
         public void Menu()
         {
+            int _count = 0;
             Console.WriteLine("List of Orders");
             List<Orders> listOfOrders = _ordersBL.GetAllOrders();
 
             foreach (Orders orders in listOfOrders)
             {
+                Console.WriteLine($"Order{_count}");
+                _count++;
                 Console.WriteLine("====================");
                 Console.WriteLine(orders);
                 Console.WriteLine("====================");
@@ -33,17 +36,15 @@ namespace userInterface
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                // case "1":
+                //   return MenuType.AddOrder;
                 case "x":
-                    return MenuType.OrdersMenu;
-                case "1":
-                    Console.WriteLine("Enter a name for the Order you want to find");
-                    _findOrdersName = Console.ReadLine();
-                    return MenuType.CurrentOrders;
+                    return MenuType.CustomersMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowOrders;
+                    return MenuType.MainMenu;
             }
         }
     }

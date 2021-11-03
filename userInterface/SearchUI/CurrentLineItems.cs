@@ -32,10 +32,10 @@ namespace userInterface
 
             switch (userChoice)
             {
-                case "0":
-                    return MenuType.ShowLineItems;
+                case "x":
+                    return MenuType.LineItemsMenu;
                 case "1":
-                    Console.WriteLine("Customer to Search For: ");
+                    Console.WriteLine("Line Items to Search For: ");
                     _currentLineItems.Product.ProductName = Console.ReadLine();
                     _currentLineItems = _lineItemsBL.GetLineItems(_currentLineItems.Product.ProductName);
                     return MenuType.CurrentCustomers;

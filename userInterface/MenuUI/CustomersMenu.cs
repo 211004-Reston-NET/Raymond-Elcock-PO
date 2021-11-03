@@ -16,8 +16,9 @@ namespace userInterface
             Console.WriteLine("---------------------------------------");
             Console.WriteLine("-------- Customers Menu Choices--------");
             Console.WriteLine("[1] - Add New Customer: ");
-            Console.WriteLine("[2] - View A List of Customers Orders: ");
+            Console.WriteLine("[2] - View A List of Customers: ");
             Console.WriteLine("[3] - Search For A Customer: ");
+            Console.WriteLine("[4] - View Order History: ");
             Console.WriteLine("[x] - Go back to The Main Menu: ");
             Console.WriteLine("---------------------------------------");
         }
@@ -36,8 +37,8 @@ namespace userInterface
                 //This case will search for a customer
                 case "3":
                     return MenuType.CurrentCustomers;
-                //case "4":
-                //  return MenuType.ProductsMenu;      
+                case "4":
+                  return MenuType.ShowOrders;      
                 case "x":
                     return MenuType.MainMenu;
                 default:

@@ -7,29 +7,28 @@ namespace userInterface
 {
     public class AddOrders : IMenu
     {
-
-
         private static Orders _orders = new Orders();
         private IOrdersBL _ordersBL;
 
-        public AddOrders(IOrdersBL p_ordersBL)
+        public AddOrders(IOrdersBL orders)
         {
-            _ordersBL = p_ordersBL;
+            _ordersBL = orders;
         }
         public void Menu()
         {
-            Console.WriteLine("Welcome To Add A Order! ");
+            Console.WriteLine("Welcome To Add A Customer! ");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine($"Address: {_orders.StoreAddress}");
-            Console.WriteLine($"Phone: {_orders.TotalPrice}");
+            Console.WriteLine($"Store Address: {_orders.StoreAddress}");
+            Console.WriteLine($"Total Price : {_orders.TotalPrice}");
+            
+            Console.WriteLine($":Previous Orders {_orders.Order.Count}");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("[1] - Please Enter Name: ");
-            Console.WriteLine("[2] - Please Enter Address:");
-            Console.WriteLine("[3] - Please Enter Phone Number:");
-            Console.WriteLine("[4] - Please Enter Email:");
-            Console.WriteLine("[5] - Save Customer");
-            Console.WriteLine("[6] - Show A List of Order Items");
-            Console.WriteLine("[x] - Return to Customers Menu");
+            Console.WriteLine("[1] - Please Enter Store Address: ");
+            Console.WriteLine("[2] - Please Enter Total Price:");
+            Console.WriteLine("[3] - Place An Order:");
+            Console.WriteLine("[4] - Save Order: ");
+            Console.WriteLine("[5] - Show A List Of Your Orders: ");
+            Console.WriteLine("[x] - Return to Order Menu");
         }
 
         public MenuType YourChoice()
@@ -39,21 +38,35 @@ namespace userInterface
             {
                 case "1":
                     Console.WriteLine("Please Enter Customers Name:");
-                    _orders.StoreAddress = Console.ReadLine();
+                    _orders.StoreAddress= Console.ReadLine();
                     return MenuType.AddOrders;
                 case "2":
-                    Console.WriteLine("Please Enter Customers Address:");
-                    _orders.TotalPrice = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Please Enter Total Price:");
+                   _orders.TotalPrice = Int32.Parse(Console.ReadLine());
                     return MenuType.AddOrders;
-
-                case "5":
-                    _ordersBL.AddOrders(_orders);
-                    Console.WriteLine("Customer Has Been Added");
-                    Console.WriteLine("Please Press Enter! ");
+                case "3":
+                    Console.WriteLine("Place A Order:  ");
+                   _orders.Order = new List<Orders>();
+                    return MenuType.PlaceOrder;
+                
+                case "4":
+                    try
+                    {
+                        _ordersBL.AddOrders(_orders);
+                    }
+                    catch (System.Exception exception)
+                    {
+                        Console.WriteLine($"{exception.Message}" +
+                                           "Press Enter to continue");
+                        Console.ReadLine();
+                        return MenuType.AddOrders;
+                    }
+                    Console.WriteLine($"{SingletonOrder.orders.StoreAddress} You Have Been Added To Our List Of Customers. \n   Please Press Enter To Continue.");
                     Console.ReadLine();
                     return MenuType.OrdersMenu;
-                case "6":
-                    Console.WriteLine("Get A List Of Customers Items:");
+
+                case "5":
+                    Console.WriteLine("Get A List Of Orders Items:");
                     _orders.Order = new List<Orders>();
                     return MenuType.ShowOrders;
 
